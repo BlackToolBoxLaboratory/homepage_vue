@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 
 const path_page = '../blacktoolboxlaboratory.github.io/vue';
-var path_backup = '../codebase/homepage_vue';
+const path_backup = '../codebase/homepage_vue';
 
 gulp.task('updateHomePage', function(done){
   /* dist */
@@ -18,13 +18,16 @@ gulp.task('backupCodebase', function(done) {
     .pipe(gulp.dest(path_backup+'/public/'));
   /* others */        
   gulp.src([
+      '.browserslistrc',
+      '.eslintrc.js',
+      '.gitignore',
       'LICENSE',
       'README.md',
       'package.json',
       'package-lock.json',
+      'babel.config.js',
       'gulpfile.js',
-      'index.html',
-      'favicon.ico',
+      'vue.config.js'
     ])
     .pipe(gulp.dest(path_backup));
   done();
