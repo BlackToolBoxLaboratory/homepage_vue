@@ -1,8 +1,93 @@
-@mixin margin-y($pad) {
-  margin-top: $pad;
-  margin-bottom: $pad;
+$margin-lg: 1rem;
+$margin-md: 0.5rem;
+$margin-sm: 0.25rem;
+
+@mixin margin($value) {
+  margin: $value;
 }
-@mixin margin-x($pad) {
-  margin-left: $pad;
-  margin-right: $pad;
+@mixin margin-y($value) {
+  margin-top: $value;
+  margin-bottom: $value;
+}
+@mixin margin-x($value) {
+  margin-left: $value;
+  margin-right: $value;
+}
+@mixin margin-t($value) {
+  margin-top: $value;
+}
+@mixin margin-r($value) {
+  margin-right: $value;
+}
+@mixin margin-b($value) {
+  margin-bottom: $value;
+}
+@mixin margin-l($value) {
+  margin-left: $value;
+}
+
+@mixin margin-lg() {
+  @include margin($margin-lg)
+}
+@mixin margin-lg-y() {
+  @include margin-y($margin-lg)
+}
+@mixin margin-lg-x() {
+  @include margin-x($margin-lg)
+}
+@mixin margin-lg-t() {
+  @include margin-t($margin-lg)
+}
+@mixin margin-lg-r() {
+  @include margin-r($margin-lg)
+}
+@mixin margin-lg-b() {
+  @include margin-b($margin-lg)
+}
+@mixin margin-lg-l() {
+  @include margin-l($margin-lg)
+}
+
+@mixin margin-md() {
+  @include margin($margin-md)
+}
+@mixin margin-md-y() {
+  @include margin-y($margin-md)
+}
+@mixin margin-md-x() {
+  @include margin-x($margin-md)
+}
+@mixin margin-md-t() {
+  @include margin-t($margin-md)
+}
+@mixin margin-md-r() {
+  @include margin-r($margin-md)
+}
+@mixin margin-md-b() {
+  @include margin-b($margin-md)
+}
+@mixin margin-md-l() {
+  @include margin-l($margin-md)
+}
+
+@mixin margin-sm() {
+  @include margin($margin-sm)
+}
+@mixin margin-sm-y() {
+  @include margin-y($margin-sm)
+}
+@mixin margin-sm-x() {
+  @include margin-x($margin-sm)
+}
+@mixin margin-sm-t() {
+  @include margin-t($margin-sm)
+}
+@mixin margin-sm-r() {
+  @include margin-r($margin-sm)
+}
+@mixin margin-sm-b() {
+  @include margin-b($margin-sm)
+}
+@mixin margin-sm-l() {
+  @include margin-l($margin-sm)
 }

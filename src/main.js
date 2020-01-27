@@ -5,6 +5,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import '@/plugins/vue-fontawesome'
+
 Vue.config.productionTip = false
 
 sync(store, router)

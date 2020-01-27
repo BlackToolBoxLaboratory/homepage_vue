@@ -1,8 +1,93 @@
-@mixin padding-y($pad) {
-  padding-top: $pad;
-  padding-bottom: $pad;
+$padding-lg: 1rem;
+$padding-md: 0.5rem;
+$padding-sm: 0.25rem;
+
+@mixin padding($value) {
+  padding: $value;
 }
-@mixin padding-x($pad) {
-  padding-left: $pad;
-  padding-right: $pad;
+@mixin padding-y($value) {
+  padding-top: $value;
+  padding-bottom: $value;
+}
+@mixin padding-x($value) {
+  padding-left: $value;
+  padding-right: $value;
+}
+@mixin padding-t($value) {
+  padding-top: $value;
+}
+@mixin padding-r($value) {
+  padding-right: $value;
+}
+@mixin padding-b($value) {
+  padding-bottom: $value;
+}
+@mixin padding-l($value) {
+  padding-left: $value;
+}
+
+@mixin padding-lg() {
+  @include padding($padding-lg)
+}
+@mixin padding-lg-y() {
+  @include padding-y($padding-lg)
+}
+@mixin padding-lg-x() {
+  @include padding-x($padding-lg)
+}
+@mixin padding-lg-t() {
+  @include padding-t($padding-lg)
+}
+@mixin padding-lg-r() {
+  @include padding-r($padding-lg)
+}
+@mixin padding-lg-b() {
+  @include padding-b($padding-lg)
+}
+@mixin padding-lg-l() {
+  @include padding-l($padding-lg)
+}
+
+@mixin padding-md() {
+  @include padding($padding-md)
+}
+@mixin padding-md-y() {
+  @include padding-y($padding-md)
+}
+@mixin padding-md-x() {
+  @include padding-x($padding-md)
+}
+@mixin padding-md-t() {
+  @include padding-t($padding-md)
+}
+@mixin padding-md-r() {
+  @include padding-r($padding-md)
+}
+@mixin padding-md-b() {
+  @include padding-b($padding-md)
+}
+@mixin padding-md-l() {
+  @include padding-l($padding-md)
+}
+
+@mixin padding-sm() {
+  @include padding($padding-sm)
+}
+@mixin padding-sm-y() {
+  @include padding-y($padding-sm)
+}
+@mixin padding-sm-x() {
+  @include padding-x($padding-sm)
+}
+@mixin padding-sm-t() {
+  @include padding-t($padding-sm)
+}
+@mixin padding-sm-r() {
+  @include padding-r($padding-sm)
+}
+@mixin padding-sm-b() {
+  @include padding-b($padding-sm)
+}
+@mixin padding-sm-l() {
+  @include padding-l($padding-sm)
 }

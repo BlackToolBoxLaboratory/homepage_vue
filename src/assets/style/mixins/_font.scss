@@ -1,6 +1,6 @@
 // 5xl, -b, -l
 @mixin font-5xl {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 @mixin font-5xl-b {
   @include font-5xl;
@@ -13,7 +13,7 @@
 
 // 4xl, -b, -l
 @mixin font-4xl {
-  font-size: 1.875rem;
+  font-size: 2.5rem;
 }
 @mixin font-4xl-b {
   @include font-4xl;
@@ -26,7 +26,7 @@
 
 // 3xl, -b, -l
 @mixin font-3xl {
-  font-size: 1.75rem;
+  font-size: 2rem;
 }
 @mixin font-3xl-b {
   @include font-3xl;
@@ -39,7 +39,7 @@
 
 // 2xl, -b, -l
 @mixin font-2xl {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 @mixin font-2xl-b {
   @include font-2xl;
@@ -52,7 +52,7 @@
 
 // xl, -b, -l
 @mixin font-xl {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 @mixin font-xl-b {
   @include font-xl;
@@ -65,7 +65,7 @@
 
 // lg, -b, -l
 @mixin font-lg {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
 }
 @mixin font-lg-b {
   @include font-lg;

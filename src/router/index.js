@@ -23,10 +23,12 @@ const router = new Router({
       //   }
       // ]
     },
-    // {
-    //   path: '*',
-    //   redirect: '/shorten'
-    // }
+    {
+      path: '*',
+      redirect: { 
+        name: 'root' 
+      }
+    }
   ]
 })
 

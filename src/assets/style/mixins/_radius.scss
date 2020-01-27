@@ -1,88 +1,92 @@
 $border-radius-f: 99px;
-$border-radius-lg: 0.5rem;
-$border-radius-md: 0.375rem;
+$border-radius-lg: 0.1rem;
+$border-radius-md: 0.5rem;
 $border-radius-sm: 0.25rem;
+
+@mixin radius($value) {
+  border-radius: $value;
+}
+@mixin radius-t($value) {
+  border-top-left-radius: $value;
+  border-top-right-radius: $valuef;
+}
+@mixin radius-r($value) {
+  border-top-right-radius: $value;
+  border-bottom-right-radius: $value;
+}
+@mixin radius-b($value) {
+  border-bottom-left-radius: $value;
+  border-bottom-right-radius: $value;
+}
+@mixin radius-l($value) {
+  border-top-left-radius: $value;
+  border-bottom-left-radius: $value;
+}
 
 // full
 @mixin radius-full {
-  border-radius: $border-radius-f;
+  @include radius($border-radius-f);
 }
 @mixin radius-full-t {
-  border-top-left-radius: $border-radius-f;
-  border-top-right-radius: $border-radius-f;
+  @include radius-t($border-radius-f);
 }
 @mixin radius-full-r {
-  border-top-right-radius: $border-radius-f;
-  border-bottom-right-radius: $border-radius-f;
+  @include radius-r($border-radius-f);
 }
 @mixin radius-full-b($value) {
-  border-bottom-left-radius: $border-radius-f;
-  border-bottom-right-radius: $border-radius-f;
+  @include radius-b($border-radius-f);
 }
 @mixin radius-full-l($value) {
-  border-top-left-radius: $border-radius-f;
-  border-bottom-left-radius: $border-radius-f;
+  @include radius-l($border-radius-f);
 }
 
 // lg
 @mixin radius-lg {
-  border-radius: $border-radius-lg;
+  @include radius($border-radius-lg);
 }
 @mixin radius-lg-t {
-  border-top-left-radius: $border-radius-lg;
-  border-top-right-radius: $border-radius-lg;
+  @include radius-t($border-radius-lg);
 }
 @mixin radius-lg-r {
-  border-top-right-radius: $border-radius-lg;
-  border-bottom-right-radius: $border-radius-lg;
+  @include radius-r($border-radius-lg);
 }
 @mixin radius-lg-b {
-  border-bottom-left-radius: $border-radius-lg;
-  border-bottom-right-radius: $border-radius-lg;
+  @include radius-b($border-radius-lg);
 }
 @mixin radius-lg-l {
-  border-top-left-radius: $border-radius-lg;
-  border-bottom-left-radius: $border-radius-lg;
+  @include radius-l($border-radius-lg);
 }
 
 // md
 @mixin radius-md {
-  border-radius: $border-radius-md;
+  @include radius($border-radius-md);
 }
 @mixin radius-md-t {
-  border-top-left-radius: $border-radius-md;
-  border-top-right-radius: $border-radius-md;
+  @include radius-t($border-radius-md);
 }
 @mixin radius-md-r {
-  border-top-right-radius: $border-radius-md;
-  border-bottom-right-radius: $border-radius-md;
+  @include radius-r($border-radius-md);
 }
 @mixin radius-md-b {
-  border-bottom-left-radius: $border-radius-md;
-  border-bottom-right-radius: $border-radius-md;
+  @include radius-b($border-radius-md);
 }
 @mixin radius-md-l {
-  border-top-left-radius: $border-radius-md;
-  border-bottom-left-radius: $border-radius-md;
+  @include radius-l($border-radius-md);
 }
 
 // sm: primary
 @mixin radius-sm {
-  border-radius: $border-radius-sm;
+  @include radius($border-radius-sm);
 }
 @mixin radius-sm-t {
-  border-top-left-radius: $border-radius-sm;
-  border-top-right-radius: $border-radius-sm;
+  @include radius-t($border-radius-sm);
 }
 @mixin radius-sm-r {
-  border-top-right-radius: $border-radius-sm;
-  border-bottom-right-radius: $border-radius-sm;
+  @include radius-r($border-radius-sm);
 }
 @mixin radius-sm-b {
-  border-bottom-left-radius: $border-radius-sm;
-  border-bottom-right-radius: $border-radius-sm;
+  @include radius-b($border-radius-sm);
 }
 @mixin radius-sm-l {
-  border-top-left-radius: $border-radius-sm;
-  border-bottom-left-radius: $border-radius-sm;
+  @include radius-l($border-radius-sm);
 }
