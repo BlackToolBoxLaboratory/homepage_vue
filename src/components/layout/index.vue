@@ -1,7 +1,7 @@
 <template>
   <div class="btb_layout">
     <BTBHead class="layout_head" @togglePageMenu="togglePageMenu()"/>
-    <div :class="['layout_body', { 'aside-hidden' : env.isCollapsed}]">
+    <div :class="['layout_body', { 'aside-hidden' : env.isHidden}]">
       <div class="body_container">
         <div class="container_content">
           <router-view />
@@ -28,19 +28,21 @@ export default {
   data () {
     return {
       env: {
-        isCollapsed: true
+        isHidden: false
       }
     }
   },
   methods: {
     togglePageMenu: function () {
-      this.env.isCollapsed = !this.env.isCollapsed;
+      this.env.isHidden = !this.env.isHidden;
     }
   }
 }
 </script>
 
 <style lang="scss">
+$aside-width: 300px;
+
 .btb_layout {
   display: flex;
   flex-direction: column;
@@ -52,15 +54,23 @@ export default {
     flex-shrink: 0;
   }
   .layout_body {
+    position: relative;
     flex-grow: 1;
     display: flex;
     flex-direction: row;
+    background-color: $color-gray-dd;
 
     .body_container {
+      @include transition(margin-right);
+      background-color: $color-gray-lll;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       overflow: auto;
+      margin-right: 0;
+      @include media-breakpoint-up-md {
+        margin-right: $aside-width;
+      }
 
       .container_content {
         flex-grow: 1;
@@ -70,8 +80,27 @@ export default {
       }
     }
     .body_aside {
-      width: 300px;
+      @include transition(right);
+      position: absolute;
+      width: $aside-width;
       flex-shrink: 0;
+      background-color: $color-mask;
+      top: 0;
+      right: 0;
+      bottom: 0;
+
+      @include media-breakpoint-up-md {
+        background-color: $color-gray-dd;
+      }
+    }
+
+    &.aside-hidden {
+      .body_container {
+        margin-right: 0;
+      }
+      .body_aside {
+        right: -100%;
+      }
     }
   }
 }

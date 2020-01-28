@@ -4,6 +4,8 @@ $color-backstage-default: #f4f5f7;
 $color-white:     #ffffff;
 $color-black:     #000000;
 
+$color-mask: rgba($color-black, 0.8);
+
 // teal:
 $color-teal-ddd:  #0e4532;
 $color-teal-dd:   #1b6b4c; // click
@@ -14,13 +16,20 @@ $color-teal-ll:   #8cd1ad;
 $color-teal-lll:  #b8dec9; // disabled
 
 // gray:
-$color-gray-ddd:  #3C4145;
-$color-gray-dd:   #5C656B; // click
-$color-gray-d:    #889096; // hover
-$color-gray:      #ADB4BA; // btn
-$color-gray-l:    #D1D7DD;
-$color-gray-ll:   #E6EAED;
-$color-gray-lll:  #F7F7F7; // disabled
+$color-gray-ddd:  #0d0d0d; // disabled
+$color-gray-dd:   #343434;
+$color-gray-d:    #5a5a5a;
+$color-gray:      #808080; // btn
+$color-gray-l:    #a6a6a6; // hover
+$color-gray-ll:   #cdcdcd; // click
+$color-gray-lll:  #f3f3f3;
+
+$color-paypal: #003087;
+$color-github: #333;
+$color-npm: #cb3837;
+$color-linkedin: #0077b5;
+$color-wordpress: #0073AA;
+$color-email: #D44638;
 
 // primary
 $color-primary-ddd: $color-teal-ddd;

@@ -3,7 +3,7 @@
 const path = require('path');
 
 module.exports = {
-  publicPath: '/',
+  publicPath: '/vue/',
   runtimeCompiler: true,
   css: {
     sourceMap: true,
