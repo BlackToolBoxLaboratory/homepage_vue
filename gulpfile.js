@@ -1,34 +1,34 @@
-const gulp = require('gulp');
+const gulp = require('gulp')
 
-const path_page = '../blacktoolboxlaboratory.github.io/vue';
-const path_backup = '../codebase/homepage_vue';
+const path_page = '../blacktoolboxlaboratory.github.io/vue'
+const path_backup = '../codebase/homepage_vue'
 
-gulp.task('updateHomePage', function(done){
+gulp.task('updateHomePage', function (done) {
   /* dist */
   gulp.src(['dist/**/*'])
-    .pipe(gulp.dest(path_page));
-  done();
-});
+    .pipe(gulp.dest(path_page))
+  done()
+})
 
-gulp.task('backupCodebase', function(done) {  
+gulp.task('backupCodebase', function (done) {
   /* src */
   gulp.src(['src/**/*'])
-    .pipe(gulp.dest(path_backup + '/src/'));
+    .pipe(gulp.dest(path_backup + '/src/'))
   gulp.src(['public/**/*'])
-    .pipe(gulp.dest(path_backup+'/public/'));
-  /* others */        
+    .pipe(gulp.dest(path_backup + '/public/'))
+  /* others */
   gulp.src([
-      '.browserslistrc',
-      '.eslintrc.js',
-      '.gitignore',
-      'LICENSE',
-      'README.md',
-      'package.json',
-      'package-lock.json',
-      'babel.config.js',
-      'gulpfile.js',
-      'vue.config.js'
-    ])
-    .pipe(gulp.dest(path_backup));
-  done();
-});
+    '.browserslistrc',
+    '.eslintrc.js',
+    '.gitignore',
+    'LICENSE',
+    'README.md',
+    'package.json',
+    'package-lock.json',
+    'babel.config.js',
+    'gulpfile.js',
+    'vue.config.js'
+  ])
+    .pipe(gulp.dest(path_backup))
+  done()
+})

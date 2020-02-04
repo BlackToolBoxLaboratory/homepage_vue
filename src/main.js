@@ -2,10 +2,11 @@ import Vue from 'vue'
 import { sync } from 'vuex-router-sync'
 
 import App from './App.vue'
-import router from './router'
+import router from './router.js'
 import store from './store'
 
 import '@/plugins/vue-fontawesome'
+import '@/plugins/btblab-vue-list'
 
 Vue.config.productionTip = false
 

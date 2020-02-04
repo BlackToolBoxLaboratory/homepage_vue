@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const path = require('path');
+// const path = require('path');
 
 module.exports = {
   publicPath: '/vue/',
@@ -9,8 +9,8 @@ module.exports = {
     sourceMap: true,
     loaderOptions: {
       sass: {
-        prependData: `@import "@/assets/style/mixins.scss"; @import "@/assets/style/variables.scss";`
+        prependData: '@import "@/assets/style/mixins.scss"; @import "@/assets/style/variables.scss";'
       }
     }
   }
-};
+}

@@ -32,8 +32,8 @@
 export default {
   name: 'btb-head',
   methods: {
-    redirectHomepage: function() {
-      location.href = `${location.origin}/vue/`;
+    redirectHomepage: function () {
+      location.href = `${location.origin}/vue/`
     },
     togglePageMenu: function () {
       this.$emit('togglePageMenu')

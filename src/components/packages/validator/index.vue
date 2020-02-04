@@ -1,12 +1,12 @@
 <template>
-  <div class="btb-about">
-    About
+  <div class="btb-pkg-validator">
+    Validator
   </div>
 </template>
 
 <script>
 export default {
-  name: 'btb-about'
+  name: 'btb-pkg-validator'
 }
 </script>
 

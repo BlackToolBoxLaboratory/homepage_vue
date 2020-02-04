@@ -25,12 +25,12 @@
       Copyright © Black Tool Box Laboratory. All rights reserved.
     </footer>
 
-  </div>  
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'btb-foot',
+  name: 'btb-foot'
 }
 </script>
 

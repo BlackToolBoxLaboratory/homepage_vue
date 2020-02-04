@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPaypal, faGithub, faNpm, faLinkedin, faWordpress} from '@fortawesome/free-brands-svg-icons'
+import { faPaypal, faGithub, faNpm, faLinkedin, faWordpress } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import { faHome, faGlobe, faBars, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -16,7 +16,7 @@ library.add(
   // far
   faEnvelope,
 
-  //fas
+  // fas
   faHome,
   faGlobe,
   faBars,

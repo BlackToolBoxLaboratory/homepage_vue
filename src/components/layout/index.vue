@@ -1,5 +1,5 @@
 <template>
-  <div class="btb_layout">
+  <div class="btb-layout">
     <BTBHead class="layout_head" @togglePageMenu="togglePageMenu()"/>
     <div :class="['layout_body', { 'aside-hidden' : env.isHidden}]">
       <div class="body_container">
@@ -8,7 +8,7 @@
         </div>
         <BTBFoot class="container_foot"/>
       </div>
-      <BTBAside class="body_aside"/>
+      <BTBAside class="body_aside" />
     </div>
   </div>
 </template>
@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     togglePageMenu: function () {
-      this.env.isHidden = !this.env.isHidden;
+      this.env.isHidden = !this.env.isHidden
     }
   }
 }
@@ -43,12 +43,10 @@ export default {
 <style lang="scss">
 $aside-width: 300px;
 
-.btb_layout {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  height: 100%;
+.btb-layout {
+  height: 100vh;
   width: 100%;
+  overflow-x: hidden;
 
   .layout_head {
     flex-shrink: 0;
@@ -59,6 +57,7 @@ $aside-width: 300px;
     display: flex;
     flex-direction: row;
     background-color: $color-gray-dd;
+    height: calc(100% - 4rem);
 
     .body_container {
       @include transition(margin-right);
