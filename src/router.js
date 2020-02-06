@@ -26,23 +26,45 @@ const router = new Router({
           name: 'packages',
           component: () => import('@/views/packages/PackagesContainer.vue'),
           redirect: {
-            name: 'package.languages'
+            name: 'packages.list'
           },
           children: [
             {
-              path: 'languages',
-              name: 'package.languages',
-              component: () => import('@/views/packages/LanguagesContainer.vue')
-            },
-            {
-              path: 'validator',
-              name: 'package.validator',
-              component: () => import('@/views/packages/ValidatorContainer.vue')
+              path: 'list',
+              name: 'packages.list',
+              component: () => import('@/views/packages/ListContainer.vue')
             },
             {
               path: '*',
               redirect: {
                 name: 'packages'
+              }
+            }
+          ]
+        },
+
+        {
+          path: 'applications',
+          name: 'applications',
+          component: () => import('@/views/applications/ApplicationsContainer.vue'),
+          redirect: {
+            name: 'applications.languages'
+          },
+          children: [
+            {
+              path: 'languages',
+              name: 'applications.languages',
+              component: () => import('@/views/applications/LanguagesContainer.vue')
+            },
+            {
+              path: 'validator',
+              name: 'applications.validator',
+              component: () => import('@/views/applications/ValidatorContainer.vue')
+            },
+            {
+              path: '*',
+              redirect: {
+                name: 'applications'
               }
             }
           ]

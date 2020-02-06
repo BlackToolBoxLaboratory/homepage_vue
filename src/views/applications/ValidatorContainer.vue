@@ -3,10 +3,10 @@
 </template>
 
 <script>
-import BTBValidator from '@/components/packages/validator/index.vue'
+import BTBValidator from '@/components/applications/validator/index.vue'
 
 export default {
-  name: 'btb-pkg-validator-container',
+  name: 'btb-app-validator-container',
   components: {
     BTBValidator
   }

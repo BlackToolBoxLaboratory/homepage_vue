@@ -1,39 +1,41 @@
 const routeMap = [
   {
     id: 'ABOUT',
-    name: 'about',
+    pathname: 'about',
     title: 'About',
     langIndex: 'route.about'
   },
   {
     id: 'PACKAGES',
-    name: 'packages',
+    pathname: 'packages',
     title: 'Packages',
     langIndex: 'route.packages',
+    defaultCollapsed: false,
     children: [
       {
         id: 'PACKAGES_LIST',
-        name: 'packages.list',
+        pathname: 'packages.list',
         title: 'List',
         langIndex: 'route.list'
       }
     ]
   },
   {
-    id: 'PLUGINS',
-    name: 'plugins',
-    title: 'Plugins',
-    langIndex: 'route.plugins',
+    id: 'APPLICATIONS',
+    pathname: 'applications',
+    title: 'Applications',
+    langIndex: 'route.applications',
+    defaultCollapsed: false,
     children: [
       {
-        id: 'PLUGINS_LANGUAGES',
-        name: 'plugins.languages',
+        id: 'APPLICATIONS_LANGUAGES',
+        pathname: 'applications.languages',
         title: 'Languages',
         langIndex: 'route.languages'
       },
       {
-        id: 'PACKAGES_VALIDATOR',
-        name: 'packages.validator',
+        id: 'APPLICATIONS_VALIDATOR',
+        pathname: 'applications.validator',
         title: 'Validator',
         langIndex: 'route.validator'
       }

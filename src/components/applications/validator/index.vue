@@ -1,12 +1,12 @@
 <template>
-  <div class="btb-pkg-languages">
-    Languages
+  <div class="btb-app-validator">
+    Validator
   </div>
 </template>
 
 <script>
 export default {
-  name: 'btb-pkg-languages'
+  name: 'btb-app-validator'
 }
 </script>
 

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPaypal, faGithub, faNpm, faLinkedin, faWordpress } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
-import { faHome, faGlobe, faBars, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faGlobe, faBars, faExternalLinkAlt, faTools, faLink } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(
@@ -20,7 +20,9 @@ library.add(
   faHome,
   faGlobe,
   faBars,
-  faExternalLinkAlt
+  faExternalLinkAlt,
+  faTools,
+  faLink
 )
 
 Vue.component('FAI', FontAwesomeIcon)

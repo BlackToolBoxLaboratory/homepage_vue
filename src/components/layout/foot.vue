@@ -1,5 +1,5 @@
 <template>
-  <div class="btb-foot">
+  <div class="btb-layout-foot">
     <div class="foot_navbar">
       <a class="navbar_linkBtn linkBtn-paypal" href="https://www.paypal.me/vannoel0628" target="_blank">
         <FAI :icon="['fab', 'paypal']" fixed-width/>
@@ -30,12 +30,12 @@
 
 <script>
 export default {
-  name: 'btb-foot'
+  name: 'btb-layout-foot'
 }
 </script>
 
 <style lang="scss">
-.btb-foot{
+.btb-layout-foot{
   .foot_navbar {
     @include font-xl;
     @include padding-x(1rem);

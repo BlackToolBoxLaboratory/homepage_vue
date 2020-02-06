@@ -18,3 +18,24 @@
   border-left-style: solid;
   border-left-width: $weight;
 }
+
+@mixin border-dashed($weight) {
+  border-style: dashed;
+  border-width: $weight;
+}
+@mixin border-dashed-t($weight) {
+  border-top-style: dashed;
+  border-top-width: $weight;
+}
+@mixin border-dashed-r($weight) {
+  border-right-style: dashed;
+  border-right-width: $weight;
+}
+@mixin border-dashed-b($weight) {
+  border-bottom-style: dashed;
+  border-bottom-width: $weight;
+}
+@mixin border-dashed-l($weight) {
+  border-left-style: dashed;
+  border-left-width: $weight;
+}

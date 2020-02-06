@@ -1,5 +1,5 @@
 <template>
-  <header class="btb-head">
+  <header class="btb-layout-head">
     <div class="head_logo">
       <div class="logo_content">
         BV
@@ -13,7 +13,7 @@
         BTB Lab.
       </div>
       <div class="title_sub">
-        For Vue.js
+        For VueJS
       </div>
     </div>
     <div class="head_item">
@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  name: 'btb-head',
+  name: 'btb-layout-head',
   methods: {
     redirectHomepage: function () {
       location.href = `${location.origin}/vue/`
@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style lang="scss">
-.btb-head {
+.btb-layout-head {
   @include padding-sm;
   display: flex;
   flex-direction: row;

@@ -8,6 +8,8 @@ import store from './store'
 import '@/plugins/vue-fontawesome'
 import '@/plugins/btblab-vue-list'
 
+import '@/plugins/btblab-vue-pageLayout'
+
 Vue.config.productionTip = false
 
 sync(store, router)

@@ -14,9 +14,9 @@
 </template>
 
 <script>
-import BTBHead from '@/components/layout/head.vue'
-import BTBAside from '@/components/layout/aside.vue'
-import BTBFoot from '@/components/layout/foot.vue'
+import BTBHead from './head.vue'
+import BTBAside from './aside.vue'
+import BTBFoot from './foot.vue'
 
 export default {
   name: 'btb-layout',
