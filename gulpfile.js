@@ -7,6 +7,9 @@ gulp.task('updateHomePage', function (done) {
   /* dist */
   gulp.src(['dist/**/*'])
     .pipe(gulp.dest(path_page))
+  /* sitemap */
+  gulp.src(['sitemap.xml'])
+    .pipe(gulp.dest(path_page))
   done()
 })
 
@@ -27,7 +30,8 @@ gulp.task('backupCodebase', function (done) {
     'package-lock.json',
     'babel.config.js',
     'gulpfile.js',
-    'vue.config.js'
+    'vue.config.js',
+    'sitemap.xml'
   ])
     .pipe(gulp.dest(path_backup))
   done()
