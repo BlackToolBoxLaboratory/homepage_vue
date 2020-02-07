@@ -33,7 +33,7 @@ export default {
   name: 'btb-layout-head',
   methods: {
     redirectHomepage: function () {
-      location.href = `${location.origin}/vue/`
+      this.$router.push({ name: 'root' })
     },
     togglePageMenu: function () {
       this.$emit('togglePageMenu')

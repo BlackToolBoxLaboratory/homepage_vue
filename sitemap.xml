@@ -6,8 +6,22 @@
   <url>
     <loc>https://blacktoolboxlaboratory.github.io/vue/#/about</loc>
   </url>
+
   <url>
-    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/list</loc>
+    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/</loc>
+  </url>
+  <url>
+    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/list/</loc>
+  </url>
+  <url>
+    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/list/basic</loc>
+  </url>
+  <url>
+    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/list/example</loc>
+  </url>
+  
+  <url>
+    <loc>https://blacktoolboxlaboratory.github.io/vue/#/applications/</loc>
   </url>
   <url>
     <loc>https://blacktoolboxlaboratory.github.io/vue/#/applications/languages</loc>

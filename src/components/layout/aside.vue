@@ -1,6 +1,6 @@
 <template>
   <div class="btb-layout-aside">
-    <btb-vue-list :listdata="translatedmenu" collapseEnable @clickEntry="clickEntry" :defaultActiveID="currentActiveID"/>
+    <btb-vue-list :listdata="translatedmenu" collapseEnable @clickEntry="clickEntry" :activeID="currentActiveID"/>
   </div>
 </template>
 
@@ -9,8 +9,12 @@ import MENU from '@/assets/definitions/menu.js'
 
 export default {
   name: 'btb-layout-aside',
-  props: {
-    test: Array
+  data () {
+    return {
+      env: {
+        activeID: this.getRouteIDFromName(this.$route.name)
+      }
+    }
   },
   computed: {
     translatedmenu () {
@@ -18,20 +22,45 @@ export default {
       // TODO: for translate language of menu title
       return result
     },
-    currentActiveID () {
-      return ''
+    currentActiveID: {
+      get: function () {
+        return this.env.activeID
+      },
+      set: function (newRoute) {
+        this.env.activeID = this.getRouteIDFromName(newRoute.name)
+      }
     }
   },
-  // mounted () {
-  //   console.log('123')
-  // },
-  // updated () {
-  //   console.log('456')
-  // },
+  watch: {
+    $route: function (newRoute, olrRoute) {
+      this.currentActiveID = newRoute
+    }
+  },
   methods: {
+    getRouteIDFromName: function (routename) {
+      return this.getRouteIDFromName_Recursive(routename, MENU) || ''
+    },
+    getRouteIDFromName_Recursive: function (routename, source) {
+      let result = ''
+      source.find((route) => {
+        if (route.children) {
+          result = this.getRouteIDFromName_Recursive(routename, route.children)
+          if (result.length !== 0) {
+            return true
+          }
+        } else {
+          if (route.routename === routename) {
+            result = route.id
+            return true
+          }
+        }
+        return false
+      })
+      return result
+    },
     clickEntry: function (entry) {
-      if (this.$route.name !== entry.pathname) {
-        this.$router.push({ name: entry.pathname })
+      if (this.$route.name !== entry.routename) {
+        this.$router.push({ name: entry.routename })
       }
     }
   }

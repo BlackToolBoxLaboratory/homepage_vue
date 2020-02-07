@@ -52,11 +52,7 @@ $max: 12;
   }
 }
 
-[class$=grid-col],
-[class$=grid-col-sm],
-[class$=grid-col-md],
-[class$=grid-col-lg],
-[class$=grid-col-xl] {
+[class*=grid-col] {
   position: relative;
   width: 100%;
   padding-right: 1rem;
@@ -64,7 +60,6 @@ $max: 12;
 }
 
 .grid-col {
-  @include padding-x(1rem);
   flex-basis: 0;
   flex-grow: 1;
   max-width: 100%;

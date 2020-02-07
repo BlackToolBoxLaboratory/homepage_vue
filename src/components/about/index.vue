@@ -26,7 +26,7 @@
       <span>. </span>
     </module-section>
     <module-divider/>
-    <module-section class="about_package grid-row">
+    <module-section class="about_package">
       <template v-for="entry in packageList">
         <BTBPackage :key="entry.name" :info="entry" @redirectRoute="redirectRoute" />
       </template>
@@ -50,8 +50,8 @@ export default {
     }
   },
   methods: {
-    redirectRoute: function (pathname) {
-      this.$router.push({ name: pathname })
+    redirectRoute: function (routename) {
+      this.$router.push({ name: routename })
     }
   }
 }

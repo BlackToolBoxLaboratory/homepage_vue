@@ -26,13 +26,34 @@ const router = new Router({
           name: 'packages',
           component: () => import('@/views/packages/PackagesContainer.vue'),
           redirect: {
-            name: 'packages.list'
+            name: 'packages.list.basic'
           },
           children: [
             {
               path: 'list',
               name: 'packages.list',
-              component: () => import('@/views/packages/ListContainer.vue')
+              component: () => import('@/views/packages/list/ListContainer.vue'),
+              redirect: {
+                name: 'packages.list.basic'
+              },
+              children: [
+                {
+                  path: 'basic',
+                  name: 'packages.list.basic',
+                  component: () => import('@/views/packages/list/BasicContainer.vue')
+                },
+                {
+                  path: 'example',
+                  name: 'packages.list.example',
+                  component: () => import('@/views/packages/list/ExampleContainer.vue')
+                },
+                {
+                  path: '*',
+                  redirect: {
+                    name: 'packages.list'
+                  }
+                }
+              ]
             },
             {
               path: '*',

@@ -1,41 +1,55 @@
 const routeMap = [
   {
     id: 'ABOUT',
-    pathname: 'about',
+    routename: 'about',
     title: 'About',
     langIndex: 'route.about'
   },
   {
     id: 'PACKAGES',
-    pathname: 'packages',
+    routename: 'packages',
     title: 'Packages',
     langIndex: 'route.packages',
     defaultCollapsed: false,
     children: [
       {
         id: 'PACKAGES_LIST',
-        pathname: 'packages.list',
+        routename: 'packages.list',
         title: 'List',
-        langIndex: 'route.list'
+        langIndex: 'route.list',
+        children: [
+          {
+            id: 'PACKAGES_LIST_BASIC',
+            routename: 'packages.list.basic',
+            title: 'Basic',
+            langIndex: 'route.basic'
+          },
+          {
+            id: 'PACKAGES_LIST_EXAMPLE',
+            routename: 'packages.list.example',
+            title: 'Example',
+            langIndex: 'route.example'
+          }
+        ]
       }
     ]
   },
   {
     id: 'APPLICATIONS',
-    pathname: 'applications',
+    routename: 'applications',
     title: 'Applications',
     langIndex: 'route.applications',
     defaultCollapsed: false,
     children: [
       {
         id: 'APPLICATIONS_LANGUAGES',
-        pathname: 'applications.languages',
+        routename: 'applications.languages',
         title: 'Languages',
         langIndex: 'route.languages'
       },
       {
         id: 'APPLICATIONS_VALIDATOR',
-        pathname: 'applications.validator',
+        routename: 'applications.validator',
         title: 'Validator',
         langIndex: 'route.validator'
       }
