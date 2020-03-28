@@ -12,7 +12,6 @@ export default {
 
 <style lang="scss">
 .module-page {
-  @include padding(1rem);
   width: 100%;
   margin: auto;
 

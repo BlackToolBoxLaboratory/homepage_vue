@@ -8,7 +8,7 @@
         </div>
         <BTBFoot class="container_foot"/>
       </div>
-      <BTBAside class="body_aside" />
+      <BTBAside class="body_aside" @clickEntry="clickEntry"/>
     </div>
   </div>
 </template>
@@ -17,6 +17,8 @@
 import BTBHead from './head.vue'
 import BTBAside from './aside.vue'
 import BTBFoot from './foot.vue'
+
+const SIZE_MD = 768
 
 export default {
   name: 'btb-layout',
@@ -32,7 +34,17 @@ export default {
       }
     }
   },
+  created () {
+    if (window.innerWidth < SIZE_MD) {
+      this.env.isHidden = true
+    }
+  },
   methods: {
+    clickEntry: function () {
+      if (window.innerWidth < SIZE_MD) {
+        this.env.isHidden = true
+      }
+    },
     togglePageMenu: function () {
       this.env.isHidden = !this.env.isHidden
     }
@@ -61,7 +73,7 @@ $aside-width: 300px;
 
     .body_container {
       @include transition(margin-right);
-      background-color: $color-gray-lll;
+      background-color: $color-backstage-default;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
@@ -73,6 +85,10 @@ $aside-width: 300px;
 
       .container_content {
         flex-grow: 1;
+        padding: 1rem;
+        @include media-breakpoint-up-md {
+          padding: 0;
+        }
       }
       .container_foot {
         flex-shrink: 0;

@@ -2,11 +2,13 @@ import { registerPlugins, vueUse } from '@/utils/plugins'
 
 import Page from './page'
 import Section from './section'
+import Pre from './pre'
 import Divider from './divider'
 
 const InstallList = {
   Page,
   Section,
+  Pre,
   Divider
 }
 

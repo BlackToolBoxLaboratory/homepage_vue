@@ -61,6 +61,7 @@ export default {
     clickEntry: function (entry) {
       if (this.$route.name !== entry.routename) {
         this.$router.push({ name: entry.routename })
+        this.$emit('clickEntry')
       }
     }
   }

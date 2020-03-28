@@ -46,6 +46,7 @@ export default {
     background-color: $color-gray-ll;
 
     .navbar_linkBtn {
+      @include font-lg;
       color: $color-gray-d;
 
       &.linkBtn-paypal:hover {
