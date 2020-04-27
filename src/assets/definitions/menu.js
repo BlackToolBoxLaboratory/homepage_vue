@@ -17,6 +17,7 @@ const routeMap = [
         routename: 'packages.list',
         title: 'List',
         langIndex: 'route.list',
+        defaultCollapsed: false,
         children: [
           {
             id: 'PACKAGES_LIST_BASIC',
