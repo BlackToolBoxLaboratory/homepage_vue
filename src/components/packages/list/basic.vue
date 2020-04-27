@@ -77,8 +77,8 @@ export default {
   data () {
     return {
       env: {
-        varsion: '1.1.0',
-        releaseDate: 'Feb. 7, 2020',
+        varsion: '1.1.1',
+        releaseDate: 'Apr. 27, 2020',
         btnList: [
           { id: 'github', fa: ['fab', 'github'], url: 'https://github.com/BlackToolBoxLaboratory/vue-list' },
           { id: 'npm', fa: ['fab', 'npm'], url: 'https://www.npmjs.com/package/@blacktoolbox/vue-list' }
