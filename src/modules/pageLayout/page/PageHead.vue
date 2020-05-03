@@ -36,7 +36,7 @@ export default {
 
 <style lang="scss">
 .module-page-head {
-  margin-bottom: 0.5rem;
+  @include margin-md-b;
 
   .head_title,
   .head_btn {
@@ -52,8 +52,8 @@ export default {
   }
   .head_btn {
     @include font-lg;
+    @include margin-md-l;
     color: $color-gray-d;
-    margin-left: 0.5rem;
     cursor: pointer;
 
     &.btn-github:hover {

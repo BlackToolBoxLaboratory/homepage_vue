@@ -22,11 +22,6 @@ export default {
         return {}
       }
     }
-  },
-  methods: {
-    redirectRoute: function (routename) {
-      this.$emit('redirectRoute', routename)
-    }
   }
 }
 </script>

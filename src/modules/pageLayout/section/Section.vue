@@ -20,19 +20,19 @@ export default {
 <style lang="scss">
 .module-section {
   & + .module-section {
-    margin: 1.5rem 0 0;
+    @include margin-t(1.5rem);
   }
 
   .section_head {
     @include font-sm-b;
     @include border-solid-b(1px);
+    @include margin-lg-b;
+    @include padding-sm-b;
     border-color: $color-gray-l;
     color: $color-gray-l;
-    margin-bottom: 1rem;
-    padding-bottom: 0.25rem;
   }
   .section_body {
-    margin-left: 1rem;
+    @include margin-lg-l;
   }
 }
 </style>

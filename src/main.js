@@ -9,6 +9,7 @@ import '@/plugins/vue-fontawesome'
 import '@/plugins/btblab-vue-list'
 import '@/plugins/btblab-vue-table'
 
+import '@/plugins/btblab-vue-mixins'
 import '@/plugins/btblab-vue-pageLayout'
 
 Vue.config.productionTip = false

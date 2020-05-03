@@ -24,3 +24,17 @@
     }
   }
 }
+
+.page_node_tree.btb-vue-list {
+  padding: 0.5rem 1rem;
+  background-color: $color-primary-lll;
+  .btb-vue-list-layer {
+    margin-left: 1rem;
+  }
+  .layer_container {
+    list-style: disc;
+  }
+  .entry_title {
+    padding: 0.25rem 0;
+  }
+}

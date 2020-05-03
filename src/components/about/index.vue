@@ -27,7 +27,7 @@
     </module-section>
     <module-divider/>
     <module-section class="about_package">
-      <template v-for="entry in packageList">
+      <template v-for="entry in packageObj">
         <BTBPackage :key="entry.name" :info="entry" @redirectRoute="redirectRoute" />
       </template>
     </module-section>
@@ -37,7 +37,7 @@
 <script>
 import BTBPackage from './package.vue'
 
-import packageList from '@/assets/definitions/packageList'
+import packageObj from '@/assets/definitions/packageObj'
 
 export default {
   name: 'btb-about',
@@ -45,13 +45,8 @@ export default {
     BTBPackage
   },
   computed: {
-    packageList () {
-      return packageList
-    }
-  },
-  methods: {
-    redirectRoute: function (routename) {
-      this.$router.push({ name: routename })
+    packageObj () {
+      return packageObj
     }
   }
 }

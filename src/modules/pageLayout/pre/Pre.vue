@@ -12,6 +12,8 @@ export default {
 
 <style lang="scss">
 .module-pre {
+  @include padding-md-y;
+  @include padding-lg-x;
   padding: 0.5rem 1rem;
   background-color: $color-gray-ll;
   overflow: auto;
@@ -24,9 +26,9 @@ export default {
     color: $color-gray-l;
   }
   .pre_typeof {
+    @include padding-md-x;
     color: $color-primary;
     background-color: $color-gray-ddd;
-    padding: 0 .5rem;
   }
 }
 </style>

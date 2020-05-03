@@ -25,7 +25,6 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 0.5rem 0;
 
   .divider_line {
     @include margin-x(0.25rem);
