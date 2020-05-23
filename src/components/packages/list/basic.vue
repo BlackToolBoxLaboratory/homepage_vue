@@ -2,13 +2,12 @@
   <module-page class="btb-pkg-list-basic">
     <module-page-head title="List" :btnList="env.btnList" @clickBtn="openLink"/>
     <module-section>
-      <!-- <template #content="slotProps"> -->
     <template #head>
       {{`Version: ${env.version}`}} <br/>
       {{`Release Date: ${env.updated}`}}
     </template>
       <p>
-        {{'This module of list based on VueJS can do the help to make a list or mane component to our page. Normally it is a list make. But with some trigger action it can be a menu maker for route redirection or other feature we need.'}}
+        {{env.description,}}
       </p>
     </module-section>
     <module-section>
@@ -47,7 +46,7 @@ Vue.use(BTBList)
       <template #title>
         {{'Basic'}}
       </template>
-        <btb-vue-table class="page_table block_item" :headData="tableHeadArr" :bodyData="tableBodyArr_basic" xScrollable />
+        <btb-vue-table class="page_table block_item" :headData="tableHeadArr_property" :bodyData="tableBodyArr_basic" xScrollable />
       </module-block>
       <module-block>
       <template #title>
@@ -55,17 +54,23 @@ Vue.use(BTBList)
       </template>
         <module-pre class="block_item">
 <pre>
-{{exampleListdata}}
+{{exampleEntryObj}}
 </pre>
         </module-pre>
-        <btb-vue-table class="page_table block_item" :headData="tableHeadArr" :bodyData="tableBodyArr_entry" xScrollable />
+        <btb-vue-table class="page_table block_item" :headData="tableHeadArr_property" :bodyData="tableBodyArr_entry" xScrollable />
+      </module-block>
+      <module-block>
+      <template #title>
+        {{'slots'}}
+      </template>
+        <btb-vue-table class="page_table block_item" :headData="tableHeadArr_slot" :bodyData="tableBodyArr_slot" xScrollable />
       </module-block>
     </module-section>
     <module-section>
     <template #head>
       {{'NODE TREE'}}
     </template>
-      <btb-vue-list class="page_node_tree" :listdata="nodeTree"/>
+      <btb-vue-list class="page_node_tree" :dataList="nodeTree"/>
       <p>
         {{'Note: The layer count is counted base on 0.'}}
       </p>
@@ -77,19 +82,19 @@ Vue.use(BTBList)
 import packageObj from '@/assets/definitions/packageObj'
 
 const _exampleRender = `<btb-vue-list 
-        :listdata="translatedmenu" 
-        :defaultActiveID="defaultActiveID"
-        :activeID="currentActiveID"
-        collapseEnable 
-        @clickEntry="clickEntry"
-        @toggleCollapsed="toggleCollapsed"/>`
+        :dataList=" Array " 
+        :defaultActiveID=" String "
+        :activeID=" String "
+        :collapseEnable=" Boolean "
+        @clickEntry=" function(entryObj){} "
+        @toggleCollapsed=" function(entryObj){} "/>`
 
-const _exampleListdata = `entryObj = {
+const _exampleEntryObj = `entryObj = {
         id: '',
         title: '',
         defaultCollapsed: false,
         children: [...]
-}, ...`
+}`
 
 const _nodeTree = [
   {
@@ -106,7 +111,7 @@ const _nodeTree = [
             children: [
               {
                 id: 'entry',
-                title: '<div> .container_entry .entry-[id]',
+                title: '<div> .container_entry .entry-[id] .entry-active',
                 children: [
                   {
                     id: 'title',
@@ -149,24 +154,31 @@ export default {
       env: {
         version: packageObj.list.version,
         updated: packageObj.list.updated,
+        description: packageObj.list.description,
         btnList: [
           { id: 'github', fa: ['fab', 'github'], url: 'https://github.com/BlackToolBoxLaboratory/vue-list' },
           { id: 'npm', fa: ['fab', 'npm'], url: 'https://www.npmjs.com/package/@blacktoolbox/vue-list' }
         ]
       },
       exampleRender: _exampleRender,
-      exampleListdata: _exampleListdata,
-      tableHeadArr: [
+      exampleEntryObj: _exampleEntryObj,
+      tableHeadArr_property: [
         { name: 'Property Name', index: 'title' },
         { name: 'Type', index: 'type' },
         { name: 'Default', index: 'default' },
         { name: 'Notice', index: 'notice' }
       ],
+      tableHeadArr_slot: [
+        { name: 'Name', index: 'title' },
+        { name: 'Props', index: 'props' },
+        { name: 'Notice', index: 'notice' }
+      ],
       tableBodyArr_basic: [
-        { title: 'listdata', type: 'Array', default: '[]', notice: 'List of data in format of entryObj' },
-        { title: 'collapseEnable', type: 'Boolean', default: 'false', notice: 'Enable collapse feature' },
+        { title: 'dataList', type: 'Array', default: '[]', notice: 'List of entryObj.' },
+        { title: 'collapseEnable', type: 'Boolean', default: 'false', notice: 'Enable collapse feature.' },
         { title: 'defaultActiveID', type: 'String', default: 'undefined', notice: 'Default active entry\'s ID.' },
         { title: 'activeID', type: 'String', default: 'undefined', notice: 'Active entry\'s ID.' },
+        { title: 'styleObj', type: 'Object', default: 'undefined', notice: 'Specific style object, where key is spacific class name, value is style object. Please refer to Node Tree.' },
         { title: '@clickEntry', type: '$Emit', default: 'function(entryObj){}', notice: 'List entry\'s onClick function.' },
         { title: '@toggleCollapsed', type: '$Emit', default: 'function(entryObj){}', notice: 'List entry\'s onToggle function.' }
       ],
@@ -175,6 +187,9 @@ export default {
         { title: 'title', type: 'String', default: '\'\'', notice: 'Show name of entry.' },
         { title: 'defaultCollapsed', type: 'String', default: 'undefined', notice: 'Default value to collapsed of extend.' },
         { title: 'children', type: 'Array', default: '[]', notice: 'sublist' }
+      ],
+      tableBodyArr_slot: [
+        { title: '[ id of entryObj ]', props: '-', notice: 'Slot for customized entry.' }
       ],
       nodeTree: _nodeTree
     }

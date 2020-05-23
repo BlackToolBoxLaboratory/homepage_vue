@@ -55,9 +55,12 @@ export default {
 <style lang="scss">
 .btb-about{
   .about_title {
+    .section_body {
+      text-align: center;
+    }
+
     .title_image {
       @include margin-lg-y;
-
     }
     .title_main {
       @include margin-sm-y;

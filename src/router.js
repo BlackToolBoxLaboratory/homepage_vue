@@ -43,14 +43,50 @@ const router = new Router({
                   component: () => import('@/views/packages/list/BasicContainer.vue')
                 },
                 {
-                  path: 'example',
-                  name: 'packages.list.example',
-                  component: () => import('@/views/packages/list/ExampleContainer.vue')
+                  path: 'example/list',
+                  name: 'packages.list.exampleList',
+                  component: () => import('@/views/packages/list/ExampleListContainer.vue')
+                },
+                {
+                  path: 'example/menu',
+                  name: 'packages.list.exampleMenu',
+                  component: () => import('@/views/packages/list/ExampleMenuContainer.vue')
+                },
+                {
+                  path: 'example/style',
+                  name: 'packages.list.exampleStyle',
+                  component: () => import('@/views/packages/list/ExampleStyleContainer.vue')
+                },
+                {
+                  path: 'example/slot',
+                  name: 'packages.list.exampleSlot',
+                  component: () => import('@/views/packages/list/ExampleSlotContainer.vue')
                 },
                 {
                   path: '*',
                   redirect: {
                     name: 'packages.list'
+                  }
+                }
+              ]
+            },
+            {
+              path: 'table',
+              name: 'packages.table',
+              component: () => import('@/views/packages/table/TableContainer.vue'),
+              redirect: {
+                name: 'packages.table.basic'
+              },
+              children: [
+                {
+                  path: 'basic',
+                  name: 'packages.table.basic',
+                  component: () => import('@/views/packages/table/BasicContainer.vue')
+                },
+                {
+                  path: '*',
+                  redirect: {
+                    name: 'packages.table'
                   }
                 }
               ]

@@ -97,6 +97,7 @@ $aside-width: 300px;
     .body_aside {
       @include transition(right);
       position: absolute;
+      overflow: auto;
       width: $aside-width;
       flex-shrink: 0;
       background-color: $color-mask;

@@ -1,6 +1,6 @@
 <template>
   <div class="btb-layout-aside">
-    <btb-vue-list :listdata="translatedmenu" collapseEnable @clickEntry="clickEntry" :activeID="currentActiveID"/>
+    <btb-vue-list :dataList="translatedmenu" collapseEnable @clickEntry="clickEntry" :activeID="currentActiveID"/>
   </div>
 </template>
 

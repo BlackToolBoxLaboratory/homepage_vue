@@ -12,8 +12,8 @@
   "dependencies": {
     "@blacktoolbox/prototype-languages": "^1.1.1",
     "@blacktoolbox/prototype-validator": "^1.0.0",
-    "@blacktoolbox/vue-list": "^1.1.3",
-    "@blacktoolbox/vue-table": "^0.1.0",
+    "@blacktoolbox/vue-list": "^1.4.2",
+    "@blacktoolbox/vue-table": "^0.1.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "@fortawesome/free-regular-svg-icons": "^5.12.0",

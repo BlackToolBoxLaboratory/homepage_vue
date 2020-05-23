@@ -26,10 +26,43 @@ const routeMap = [
             langIndex: 'route.basic'
           },
           {
-            id: 'PACKAGES_LIST_EXAMPLE',
-            routename: 'packages.list.example',
-            title: 'Example',
-            langIndex: 'route.example'
+            id: 'PACKAGES_LIST_EXAMPLE_LIST',
+            routename: 'packages.list.exampleList',
+            title: 'Example-List',
+            langIndex: 'route.example.list'
+          },
+          {
+            id: 'PACKAGES_LIST_EXAMPLE_MENU',
+            routename: 'packages.list.exampleMenu',
+            title: 'Example-Menu',
+            langIndex: 'route.example.menu'
+          },
+          {
+            id: 'PACKAGES_LIST_EXAMPLE_STYLE',
+            routename: 'packages.list.exampleStyle',
+            title: 'Example-Style',
+            langIndex: 'route.example.style'
+          },
+          {
+            id: 'PACKAGES_LIST_EXAMPLE_SLOT',
+            routename: 'packages.list.exampleSlot',
+            title: 'Example-Slot',
+            langIndex: 'route.example.slot'
+          }
+        ]
+      },
+      {
+        id: 'PACKAGES_TABLE',
+        routename: 'packages.table',
+        title: 'Table',
+        langIndex: 'route.table',
+        defaultCollapsed: false,
+        children: [
+          {
+            id: 'PACKAGES_TABLE_BASIC',
+            routename: 'packages.table.basic',
+            title: 'Basic',
+            langIndex: 'route.basic'
           }
         ]
       }
