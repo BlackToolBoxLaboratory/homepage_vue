@@ -3,8 +3,8 @@ const packageObj = {
     name: 'List',
     routename: 'packages.list.basic',
     description: 'This module of list creator based on VueJS can do the help to make a list or mane component to our page. Normally it is a list make. But with some trigger action it can be a menu maker for route redirection or other feature we need.',
-    version: '1.4.2',
-    updated: 'May. 18, 2020'
+    version: '1.4.3',
+    updated: 'May. 24, 2020'
   },
   table: {
     name: 'Table',

@@ -1,7 +1,26 @@
 {
   "name": "homepage_vue",
-  "version": "1.0.0",
   "private": true,
+  "version": "1.0.0",
+  "description": "HomePage of BTB Lab. for Vue",
+  "keywords": [
+    "BTBLaboratory",
+    "blacktoolbox",
+    "vue"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackToolBoxLaboratory/homepage_vue.git"
+  },
+  "author": {
+    "name": "Van Noel",
+    "email": "vannoel0628@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BlackToolBoxLaboratory/homepage_vue/issues"
+  },
+  "homepage": "https://blacktoolboxlaboratory.github.io/vue",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -12,7 +31,7 @@
   "dependencies": {
     "@blacktoolbox/prototype-languages": "^1.1.1",
     "@blacktoolbox/prototype-validator": "^1.0.0",
-    "@blacktoolbox/vue-list": "^1.4.2",
+    "@blacktoolbox/vue-list": "^1.4.3",
     "@blacktoolbox/vue-table": "^0.1.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",

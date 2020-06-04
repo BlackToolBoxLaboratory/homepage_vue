@@ -33,7 +33,9 @@ export default {
   name: 'btb-layout-head',
   methods: {
     redirectHomepage: function () {
-      this.$router.push({ name: 'root' })
+      if ((this.$route.name !== 'root') && (this.$route.name !== 'about')) {
+        this.$router.push({ name: 'root' })
+      }
     },
     togglePageMenu: function () {
       this.$emit('togglePageMenu')

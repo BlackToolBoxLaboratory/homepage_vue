@@ -1,6 +1,6 @@
 <template>
   <div class="btb-layout-aside">
-    <btb-vue-list :dataList="translatedmenu" collapseEnable @clickEntry="clickEntry" :activeID="currentActiveID"/>
+    <btb-vue-list class="aside_menu" :dataList="translatedmenu" collapseEnable @clickEntry="clickEntry" :activeID="currentActiveID"/>
   </div>
 </template>
 
@@ -32,7 +32,7 @@ export default {
     }
   },
   watch: {
-    $route: function (newRoute, olrRoute) {
+    $route: function (newRoute, oldRoute) {
       this.currentActiveID = newRoute
     }
   },
@@ -70,11 +70,9 @@ export default {
 
 <style lang="scss">
 .btb-layout-aside {
-  @include padding-y(1rem);
-
   .btb-vue-list {
     @include padding-x(1rem);
-    color: $color-gray-ll;
+    color: $color-gray-lll;
 
     .container_entry {
       @include padding-sm-y;

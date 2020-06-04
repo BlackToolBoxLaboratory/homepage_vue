@@ -41,9 +41,9 @@ export default {
     @include padding-x(1rem);
     @include padding-y(0.5rem);
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    background-color: $color-gray-ll;
+    background-color: $color-gray-l;
 
     .navbar_linkBtn {
       @include font-lg;
@@ -75,8 +75,8 @@ export default {
   }
 
   .foot_copyright {
-    @include font-sm;
-    @include padding-sm;
+    @include font-xs;
+    @include padding-md;
     color: $color-gray-lll;
     background-color: $color-gray-ddd;
     text-align: center;

@@ -2,7 +2,7 @@
   <div class="btb-about-package grid-row">
     <div class="grid-col-md-3">
       <div class="package_title">{{ $props.info.name }}</div>
-      <FAI class="package_link" :icon="['fas', 'link']" fixed-width @click="redirectRoute($props.info.routename)"/>
+      <FAI class="package_link" :icon="['fas', 'link']" fixed-width @click="_redirectRoute"/>
     </div>
     <div class="grid-col-md">
       <div class="package_description">{{ $props.info.description }}</div>
@@ -21,6 +21,11 @@ export default {
       default: function () {
         return {}
       }
+    }
+  },
+  methods: {
+    _redirectRoute: function () {
+      this.$emit('redirectRoute', this.$props.info.routename)
     }
   }
 }

@@ -17,7 +17,7 @@ const routeMap = [
         routename: 'packages.list',
         title: 'List',
         langIndex: 'route.list',
-        defaultCollapsed: false,
+        defaultCollapsed: true,
         children: [
           {
             id: 'PACKAGES_LIST_BASIC',
@@ -56,7 +56,7 @@ const routeMap = [
         routename: 'packages.table',
         title: 'Table',
         langIndex: 'route.table',
-        defaultCollapsed: false,
+        defaultCollapsed: true,
         children: [
           {
             id: 'PACKAGES_TABLE_BASIC',

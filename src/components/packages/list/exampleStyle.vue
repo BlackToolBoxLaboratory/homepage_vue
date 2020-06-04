@@ -17,7 +17,7 @@
       <p class="example_activeID">
         {{`Active ID: ${activeID}`}}
       </p>
-      <btb-vue-list :dataList="listData" :defaultActiveID="defaultActiveID" :styleObj="styleObj"/>
+      <btb-vue-list :dataList="listData" v-model="activeID" :defaultActiveID="defaultActiveID" :styleObj="styleObj"/>
     </module-section>
     <module-section>
     <template #head>

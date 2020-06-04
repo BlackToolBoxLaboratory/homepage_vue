@@ -1,10 +1,10 @@
 $color-default:   #f2f4f6;
-$color-backstage-default: #f4f5f7;
 
 $color-white:     #ffffff;
 $color-black:     #000000;
 
-$color-mask: rgba($color-black, 0.8);
+$color-mask-l: rgba($color-black, 0.5);
+$color-mask-d: rgba($color-black, 0.8);
 
 // teal:
 $color-teal-ddd:  #0e4532;

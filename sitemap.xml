@@ -17,7 +17,22 @@
     <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/list/basic</loc>
   </url>
   <url>
-    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/list/example</loc>
+    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/list/example/list</loc>
+  </url>
+  <url>
+    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/list/example/menu</loc>
+  </url>
+  <url>
+    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/list/example/style</loc>
+  </url>
+  <url>
+    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/list/example/slot</loc>
+  </url>
+  <url>
+    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/table/</loc>
+  </url>
+  <url>
+    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/table/basic</loc>
   </url>
   
   <url>
