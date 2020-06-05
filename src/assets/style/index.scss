@@ -4,10 +4,6 @@
 
 @import "./variables.scss";
 @import "./mixins.scss";
-
-@import "./common/_html.scss";
-@import "./common/_page.scss";
-
-
+@import "./common.scss";
 @import "./grid.scss";
 @import "./hidden.scss";

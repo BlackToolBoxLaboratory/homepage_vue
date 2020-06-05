@@ -4,7 +4,7 @@
       <img class="title_image" :src="require('@/assets/images/BTB_VueJS.png')" alt="BTB_VueJS">
       <h1 class="title_main hidden-down-md">Black Tool Box Laboratory</h1>
       <h1 class="title_main hidden-up-md">BTB Lab.</h1>
-      <p class="title_sub">For VueJS</p>
+      <p class="title_sub">For Vue</p>
     </module-section>
     <module-section>
       <span>

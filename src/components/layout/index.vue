@@ -57,8 +57,6 @@ export default {
 $aside-width: 300px;
 
 .btb-layout {
-  display: flex;
-  flex-direction: column;
   padding-top: 4rem;
   overflow-x: hidden;
   position: relative;
@@ -66,29 +64,23 @@ $aside-width: 300px;
 
   .layout_head {
     position: fixed;
-    flex-shrink: 0;
     top: 0;
     z-index: 1;
   }
   .layout_content {
     @include transition(margin-right);
-    flex-grow: 1;
     display: flex;
-    flex-direction: column;
     padding: 1rem;
+    height: 100%;
     @include media-breakpoint-up-md {
       padding: 0;
     }
-  }
-  .layout_foot {
-    flex-shrink: 0;
   }
   .layout_aside {
     @include transition(right);
     position: fixed;
     overflow: auto;
     width: $aside-width;
-    flex-shrink: 0;
     background-color: $color-mask-d;
     top: 4rem;
     right: 0;

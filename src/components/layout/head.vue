@@ -13,7 +13,7 @@
         BTB Lab.
       </div>
       <div class="title_sub">
-        For VueJS
+        For Vue
       </div>
     </div>
     <div class="head_item">

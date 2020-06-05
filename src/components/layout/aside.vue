@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import MENU from '@/assets/definitions/menu.js'
+import MENU from '@/assets/definitions/menuList.js'
 
 export default {
   name: 'btb-layout-aside',
