@@ -13,7 +13,7 @@
         BTB Lab.
       </div>
       <div class="title_sub">
-        For Vue
+        With Vue
       </div>
     </div>
     <div class="head_item">
@@ -23,7 +23,7 @@
       <FAI class="header_button" :icon="['fas', 'globe']" fixed-width/>
     </div>
     <div class="head_item">
-      <FAI class="header_button" :icon="['fas', 'bars']" fixed-width @click="togglePageMenu"/>
+      <FAI class="header_button" :icon="['fas', 'bars']" fixed-width @click="toggleMenu"/>
     </div>
   </header>
 </template>
@@ -37,8 +37,8 @@ export default {
         this.$router.push({ name: 'root' })
       }
     },
-    togglePageMenu: function () {
-      this.$emit('togglePageMenu')
+    toggleMenu: function () {
+      this.$emit('toggleMenu')
     }
   }
 }

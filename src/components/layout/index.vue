@@ -1,6 +1,6 @@
 <template>
   <div class="btb-layout" ref="body">
-    <BTBHead class="layout_head" @togglePageMenu="togglePageMenu()"/>
+    <BTBHead class="layout_head" @toggleMenu="toggleMenu()"/>
     <div class="layout_content">
       <router-view />
     </div>
@@ -46,7 +46,7 @@ export default {
         this.env.isHidden = true
       }
     },
-    togglePageMenu: function () {
+    toggleMenu: function () {
       this.env.isHidden = !this.env.isHidden
     }
   }

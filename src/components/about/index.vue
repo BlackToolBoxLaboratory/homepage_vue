@@ -1,14 +1,14 @@
 <template>
   <module-page class="btb-about">
     <module-section class="about_title grid-row direction-column align-items-center">
-      <img class="title_image" :src="require('@/assets/images/BTB_VueJS.png')" alt="BTB_VueJS">
+      <img class="title_image" :src="require('@/assets/images/BTB_Vue.png')" alt="BTB_Vue">
       <h1 class="title_main hidden-down-md">Black Tool Box Laboratory</h1>
       <h1 class="title_main hidden-up-md">BTB Lab.</h1>
       <p class="title_sub">For Vue</p>
     </module-section>
     <module-section>
       <span>
-        I aim to develope some useful and simple UI components for front-end development. And here all of packages are made based on Vue. For hoping to let user handle the customized layout easier and more concentrate. They are designed with basic logic for high degrees of freedom of customization and low dependency. While using, if you find some questions, bugs or issues. Or having some great ideas. Please feel free to let me know.
+        I aim to develope some useful and simple UI components for front-end development. And here all of packages are made with Vue. For hoping to let user handle the customized layout easier and more concentrate. They are designed with basic logic for high degrees of freedom of customization and low dependency. While using, if you find some questions, bugs or issues. Or having some great ideas. Please feel free to let me know.
       </span>
     </module-section>
     <module-section class="grid-row justify-content-center">

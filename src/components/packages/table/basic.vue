@@ -2,7 +2,6 @@
   <module-page class="btb-pkg-table-basic">
     <module-page-head title="Table" :btnList="env.btnList" @clickBtn="openLink"/>
     <module-section>
-      <!-- <template #content="slotProps"> -->
     <template #head>
       {{`Version: ${env.version}`}} <br/>
       {{`Release Date: ${env.updated}`}}
