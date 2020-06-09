@@ -13,7 +13,6 @@ export default {
 <style lang="scss">
 @import "@/assets/style/index.scss";
 #app {
-  height: 100%;
   background-color: $color-gray-lll;
 }
 </style>

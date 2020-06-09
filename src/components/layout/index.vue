@@ -60,7 +60,6 @@ $aside-width: 300px;
   padding-top: 4rem;
   overflow-x: hidden;
   position: relative;
-  height: 100%;
 
   .layout_head {
     position: fixed;
@@ -71,7 +70,7 @@ $aside-width: 300px;
     @include transition(margin-right);
     display: flex;
     padding: 1rem;
-    height: 100%;
+    min-height: 100vh;
     @include media-breakpoint-up-md {
       padding: 0;
     }
