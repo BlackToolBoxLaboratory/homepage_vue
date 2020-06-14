@@ -13,7 +13,7 @@ export default {
 <style lang="scss">
 .module-page {
   width: 100%;
-  margin: auto;
+  margin: 0 auto;
 
   @include media-breakpoint-up-md {
     @include padding-y(1rem);

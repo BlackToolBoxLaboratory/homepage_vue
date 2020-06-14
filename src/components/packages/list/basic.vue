@@ -177,7 +177,7 @@ export default {
         { title: 'dataList', type: 'Array', default: '[]', notice: 'List of entryObj.' },
         { title: 'collapseEnable', type: 'Boolean', default: 'false', notice: 'Enable collapse feature.' },
         { title: 'defaultActiveID', type: 'String', default: 'undefined', notice: 'Default active entry\'s ID.' },
-        { title: 'activeID', type: 'String', default: 'undefined', notice: 'Active entry\'s ID.' },
+        { title: 'activeID (v-model)', type: 'String', default: 'undefined', notice: 'Active entry\'s ID which is v-model\'s value.' },
         { title: 'styleObj', type: 'Object', default: 'undefined', notice: 'Specific style object, where key is spacific class name, value is style object. Please refer to Node Tree.' },
         { title: '@clickEntry', type: '$Emit', default: 'function(entryObj){}', notice: 'List entry\'s onClick function.' },
         { title: '@toggleCollapsed', type: '$Emit', default: 'function(entryObj){}', notice: 'List entry\'s onToggle function.' }

@@ -32,7 +32,7 @@ export default {
   },
   watch: {
     $route: function (newRoute, oldRoute) {
-      this.$refs.body.scrollTop = 0
+      window.scrollTo(0, 0);
     }
   },
   created () {

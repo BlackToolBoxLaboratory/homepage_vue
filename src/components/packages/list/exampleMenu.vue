@@ -1,5 +1,5 @@
 <template>
-  <module-page class="btb-pkg-list-example">
+  <module-page class="btb-pkg-list-example-menu">
     <module-page-head title="Example - Menu" :btnList="env.btnList" @clickBtn="openLink"/>
     <module-section>
     <template #head>
@@ -7,7 +7,7 @@
       {{`Release Date: ${env.updated}`}}
     </template>
       <p>
-        {{'When we enable the collapseEnable with datalist, we will get a simple menu to use. And it will trigger the @toggleCollapsed event function while clicked. Every entry can be active status after being clicked. Surely it will trigger the @clickEntry event function too. Besides for a menu, it can tag one as defaultActiveID. Also use the v-model to listen the value from activeID'}}
+        {{'When we enable the collapseEnable with datalist, we will get a simple menu to use. And it will trigger the @toggleCollapsed event function while clicked for Collapsing or Expending. Every entry can be active status after being clicked. Surely it will trigger the @clickEntry event function too. Besides for a menu, it can tag one as defaultActiveID. Also use the v-model to listen the value from activeID'}}
       </p>
     </module-section>
     <module-section>

@@ -1,5 +1,5 @@
 <template>
-  <module-page class="btb-pkg-list-example">
+  <module-page class="btb-pkg-list-example-style">
     <module-page-head title="Example - Style" :btnList="env.btnList" @clickBtn="openLink"/>
     <module-section>
     <template #head>

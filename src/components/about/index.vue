@@ -43,7 +43,7 @@
 <script>
 import BTBPackage from './package.vue'
 
-import packageObj from '@/assets/definitions/packageObj'
+import PACKAGE from '@/assets/definitions/packageObj'
 
 export default {
   name: 'btb-about',
@@ -52,7 +52,7 @@ export default {
   },
   computed: {
     packageObj () {
-      return packageObj
+      return PACKAGE
     }
   }
 }

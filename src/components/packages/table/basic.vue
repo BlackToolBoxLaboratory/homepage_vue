@@ -90,7 +90,7 @@ const _exampleRender = `<btb-vue-table
         :xScrollable=" Boolean "/>`
 
 const _exampleEntryObj = `entryObj = {
-        id: '',
+        index: '',
         name: ''
 }`
 
@@ -163,8 +163,8 @@ export default {
         { name: 'Notice', index: 'notice' }
       ],
       tableBodyArr_basic: [
-        { title: 'headData', type: 'Array', default: '[]', notice: 'List of headObj for table.' },
-        { title: 'bodyData', type: 'Array', default: '[]', notice: 'List of dataObj for table' },
+        { title: 'headData', type: 'Array', default: '[]', notice: 'List of headObj.' },
+        { title: 'bodyData', type: 'Array', default: '[]', notice: 'List of dataObj' },
         { title: 'bodyWidth', type: 'String || Number', default: 'undefined', notice: 'Width of table.' },
         { title: 'xScrollable', type: 'Boolean', default: 'undefined', notice: 'Active\'s table x scroll bar..' }
       ],
