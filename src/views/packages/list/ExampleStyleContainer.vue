@@ -2,7 +2,7 @@
   <BTBListExampleStyle />
 </template>
 
-<script>
+<script lang="ts">
 import BTBListExampleStyle from '@/components/packages/list/exampleStyle.vue'
 
 export default {

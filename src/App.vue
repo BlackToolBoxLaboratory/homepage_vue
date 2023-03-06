@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: 'btb-app'
 }
@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss">
 @import "@/assets/style/index.scss";
+
 #app {
   background-color: $color-gray-lll;
 }

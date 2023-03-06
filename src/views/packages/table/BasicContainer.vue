@@ -2,7 +2,7 @@
   <BTBTableBasic />
 </template>
 
-<script>
+<script lang="ts">
 import BTBTableBasic from '@/components/packages/table/basic.vue'
 
 export default {

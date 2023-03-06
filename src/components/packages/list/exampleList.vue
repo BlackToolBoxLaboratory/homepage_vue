@@ -57,7 +57,7 @@ const listData = [
   </module-page>
 </template>
 
-<script>
+<script lang="ts">
 import packageObj from '@/assets/definitions/packageObj'
 
 const _exampleRender = '<btb-vue-list :dataList="listData"/>'

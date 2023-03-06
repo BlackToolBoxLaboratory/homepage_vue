@@ -1,18 +1,22 @@
 <template>
   <div class="module-page-head">
     <div class="head_title">
-      {{$props.title}}
+      {{ $props.title }}
     </div>
-    <template v-for="btn in $props.btnList">
-      <div :class="['head_btn', `btn-${btn.id}`]" :key="btn.id" @click="clickBtn(btn)">
-        <FAI :icon="btn.fa" fixed-width />
+    <template v-for="btn in $props.btnList" :key="btn.id">
+      <div :class="['head_btn', `btn-${btn.id}`]" @click="clickBtn(btn)">
+        <fai :icon="btn.fa" fixed-width />
       </div>
     </template>
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import type { PropType } from 'vue'
+
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'module-page-head',
   props: {
     title: {
@@ -20,18 +24,22 @@ export default {
       default: ''
     },
     btnList: {
-      type: Array,
+      type: Array as PropType<any[]>,
       default: function () {
         return []
       }
     }
   },
-  methods: {
-    clickBtn: function (btn) {
-      this.$emit('clickBtn', btn)
+  setup(props, { emit }) {
+    const clickBtn = (btn: any) => {
+      emit('clickBtn', btn)
+    }
+
+    return {
+      clickBtn
     }
   }
-}
+})
 </script>
 
 <style lang="scss">
@@ -46,22 +54,24 @@ export default {
 
   .head_title {
     @include font-xl-b;
+
     @include media-breakpoint-up-md {
       @include font-3xl-b;
     }
   }
+
   .head_btn {
     @include font-lg;
     @include margin-md-l;
-    color: $color-gray-d;
+    color: $color-gray;
     cursor: pointer;
 
     &.btn-github:hover {
       color: $color-github;
     }
+
     &.btn-npm:hover {
       color: $color-npm;
     }
   }
-}
-</style>
+}</style>

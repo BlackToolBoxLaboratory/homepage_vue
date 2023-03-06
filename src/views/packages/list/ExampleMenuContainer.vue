@@ -2,7 +2,7 @@
   <BTBListExampleMenu />
 </template>
 
-<script>
+<script lang="ts">
 import BTBListExampleMenu from '@/components/packages/list/exampleMenu.vue'
 
 export default {

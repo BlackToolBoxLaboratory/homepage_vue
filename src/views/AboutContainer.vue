@@ -1,14 +1,14 @@
 <template>
-  <BTBAbout />
+  <About />
 </template>
 
-<script>
-import BTBAbout from '@/components/about/index.vue'
+<script lang="ts">
+import About from '@/components/about/Index.vue';
 
 export default {
   name: 'btb-about-container',
   components: {
-    BTBAbout
+    About
   }
 }
 </script>

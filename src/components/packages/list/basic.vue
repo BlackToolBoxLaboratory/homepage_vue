@@ -1,84 +1,87 @@
 <template>
   <module-page class="btb-pkg-list-basic">
-    <module-page-head title="List" :btnList="env.btnList" @clickBtn="openLink"/>
+    <module-page-head title="List" :btnList="env.btnList" @clickBtn="openLink" />
     <module-section>
-    <template #head>
-      {{`Version: ${env.version}`}} <br/>
-      {{`Release Date: ${env.updated}`}}
-    </template>
+      <template #head>
+        {{ `Version: ${env.version}` }} <br />
+        {{ `Release Date: ${env.updated}` }}
+      </template>
       <p>
-        {{env.description,}}
+        {{ env.description }}
       </p>
     </module-section>
     <module-section>
-    <template #head>
-      {{'INSTALLATION'}}
-    </template>
-      <module-pre>
-<pre>
-$ npm install --save @blacktoolbox/vue-list
-
-<code class="pre_notice">// create a plugin for vue to use list</code>
-import Vue from 'vue'
-
-import BTBList from '@blacktoolbox/vue-list'
-import '@blacktoolbox/vue-list/lib/index.css'
-
-Vue.use(BTBList)
-</pre>
-      </module-pre>
-    </module-section>
-    <module-section>
-    <template #head>
-      {{'RENDER'}}
-    </template>
-      <module-pre>
-<pre>
-{{exampleRender}}
-</pre>
-      </module-pre>
-    </module-section>
-    <module-section>
-    <template #head>
-      {{'PARAMETERS'}}
-    </template>
-      <module-block>
-      <template #title>
-        {{'Basic'}}
+      <template #head>
+        {{ 'INSTALLATION' }}
       </template>
-        <btb-vue-table class="page_table block_item" :headData="tableHeadArr_property" :bodyData="tableBodyArr_basic" xScrollable />
+      <module-pre>
+        <pre>
+  $ npm install --save @blacktoolbox/vue-list
+
+  <code class="pre_notice">// create a plugin for vue to use list</code>
+  import Vue from 'vue'
+
+  import BTBList from '@blacktoolbox/vue-list'
+  import '@blacktoolbox/vue-list/lib/index.css'
+
+  Vue.use(BTBList)
+  </pre>
+      </module-pre>
+    </module-section>
+    <module-section>
+      <template #head>
+        {{ 'RENDER' }}
+      </template>
+      <module-pre>
+        <pre>
+  {{ exampleRender }}
+  </pre>
+      </module-pre>
+    </module-section>
+    <module-section>
+      <template #head>
+        {{ 'PARAMETERS' }}
+      </template>
+      <module-block>
+        <template #title>
+          {{ 'Basic' }}
+        </template>
+        <btb-vue-table class="page_table block_item" :headData="tableHeadArr_property" :bodyData="tableBodyArr_basic"
+          xScrollable />
       </module-block>
       <module-block>
-      <template #title>
-        {{'entryObj'}}
-      </template>
+        <template #title>
+          {{ 'entryObj' }}
+        </template>
         <module-pre class="block_item">
-<pre>
-{{exampleEntryObj}}
-</pre>
+          <pre>
+  {{ exampleEntryObj }}
+  </pre>
         </module-pre>
-        <btb-vue-table class="page_table block_item" :headData="tableHeadArr_property" :bodyData="tableBodyArr_entry" xScrollable />
+        <btb-vue-table class="page_table block_item" :headData="tableHeadArr_property" :bodyData="tableBodyArr_entry"
+          xScrollable />
       </module-block>
       <module-block>
-      <template #title>
-        {{'slots'}}
-      </template>
-        <btb-vue-table class="page_table block_item" :headData="tableHeadArr_slot" :bodyData="tableBodyArr_slot" xScrollable />
+        <template #title>
+          {{ 'slots' }}
+        </template>
+        <btb-vue-table class="page_table block_item" :headData="tableHeadArr_slot" :bodyData="tableBodyArr_slot"
+          xScrollable />
       </module-block>
     </module-section>
     <module-section>
-    <template #head>
-      {{'NODE TREE'}}
-    </template>
-      <btb-vue-list class="page_node_tree" :dataList="nodeTree"/>
+      <template #head>
+        {{ 'NODE TREE' }}
+      </template>
+      <btb-vue-list class="page_node_tree" :dataList="nodeTree" />
       <p>
-        {{'Note: The layer count is counted base on 0.'}}
+        {{ 'Note: The layer count is counted base on 0.' }}
       </p>
     </module-section>
   </module-page>
 </template>
 
-<script>
+<script lang="ts">
 import packageObj from '@/assets/definitions/packageObj'
 
 const _exampleRender = `<btb-vue-list 
@@ -149,7 +152,7 @@ const _nodeTree = [
 
 export default {
   name: 'btb-pkg-list-basic',
-  data () {
+  setup() {
     return {
       env: {
         version: packageObj.list.version,
@@ -197,6 +200,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

@@ -11,10 +11,11 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+export default defineComponent({
   name: 'module-section'
-}
+})
 </script>
 
 <style lang="scss">
@@ -30,9 +31,6 @@ export default {
     @include padding-sm-b;
     border-color: $color-gray-l;
     color: $color-gray-l;
-  }
-  .section_body {
-    @include margin-lg-l;
   }
 }
 </style>

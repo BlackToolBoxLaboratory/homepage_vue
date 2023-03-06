@@ -54,7 +54,7 @@ const menuData = [
   </module-page>
 </template>
 
-<script>
+<script lang="ts">
 import packageObj from '@/assets/definitions/packageObj'
 
 const _exampleRender = '<btb-vue-list :dataList="menuData" collapseEnable/>'

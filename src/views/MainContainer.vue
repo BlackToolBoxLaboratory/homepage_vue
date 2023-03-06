@@ -1,16 +1,11 @@
 <template>
-  <BTBLayout>
+  <module-layout>
     <router-view />
-  </BTBLayout>
+  </module-layout>
 </template>
 
-<script>
-import BTBLayout from '@/components/layout/index.vue'
-
+<script lang="ts">
 export default {
   name: 'btb-main-container',
-  components: {
-    BTBLayout
-  }
 }
 </script>

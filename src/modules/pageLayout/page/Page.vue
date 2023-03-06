@@ -4,10 +4,12 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'module-page'
-}
+})
 </script>
 
 <style lang="scss">

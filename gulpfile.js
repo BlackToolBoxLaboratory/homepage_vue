@@ -6,7 +6,7 @@ const path_backup = '../codebase/homepage_vue'
 
 gulp.task('updateHomePage', async function (done) {
   /* clean files */
-  await del([path_page + '/'], {force: true})
+  await del([path_page + '/'], { force: true })
 
   /* dist */
   gulp.src(['dist/**/*'])
@@ -19,7 +19,7 @@ gulp.task('updateHomePage', async function (done) {
 
 gulp.task('backupCodebase', async function (done) {
   /* clean files */
-  await del([path_backup + '/'], {force: true})
+  await del([path_backup + '/'], { force: true })
 
   /* src */
   gulp.src(['src/**/*'])

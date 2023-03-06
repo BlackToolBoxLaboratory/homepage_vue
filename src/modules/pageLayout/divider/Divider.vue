@@ -1,21 +1,23 @@
 <template>
   <div class="module-divider">
     <div class="divider_line"></div>
-    <FAI class="divider_icon" :icon="['fas', 'tools']" fixed-width />
-    <FAI class="divider_icon" :icon="['fas', 'tools']" fixed-width />
-    <FAI class="divider_icon" :icon="['fas', 'tools']" fixed-width />
-    <FAI class="divider_icon" :icon="['fas', 'tools']" fixed-width />
-    <FAI class="divider_icon" :icon="['fas', 'tools']" fixed-width />
-    <FAI class="divider_icon" :icon="['fas', 'tools']" fixed-width />
-    <FAI class="divider_icon" :icon="['fas', 'tools']" fixed-width />
+    <fai class="divider_icon" :icon="['fas', 'tools']" fixed-width />
+    <fai class="divider_icon" :icon="['fas', 'tools']" fixed-width />
+    <fai class="divider_icon" :icon="['fas', 'tools']" fixed-width />
+    <fai class="divider_icon" :icon="['fas', 'tools']" fixed-width />
+    <fai class="divider_icon" :icon="['fas', 'tools']" fixed-width />
+    <fai class="divider_icon" :icon="['fas', 'tools']" fixed-width />
+    <fai class="divider_icon" :icon="['fas', 'tools']" fixed-width />
     <div class="divider_line"></div>
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'module-divider'
-}
+})
 </script>
 
 <style lang="scss">

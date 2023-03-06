@@ -1,47 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
   <url>
-    <loc>https://blacktoolboxlaboratory.github.io/vue/</loc>
+    <loc>https://blacktoolbox.cogman.org/vue/</loc>
   </url>
   <url>
-    <loc>https://blacktoolboxlaboratory.github.io/vue/#/about</loc>
-  </url>
-
-  <url>
-    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/</loc>
+    <loc>https://blacktoolbox.cogman.org/vue/#/about</loc>
   </url>
   <url>
-    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/list/</loc>
-  </url>
-  <url>
-    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/list/basic</loc>
-  </url>
-  <url>
-    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/list/example/list</loc>
-  </url>
-  <url>
-    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/list/example/menu</loc>
-  </url>
-  <url>
-    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/list/example/style</loc>
-  </url>
-  <url>
-    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/list/example/slot</loc>
-  </url>
-  <url>
-    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/table/</loc>
-  </url>
-  <url>
-    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/table/basic</loc>
-  </url>
-  
-  <url>
-    <loc>https://blacktoolboxlaboratory.github.io/vue/#/applications/</loc>
-  </url>
-  <url>
-    <loc>https://blacktoolboxlaboratory.github.io/vue/#/applications/languages</loc>
-  </url>
-  <url>
-    <loc>https://blacktoolboxlaboratory.github.io/vue/#/applications/validator</loc>
+    <loc>https://blacktoolbox.cogman.org/vue/#/overview</loc>
   </url>
 </urlset>

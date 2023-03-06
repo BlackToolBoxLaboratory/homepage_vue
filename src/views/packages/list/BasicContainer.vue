@@ -2,7 +2,7 @@
   <BTBListBasic />
 </template>
 
-<script>
+<script lang="ts">
 import BTBListBasic from '@/components/packages/list/basic.vue'
 
 export default {

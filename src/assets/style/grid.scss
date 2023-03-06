@@ -3,8 +3,8 @@ $max: 12;
 
 // mixins
 @mixin gridWidth($num) {
-  flex: 0 0 100% * ($num / $max);
-  max-width: 100% * ($num / $max);
+  flex: 0 0 100% * calc($num / $max);
+  max-width: 100% * calc($num / $max);
 }
 
 // style

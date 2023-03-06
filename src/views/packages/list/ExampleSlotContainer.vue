@@ -2,7 +2,7 @@
   <BTBListExampleSlot />
 </template>
 
-<script>
+<script lang="ts">
 import BTBListExampleSlot from '@/components/packages/list/exampleSlot.vue'
 
 export default {
