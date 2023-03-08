@@ -1,5 +1,3 @@
-import Block from './Block.vue'
+import Block from "./Block.vue";
 
-export {
-  Block
-}
+export { Block };

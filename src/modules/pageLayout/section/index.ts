@@ -1,5 +1,3 @@
-import Section from './Section.vue'
+import Section from "./Section.vue";
 
-export {
-  Section
-}
+export { Section };

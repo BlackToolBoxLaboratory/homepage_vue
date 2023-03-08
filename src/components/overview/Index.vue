@@ -1,9 +1,13 @@
 <template>
   <module-page class="btb-overview">
-    <module-page-head title="Overview" :btnList="pageInfo.linkList" @clickBtn="openLink" />
+    <module-page-head
+      title="Overview"
+      :btnList="pageInfo.linkList"
+      @clickBtn="openLink"
+    />
     <module-section>
       <template #head>
-        {{ 'JAVASCRIPT' }}
+        {{ "JAVASCRIPT" }}
       </template>
       <template v-if="packages['js'].length">
         <div className="grid-row">
@@ -14,24 +18,33 @@
           </template>
         </div>
       </template>
+      <template v-else>
+        <module-loading />
+      </template>
     </module-section>
     <module-section>
       <template #head>
-        {{ 'REACT' }}
+        {{ "REACT" }}
       </template>
       <template v-if="packages['js'].length">
         <div className="grid-row">
-          <template v-for="entry in packages['react']" :key="entry.package.name">
+          <template
+            v-for="entry in packages['react']"
+            :key="entry.package.name"
+          >
             <div className="grid-col-lg-6">
               <PackageWidget :data="entry.package" type="react" />
             </div>
           </template>
         </div>
       </template>
+      <template v-else>
+        <module-loading />
+      </template>
     </module-section>
     <module-section>
       <template #head>
-        {{ 'VUE' }}
+        {{ "VUE" }}
       </template>
       <template v-if="packages['vue'].length">
         <div className="grid-row">
@@ -42,24 +55,27 @@
           </template>
         </div>
       </template>
+      <template v-else>
+        <module-loading />
+      </template>
     </module-section>
   </module-page>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive } from 'vue';
+import { defineComponent, onMounted, reactive } from "vue";
 
-import API_npmRegistry from '../../apis/npmRegistry';
+import API_npmRegistry from "../../apis/npmRegistry";
 
-import { openLink } from '../../utils/functions';
+import { openLink } from "../../utils/functions";
 
-import pageInfo from './pageInfo';
-import PackageWidget from './PackageWidget.vue';
+import pageInfo from "./pageInfo";
+import PackageWidget from "./PackageWidget.vue";
 
 export default defineComponent({
-  name: 'btb-overview',
+  name: "btb-overview",
   components: {
-    PackageWidget
+    PackageWidget,
   },
   setup() {
     const packages = reactive<Record<string, any>>({
@@ -75,17 +91,17 @@ export default defineComponent({
     }
 
     onMounted(() => {
-      _getPackages('js');
-      _getPackages('react');
-      _getPackages('vue');
-    })
+      _getPackages("js");
+      _getPackages("react");
+      _getPackages("vue");
+    });
 
     return {
       pageInfo,
       openLink,
 
-      packages
-    }
-  }
-})
+      packages,
+    };
+  },
+});
 </script>

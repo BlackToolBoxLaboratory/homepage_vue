@@ -1,22 +1,19 @@
 <template>
   <header class="module-layout-head">
     <div class="head_logo">
-      <div class="logo_content">
-        BV
-      </div>
+      <div class="logo_content">BV</div>
     </div>
     <div class="head_title">
-      <div class="title_main hidden-down-md">
-        Black Tool Box Laboratory
-      </div>
-      <div class="title_main hidden-up-md">
-        BTB Lab.
-      </div>
-      <div class="title_sub">
-        For Vue
-      </div>
+      <div class="title_main hidden-down-md">Black Tool Box Laboratory</div>
+      <div class="title_main hidden-up-md">BTB Lab.</div>
+      <div class="title_sub">For Vue</div>
     </div>
-    <a className="head_item item-org" href="https://blacktoolboxlaboratory.github.io/" target="_blank" rel="noreferrer">
+    <a
+      className="head_item item-org"
+      href="https://blacktoolboxlaboratory.github.io/"
+      target="_blank"
+      rel="noreferrer"
+    >
       <fai class="header_button" :icon="['fas', 'building']" fixed-width />
     </a>
     <a className="head_item item-home" :href="homeUrl">
@@ -26,34 +23,38 @@
       <fai class="header_button" :icon="['fas', 'globe']" fixed-width />
     </div>
     <div class="head_item">
-      <fai class="header_button" :icon="['fas', 'bars']" fixed-width @click="toggleMenu" />
+      <fai
+        class="header_button"
+        :icon="['fas', 'bars']"
+        fixed-width
+        @click="toggleMenu"
+      />
     </div>
   </header>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed } from "vue";
 
-import ROUTE from '../../assets/definitions/constants/routeName.json';
+import ROUTE from "../../assets/definitions/constants/routeName.json";
 
 export default defineComponent({
-  name: 'module-layout-head',
+  name: "module-layout-head",
   setup(props, { emit }) {
-
     const homeUrl = computed<string>(() => {
-      return `/vue/#${ROUTE['ABOUT']}`
-    })
+      return `/vue/#${ROUTE["ABOUT"]}`;
+    });
 
     const toggleMenu = () => {
-      emit('toggleMenu')
-    }
+      emit("toggleMenu");
+    };
     return {
       homeUrl,
 
-      toggleMenu
-    }
-  }
-})
+      toggleMenu,
+    };
+  },
+});
 </script>
 
 <style lang="scss">

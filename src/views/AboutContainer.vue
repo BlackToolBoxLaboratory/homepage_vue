@@ -3,12 +3,12 @@
 </template>
 
 <script lang="ts">
-import About from '@/components/about/Index.vue';
+import About from "@/components/about/Index.vue";
 
 export default {
-  name: 'btb-about-container',
+  name: "btb-about-container",
   components: {
-    About
-  }
-}
+    About,
+  },
+};
 </script>

@@ -1,17 +1,20 @@
 <template>
   <module-page class="btb-about">
     <module-section class="about_title">
-      <img class="title_image" :src="logo" alt="BTB_Vue">
+      <img class="title_image" :src="logo" alt="BTB_Vue" />
       <h1 class="title_main hidden-down-md">Black Tool Box Laboratory</h1>
       <h1 class="title_main hidden-up-md">BTB Lab.</h1>
       <p class="title_sub">For Vue</p>
     </module-section>
     <module-section>
       <span>
-        I aim to develope some useful and simple UI components for front-end development. And here all of packages are
-        made For Vue. For hoping to let user handle the customized layout easier and more concentrate. They are designed
-        with basic logic for high degrees of freedom of customization and low dependency. While using, if you find some
-        questions, bugs or issues. Or having some great ideas. Please feel free to let me know.
+        I aim to develope some useful and simple UI components for front-end
+        development. And here all of packages are made For Vue. For hoping to
+        let user handle the customized layout easier and more concentrate. They
+        are designed with basic logic for high degrees of freedom of
+        customization and low dependency. While using, if you find some
+        questions, bugs or issues. Or having some great ideas. Please feel free
+        to let me know.
       </span>
     </module-section>
     <module-section class="grid-row justify-content-center">
@@ -33,26 +36,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
 
-import BTBPackage from './package.vue'
+import BTBPackage from "./package.vue";
 
-import logo from '@/assets/images/BTB_Vue.png';
+import logo from "@/assets/images/BTB_Vue.png";
 
-import PACKAGE from '@/assets/definitions/packageObj'
+import PACKAGE from "@/assets/definitions/packageObj";
 
 export default defineComponent({
-  name: 'btb-about',
+  name: "btb-about",
   components: {
-    BTBPackage
+    BTBPackage,
   },
   setup() {
     return {
       packageObj: PACKAGE,
-      logo
-    }
-  }
-})
+      logo,
+    };
+  },
+});
 </script>
 
 <style lang="scss">
@@ -76,4 +79,5 @@ export default defineComponent({
       color: $color-gray;
     }
   }
-}</style>
+}
+</style>

@@ -3,12 +3,12 @@
 </template>
 
 <script lang="ts">
-import BTBTableBasic from '@/components/packages/table/basic.vue'
+import BTBTableBasic from "@/components/packages/table/basic.vue";
 
 export default {
-  name: 'btb-pkg-table-basic-container',
+  name: "btb-pkg-table-basic-container",
   components: {
-    BTBTableBasic
-  }
-}
+    BTBTableBasic,
+  },
+};
 </script>

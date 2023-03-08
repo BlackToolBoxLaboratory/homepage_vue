@@ -2,20 +2,20 @@
   <div class="module-section">
     <template v-if="$slots.head">
       <div class="section_head">
-        <slot name="head"/>
+        <slot name="head" />
       </div>
     </template>
     <div class="section_body">
-      <slot/>
+      <slot />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
 export default defineComponent({
-  name: 'module-section'
-})
+  name: "module-section",
+});
 </script>
 
 <style lang="scss">

@@ -4,7 +4,7 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 
 export default defineConfig({
-  base: '/vue/',
+  base: "/vue/",
   plugins: [vue()],
   resolve: {
     alias: {
@@ -18,15 +18,15 @@ export default defineConfig({
         additionalData: [
           '@import "@/assets/style/mixins.scss"',
           '@import "@/assets/style/variables.scss"',
-          ''
-        ].join(';\n')
+          "",
+        ].join(";\n"),
       },
       sass: { charset: false },
     },
   },
   server: {
     fs: {
-      allow: ['..'],
+      allow: [".."],
     },
   },
 });

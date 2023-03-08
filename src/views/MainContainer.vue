@@ -6,6 +6,6 @@
 
 <script lang="ts">
 export default {
-  name: 'btb-main-container',
-}
+  name: "btb-main-container",
+};
 </script>

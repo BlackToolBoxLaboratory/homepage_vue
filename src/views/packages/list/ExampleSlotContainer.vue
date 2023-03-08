@@ -3,12 +3,12 @@
 </template>
 
 <script lang="ts">
-import BTBListExampleSlot from '@/components/packages/list/exampleSlot.vue'
+import BTBListExampleSlot from "@/components/packages/list/exampleSlot.vue";
 
 export default {
-  name: 'btb-pkg-list-example-slot-container',
+  name: "btb-pkg-list-example-slot-container",
   components: {
-    BTBListExampleSlot
-  }
-}
+    BTBListExampleSlot,
+  },
+};
 </script>

@@ -2,8 +2,8 @@
   <router-view />
 </template>
 
-<script>
+<script lang="ts">
 export default {
-  name: 'btb-app-container'
-}
+  name: "btb-app-container",
+};
 </script>

@@ -12,6 +12,7 @@ $max: 12;
   display: flex;
   flex-wrap: wrap;
   margin: 1rem -1rem;
+  row-gap: 1rem;
 
   &.row-nowrap {
     flex-wrap: nowrap;

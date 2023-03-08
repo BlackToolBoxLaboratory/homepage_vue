@@ -6,8 +6,8 @@
 
 <script lang="ts">
 export default {
-  name: 'btb-app'
-}
+  name: "btb-app",
+};
 </script>
 
 <style lang="scss">

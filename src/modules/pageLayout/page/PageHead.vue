@@ -12,34 +12,34 @@
 </template>
 
 <script lang="ts">
-import type { PropType } from 'vue'
+import type { PropType } from "vue";
 
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: 'module-page-head',
+  name: "module-page-head",
   props: {
     title: {
       type: String,
-      default: ''
+      default: "",
     },
     btnList: {
       type: Array as PropType<any[]>,
       default: function () {
-        return []
-      }
-    }
+        return [];
+      },
+    },
   },
   setup(props, { emit }) {
     const clickBtn = (btn: any) => {
-      emit('clickBtn', btn)
-    }
+      emit("clickBtn", btn);
+    };
 
     return {
-      clickBtn
-    }
-  }
-})
+      clickBtn,
+    };
+  },
+});
 </script>
 
 <style lang="scss">
@@ -74,4 +74,5 @@ export default defineComponent({
       color: $color-npm;
     }
   }
-}</style>
+}
+</style>

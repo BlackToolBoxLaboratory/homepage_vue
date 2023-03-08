@@ -8,8 +8,8 @@
 
 html
 {
+  @include font-md;
   color: $color-gray-ddd;
-  font-size: 16px;
 }
 
 html,
@@ -35,10 +35,17 @@ ul {
   padding: 0;
 }
 
-a:link,
-a:visited {
-  color: $color-gray;
-}
-a:hover {
-  color: $color-primary;
+a {
+  &.inline-link {
+    @include margin-l($margin-md);
+  }
+
+  &:link,
+  &:visited {
+    color: $color-gray;
+  }
+
+  &:hover {
+    color: $color-primary;
+  }
 }

@@ -1,5 +1,3 @@
-import Divider from './Divider.vue'
+import Divider from "./Divider.vue";
 
-export {
-  Divider
-}
+export { Divider };

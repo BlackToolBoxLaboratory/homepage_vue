@@ -3,12 +3,12 @@
 </template>
 
 <script lang="ts">
-import BTBListExampleMenu from '@/components/packages/list/exampleMenu.vue'
+import BTBListExampleMenu from "@/components/packages/list/exampleMenu.vue";
 
 export default {
-  name: 'btb-pkg-list-example-menu-container',
+  name: "btb-pkg-list-example-menu-container",
   components: {
-    BTBListExampleMenu
-  }
-}
+    BTBListExampleMenu,
+  },
+};
 </script>

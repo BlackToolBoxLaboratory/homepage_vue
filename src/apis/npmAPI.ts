@@ -1,7 +1,7 @@
-import { npmAPI as service } from '@src/plugins/axios.js';
+import { npmAPI as service } from "../plugins/axios";
 
 export default {
-  getPackageDownloads: function (pkgName) {
+  getPackageDownloads: function (pkgName: string) {
     return service.get(`/downloads/range/last-year/${pkgName}`);
   },
 };

@@ -1,15 +1,11 @@
 <template>
-  <div class="btb-app-languages">
-    Languages
-  </div>
+  <div class="btb-app-languages">Languages</div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
-  name: 'btb-app-languages'
-}
+  name: "btb-app-languages",
+};
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

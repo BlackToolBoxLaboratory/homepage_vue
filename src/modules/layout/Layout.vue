@@ -1,26 +1,29 @@
 <template>
   <div class="module-layout" ref="body">
-    <module-layout-head class="layout_head" @toggleMenu="toggleMenu()"/>
+    <module-layout-head class="layout_head" @toggleMenu="toggleMenu()" />
     <div class="layout_content">
       <slot />
     </div>
     <module-layout-foot class="layout_foot" />
-    <module-layout-aside :class="['layout_aside', { 'aside-hidden' : isHidden}]" @clickEntry="clickEntry"/>
+    <module-layout-aside
+      :class="['layout_aside', { 'aside-hidden': isHidden }]"
+      @clickEntry="clickEntry"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref } from "vue";
 
 const SIZE_MD = 768;
 
 export default defineComponent({
-  name: 'module-layout',
+  name: "module-layout",
   setup() {
     const isHidden = ref(false);
 
     const toggleMenu = () => {
-      isHidden.value = !isHidden.value
+      isHidden.value = !isHidden.value;
     };
     const clickEntry = () => {
       if (window.innerWidth < SIZE_MD) {
@@ -32,10 +35,10 @@ export default defineComponent({
       isHidden,
 
       toggleMenu,
-      clickEntry
-    }
-  }
-})
+      clickEntry,
+    };
+  },
+});
 </script>
 
 <style lang="scss">

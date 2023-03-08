@@ -4,6 +4,6 @@
 
 <script lang="ts">
 export default {
-  name: 'btb-pkg-container'
-}
+  name: "btb-pkg-container",
+};
 </script>

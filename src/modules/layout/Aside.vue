@@ -1,21 +1,25 @@
 <template>
   <div class="module-layout-aside">
-    <btb-vue-list class="aside_menu" :dataList="translatedmenu" collapseEnable
-      :activeID="currentActiveID" />
+    <btb-vue-list
+      class="aside_menu"
+      :dataList="translatedmenu"
+      collapseEnable
+      :activeID="currentActiveID"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import type { RouteList } from '@/assets/definitions/menuList';
+import type { RouteList } from "@/assets/definitions/menuList";
 
-import { defineComponent, ref, computed, onMounted, watch } from 'vue';
-import { useRouter, useRoute } from 'vue-router';
+import { defineComponent, ref, computed, onMounted, watch } from "vue";
+import { useRouter, useRoute } from "vue-router";
 
-import MENU from '@/assets/definitions/menuList';
+import MENU from "@/assets/definitions/menuList";
 
 export default defineComponent({
-  name: 'module-layout-aside',
-  emits: ['clickEntry'],
+  name: "module-layout-aside",
+  emits: ["clickEntry"],
   setup(props, { emit }) {
     const route = useRoute();
     const router = useRouter();
@@ -43,29 +47,29 @@ export default defineComponent({
     //   return result
     // }
 
-    const activeID = ref('');
+    const activeID = ref("");
 
     const currentActiveID = computed({
       get: () => {
-        return activeID.value
+        return activeID.value;
       },
       set: (newRoute: string) => {
-        console.log('newRoute', newRoute)
+        console.log("newRoute", newRoute);
         // activeID.value = getRouteIDFromName(newRoute.name)
-      }
-    })
+      },
+    });
 
     const translatedmenu = computed(() => {
-      const result = MENU
+      const result = MENU;
       // TODO: for translate language of menu title
-      return result
-    })
+      return result;
+    });
 
-    onMounted(()=>{
-      if(route.name) {
+    onMounted(() => {
+      if (route.name) {
         activeID.value = route.name as string;
       }
-    })
+    });
 
     // watch(
     //   () => route,
@@ -82,9 +86,9 @@ export default defineComponent({
 
       currentActiveID,
       translatedmenu,
-    }
-  }
-})
+    };
+  },
+});
 </script>
 
 <style lang="scss">

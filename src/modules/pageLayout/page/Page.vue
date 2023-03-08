@@ -1,15 +1,15 @@
 <template>
   <div class="module-page">
-    <slot/>
+    <slot />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: 'module-page'
-})
+  name: "module-page",
+});
 </script>
 
 <style lang="scss">

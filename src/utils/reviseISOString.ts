@@ -1,4 +1,5 @@
-const formatISOString = /((\d{4})-(\d{2})-(\d{2}))T((\d{2}):(\d{2}):(\d{2})).\d{3}Z/;
+const formatISOString =
+  /((\d{4})-(\d{2})-(\d{2}))T((\d{2}):(\d{2}):(\d{2})).\d{3}Z/;
 // 0: total
 
 // 1: Date(YYYY-MM-DD)
@@ -12,9 +13,11 @@ const formatISOString = /((\d{4})-(\d{2})-(\d{2}))T((\d{2}):(\d{2}):(\d{2})).\d{
 // 8: Second
 
 const reviseISOString = function (isoString: string) {
-  let localISOString = new Date(Date.parse(isoString) - new Date().getTimezoneOffset() * 60 * 1000).toISOString();
-  let separateDateTime = formatISOString.exec(localISOString);
-  let obj:Record<string,any> = {};
+  const localISOString = new Date(
+    Date.parse(isoString) - new Date().getTimezoneOffset() * 60 * 1000
+  ).toISOString();
+  const separateDateTime = formatISOString.exec(localISOString);
+  let obj: Record<string, any> = {};
   if (separateDateTime) {
     obj = {
       whole: separateDateTime[0],

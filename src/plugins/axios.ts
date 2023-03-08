@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 const instance_registry = axios.create({
   baseURL: `${import.meta.env.VITE_REGISTRY_URL}`,

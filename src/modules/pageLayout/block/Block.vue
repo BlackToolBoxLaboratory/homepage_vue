@@ -12,11 +12,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: 'module-block'
-})
+  name: "module-block",
+});
 </script>
 
 <style lang="scss">
@@ -31,7 +31,7 @@ export default defineComponent({
   }
 
   .block_item {
-    &+.block_item {
+    & + .block_item {
       @include margin-lg-t;
     }
   }

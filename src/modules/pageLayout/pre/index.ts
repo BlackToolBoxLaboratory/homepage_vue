@@ -1,5 +1,3 @@
-import Pre from './Pre.vue'
+import Pre from "./Pre.vue";
 
-export {
-  Pre
-}
+export { Pre };
