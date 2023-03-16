@@ -24,7 +24,7 @@ const packageObj: PackageObj = {
     routename: ROUTE.PACKAGES_TABLE_BASIC,
     description:
       "This module of table creator with Vue can do the help to make a table component to our page.",
-    version: "2.0.1",
+    version: "2.0.2",
     updated: "Mar. 16, 2023",
   },
 };

@@ -38,7 +38,7 @@
     "@blacktoolbox/prototype-languages": "^1.1.1",
     "@blacktoolbox/prototype-validator": "^1.0.0",
     "@blacktoolbox/vue-list": "^2.0.4",
-    "@blacktoolbox/vue-table": "^2.0.1",
+    "@blacktoolbox/vue-table": "^2.0.2",
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
     "@fortawesome/free-brands-svg-icons": "^6.3.0",
     "@fortawesome/free-regular-svg-icons": "^6.3.0",
