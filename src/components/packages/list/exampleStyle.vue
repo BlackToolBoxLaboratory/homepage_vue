@@ -2,17 +2,17 @@
   <module-page class="btb-pkg-list-example-style">
     <module-page-head
       title="Example - Style"
-      :btnList="env.btnList"
+      :btnList="btnList"
+      @clickBtn="openLink"
       />
-      <!-- @clickBtn="openLink" -->
     <module-section>
       <template #head>
-        {{ `Version: ${env.version}` }} <br />
-        {{ `Release Date: ${env.updated}` }}
+        {{ `Version: ${version}` }} <br />
+        {{ `Release Date: ${updated}` }}
       </template>
       <p>
         {{
-          "Here is going to show you about how to use the styleObj and the example of defaultActiveID and v-model of activeID. The activeID is used to mark focused entry, but also allowed to used defaultActiveID to mark entry as default in the begin. Then we can modify the style by the styleObj with using the node class name directly."
+          "Here is going to show you about how to use the styleObj and the example v-model of activeID. The activeID is used to mark focused entry. Then we can modify the style by the styleObj with using the node class name directly."
         }}
       </p>
     </module-section>
@@ -25,37 +25,17 @@
       </p>
       <btb-vue-list
         :dataList="listData"
-        v-model="activeID"
-        :defaultActiveID="defaultActiveID"
+        v-model:activeID="activeID"
         :styleObj="styleObj"
       />
     </module-section>
     <module-section>
       <template #head>
-        {{ "CONFIGURATION" }}
+        {{ "SOURCE CODE" }}
       </template>
-      <module-block>
-        <template #title>
-          {{ "Render" }}
-        </template>
-        <module-pre>
-          <pre
-            >{{ exampleRender }}
-</pre
-          >
-        </module-pre>
-      </module-block>
-      <module-block>
-        <template #title>
-          {{ "defaultActiveID" }}
-        </template>
-        <module-pre>
-          <pre>
-const defaultActiveID = 'l13'
-</pre
-          >
-        </module-pre>
-      </module-block>
+      <module-pre>
+        <pre>{{ exampleRender }}</pre>
+      </module-pre>
       <module-block>
         <template #title>
           {{ "listData" }}
@@ -76,8 +56,7 @@ const listData = [
                 { id: 'l22', title: 'Leaf: 2-2' }
         ]}
 ]
-</pre
-          >
+          </pre>
         </module-pre>
       </module-block>
       <module-block>
@@ -91,7 +70,7 @@ const _styleObj = {
                 cursor: 'pointer'
         },
         'entry-active': {
-                'background-color': '#b8dec9'
+                'background-color': '#41b883'
         }
 }
 </pre
@@ -103,12 +82,15 @@ const _styleObj = {
 </template>
 
 <script lang="ts">
+import { defineComponent, ref } from "vue";
+
 import packageObj from "@/assets/definitions/packageObj";
 
+import { openLink } from "../../../utils/functions";
+
 const _exampleRender = `<btb-vue-list 
-        v-model="activeID"
+        v-model:activeID="activeID"
         :dataList="listData"
-        :defaultActiveID="defaultActiveID" 
         :styleObj="styleObj"/>`;
 
 const _listData = [
@@ -146,40 +128,38 @@ const _styleObj = {
     cursor: "pointer",
   },
   "entry-active": {
-    "background-color": "#b8dec9",
+    "background-color": "#41b883",
   },
 };
 
-const _defaultActiveID = "l13";
-
-export default {
+export default defineComponent({
   name: "btb-pkg-list-example",
   data() {
+    const activeID = ref('l13')
     return {
-      env: {
-        version: packageObj.list.version,
-        updated: packageObj.list.updated,
-        btnList: [
-          {
-            id: "github",
-            fa: ["fab", "github"],
-            url: "https://github.com/BlackToolBoxLaboratory/vue-list",
-          },
-          {
-            id: "npm",
-            fa: ["fab", "npm"],
-            url: "https://www.npmjs.com/package/@blacktoolbox/vue-list",
-          },
-        ],
-      },
+      version: packageObj.list.version,
+      updated: packageObj.list.updated,
+      btnList: [
+        {
+          id: "github",
+          fa: ["fab", "github"],
+          url: "https://github.com/BlackToolBoxLaboratory/vue-list",
+        },
+        {
+          id: "npm",
+          fa: ["fab", "npm"],
+          url: "https://www.npmjs.com/package/@blacktoolbox/vue-list",
+        },
+      ],
       exampleRender: _exampleRender,
       listData: _listData,
       styleObj: _styleObj,
-      defaultActiveID: _defaultActiveID,
-      activeID: "",
+      activeID,
+
+      openLink
     };
   },
-};
+});
 </script>
 
 <style lang="scss">

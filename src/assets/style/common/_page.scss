@@ -1,6 +1,7 @@
 .page_table.btb-vue-table {
   margin-bottom: 1rem;
-  .table_container {
+  overflow: auto;
+  .btb-vue-table-list {
     th {
       @include border-solid(2px);
       padding: 0.25rem 1rem;

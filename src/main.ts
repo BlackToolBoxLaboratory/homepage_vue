@@ -9,7 +9,7 @@ import router from "./router";
 
 import FontAwesomeIcon from "@/plugins/vue-fontawesome";
 import BtbListComponents from "@/plugins/btblab-vue-list";
-// import '@/plugins/btblab-vue-table'
+import BtbTableComponents from "@/plugins/btblab-vue-table";
 
 const app = createApp(App);
 
@@ -21,5 +21,6 @@ app
   .use(router)
   .use(BTBModules)
   .use(BtbListComponents)
+  .use(BtbTableComponents)
   .component("fai", FontAwesomeIcon)
   .mount("#app");

@@ -1,20 +1,12 @@
 import ROUTE from "./constants/routeName.json";
 
-export type RouteList = {
-  id: string;
-  routename: string;
-  title: string;
-  langIndex: string;
-  href?: string;
-  defaultCollapsed?: boolean;
-  children?: RouteList[];
-};
+import type {  ListItemObj } from "@blacktoolbox/vue-list";
 
 const redirectUrl = (path: string) => {
   return `/vue/#${path}`;
 };
 
-const routeList: RouteList[] = [
+const routeList: ListItemObj[] = [
   {
     id: "ABOUT",
     routename: "about",

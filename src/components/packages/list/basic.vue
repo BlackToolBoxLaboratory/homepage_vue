@@ -2,16 +2,16 @@
   <module-page class="btb-pkg-list-basic">
     <module-page-head
       title="List"
-      :btnList="env.btnList"
+      :btnList="btnList"
+      @clickBtn="openLink"
       />
-      <!-- @clickBtn="openLink" -->
     <module-section>
       <template #head>
-        {{ `Version: ${env.version}` }} <br />
-        {{ `Release Date: ${env.updated}` }}
+        {{ `Version: ${version}` }} <br />
+        {{ `Release Date: ${updated}` }}
       </template>
       <p>
-        {{ env.description }}
+        {{ description }}
       </p>
     </module-section>
     <module-section>
@@ -20,16 +20,15 @@
       </template>
       <module-pre>
         <pre>
-  $ npm install --save @blacktoolbox/vue-list
+$ npm install --save @blacktoolbox/vue-list
 
-  <code class="pre_notice">// create a plugin for vue to use list</code>
-  import Vue from 'vue'
+import Vue from 'vue'
 
-  import BTBList from '@blacktoolbox/vue-list'
-  import '@blacktoolbox/vue-list/lib/index.css'
+import BTBList from '@blacktoolbox/vue-list'
+import '@blacktoolbox/vue-list/lib/index.css'
 
-  Vue.use(BTBList)
-  </pre>
+Vue.use(BTBList)
+        </pre>
       </module-pre>
     </module-section>
     <module-section>
@@ -37,36 +36,25 @@
         {{ "RENDER" }}
       </template>
       <module-pre>
-        <pre>
-  {{ exampleRender }}
-  </pre
-        >
+        <pre>{{ exampleRender }}</pre>
       </module-pre>
     </module-section>
     <module-section>
       <template #head>
         {{ "PARAMETERS" }}
       </template>
+      <btb-vue-table
+        class="page_table block_item"
+        :headData="tableHeadArr_property"
+        :bodyData="tableBodyArr_basic"
+        identity="title"
+      />
       <module-block>
         <template #title>
-          {{ "Basic" }}
-        </template>
-        <btb-vue-table
-          class="page_table block_item"
-          :headData="tableHeadArr_property"
-          :bodyData="tableBodyArr_basic"
-          xScrollable
-        />
-      </module-block>
-      <module-block>
-        <template #title>
-          {{ "entryObj" }}
+          {{ "ListItemObj" }}
         </template>
         <module-pre class="block_item">
-          <pre>
-  {{ exampleEntryObj }}
-  </pre
-          >
+          <pre>{{ exampleEntryObj }}</pre>
         </module-pre>
         <btb-vue-table
           class="page_table block_item"
@@ -74,6 +62,15 @@
           :bodyData="tableBodyArr_entry"
           xScrollable
         />
+      </module-block>
+      <module-block>
+        <template #title>
+          {{ "styleObj" }}
+        </template>
+        <p>Any className in this module could add inline CSS by styleObj.</p>
+        <module-pre class="block_item">
+          <pre>{{ preStyleObj }}</pre>
+        </module-pre>
       </module-block>
       <module-block>
         <template #title>
@@ -100,22 +97,32 @@
 </template>
 
 <script lang="ts">
+import { defineComponent} from "vue";
+
 import packageObj from "@/assets/definitions/packageObj";
+
+import { openLink } from "../../../utils/functions";
 
 const _exampleRender = `<btb-vue-list 
         :dataList=" Array " 
-        :defaultActiveID=" String "
         :activeID=" String "
         :collapseEnable=" Boolean "
-        @clickEntry=" function(entryObj){} "
-        @toggleCollapsed=" function(entryObj){} "/>`;
+        :styleObj=" Object "
+        @clickEntry=" function(ListItemObj){} "
+        @toggleCollapsed=" function(ListItemObj){} "/>`;
 
-const _exampleEntryObj = `entryObj = {
+const _exampleEntryObj = `ListItemObj = {
         id: '',
         title: '',
+        href: '',
         defaultCollapsed: false,
         children: [...]
 }`;
+
+const _preStyleObj = `styleObj = {
+        [ className ]: { inline CSS }
+}`;
+
 
 const _nodeTree = [
   {
@@ -168,58 +175,51 @@ const _nodeTree = [
   },
 ];
 
-export default {
+export default defineComponent({
   name: "btb-pkg-list-basic",
   setup() {
     return {
-      env: {
-        version: packageObj.list.version,
-        updated: packageObj.list.updated,
-        description: packageObj.list.description,
-        btnList: [
-          {
-            id: "github",
-            fa: ["fab", "github"],
-            url: "https://github.com/BlackToolBoxLaboratory/vue-list",
-          },
-          {
-            id: "npm",
-            fa: ["fab", "npm"],
-            url: "https://www.npmjs.com/package/@blacktoolbox/vue-list",
-          },
-        ],
-      },
+      version: packageObj.list.version,
+      updated: packageObj.list.updated,
+      description: packageObj.list.description,
+      btnList: [
+        {
+          id: "github",
+          fa: ["fab", "github"],
+          url: "https://github.com/BlackToolBoxLaboratory/vue-list",
+        },
+        {
+          id: "npm",
+          fa: ["fab", "npm"],
+          url: "https://www.npmjs.com/package/@blacktoolbox/vue-list",
+        },
+      ],
       exampleRender: _exampleRender,
       exampleEntryObj: _exampleEntryObj,
+      preStyleObj: _preStyleObj,
       tableHeadArr_property: [
-        { name: "Property Name", index: "title" },
-        { name: "Type", index: "type" },
-        { name: "Default", index: "default" },
-        { name: "Notice", index: "notice" },
+        { name: "Property Name", id: "title" },
+        { name: "Type", id: "type" },
+        { name: "Default", id: "default" },
+        { name: "Notice", id: "notice" },
       ],
       tableHeadArr_slot: [
-        { name: "Name", index: "title" },
-        { name: "Props", index: "props" },
-        { name: "Notice", index: "notice" },
+        { name: "Name", id: "title" },
+        { name: "Props", id: "props" },
+        { name: "Notice", id: "notice" },
       ],
       tableBodyArr_basic: [
         {
           title: "dataList",
           type: "Array",
           default: "[]",
-          notice: "List of entryObj.",
+          notice: "List of ListItemObj.",
         },
         {
           title: "collapseEnable",
           type: "Boolean",
           default: "false",
           notice: "Enable collapse feature.",
-        },
-        {
-          title: "defaultActiveID",
-          type: "String",
-          default: "undefined",
-          notice: "Default active entry's ID.",
         },
         {
           title: "activeID (v-model)",
@@ -237,14 +237,14 @@ export default {
         {
           title: "@clickEntry",
           type: "$Emit",
-          default: "function(entryObj){}",
-          notice: "List entry's onClick function.",
+          default: "function(ListItemObj){}",
+          notice: "List entry's click function.",
         },
         {
           title: "@toggleCollapsed",
           type: "$Emit",
-          default: "function(entryObj){}",
-          notice: "List entry's onToggle function.",
+          default: "function(ListItemObj){}",
+          notice: "List entry's toggle function.",
         },
       ],
       tableBodyArr_entry: [
@@ -261,6 +261,12 @@ export default {
           notice: "Show name of entry.",
         },
         {
+          title: "href",
+          type: "String",
+          default: "''",
+          notice: "For link.",
+        },
+        {
           title: "defaultCollapsed",
           type: "String",
           default: "undefined",
@@ -270,15 +276,17 @@ export default {
       ],
       tableBodyArr_slot: [
         {
-          title: "[ id of entryObj ]",
+          title: "[ id of ListItemObj ]",
           props: "-",
           notice: "Slot for customized entry.",
         },
       ],
       nodeTree: _nodeTree,
+
+      openLink
     };
   },
-};
+});
 </script>
 
 <style lang="scss"></style>

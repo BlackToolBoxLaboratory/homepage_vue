@@ -1,21 +1,17 @@
 <template>
   <div class="module-layout-aside">
-    <btb-vue-list
-      class="aside_menu"
-      :dataList="translatedmenu"
-      collapseEnable
-      :activeID="currentActiveID"
-    />
+    <btb-vue-list class="aside_menu" :dataList="translatedmenu" collapseEnable :activeID="currentActiveID" @clickEntry="clickEntry"/>
   </div>
 </template>
 
 <script lang="ts">
-import type { RouteList } from "@/assets/definitions/menuList";
+import type { ListItemObj } from '@blacktoolbox/vue-list'
 
 import { defineComponent, ref, computed, onMounted, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 
 import MENU from "@/assets/definitions/menuList";
+import { ROUTE } from "@/assets/definitions/constants";
 
 export default defineComponent({
   name: "module-layout-aside",
@@ -65,27 +61,39 @@ export default defineComponent({
       return result;
     });
 
+    const _getRouteID = () => {
+      let result = Object.keys(ROUTE).find((key) => {
+        return (ROUTE as Record<string, string>)[key] === route.path;
+      }) || ''
+      return result;
+    }
+
+    const clickEntry = (event: ListItemObj)=> {
+      if ((ROUTE as Record<string, string>)[event.id] !== route.path) {
+        emit("clickEntry");
+      }
+    }
+
     onMounted(() => {
       if (route.name) {
-        activeID.value = route.name as string;
+        activeID.value = _getRouteID();
       }
     });
 
-    // watch(
-    //   () => route,
-    //   (newRoute, oldRoute) => {
-    //     console.log('newRoute',newRoute)
-    //     // if(newRoute.name) {
-    //     //   activeID.value = newRoute.name
-    //     // }
-    //   }
-    // )
+    watch(
+      () => route.path,
+      () => {
+        activeID.value = _getRouteID();
+      }
+    )
 
     return {
       activeID,
 
       currentActiveID,
       translatedmenu,
+
+      clickEntry
     };
   },
 });

@@ -11,7 +11,7 @@
   "PACKAGES_LIST_EXAMPLE_STYLE": "/packages/list/example/style",
   "PACKAGES_LIST_EXAMPLE_SLOT": "/packages/list/example/slot",
   "PACKAGES_TABLE": "/packages/table",
-  "PACKAGES_TABLE_BASIC": "/packages/list",
+  "PACKAGES_TABLE_BASIC": "/packages/table/basic",
 
   "APPLICATIONS": "/applications",
   "APPLICATIONS_LANGUAGES": "/applications/languages",

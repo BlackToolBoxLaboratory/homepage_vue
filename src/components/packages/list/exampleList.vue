@@ -1,14 +1,10 @@
 <template>
   <module-page class="btb-pkg-list-example-list">
-    <module-page-head
-      title="Example - List"
-      :btnList="env.btnList"
-      />
-      <!-- @clickBtn="openLink" -->
+    <module-page-head title="Example - List" :btnList="btnList"  @clickBtn="openLink"/>
     <module-section>
       <template #head>
-        {{ `Version: ${env.version}` }} <br />
-        {{ `Release Date: ${env.updated}` }}
+        {{ `Version: ${version}` }} <br />
+        {{ `Release Date: ${updated}` }}
       </template>
       <p>
         {{
@@ -24,19 +20,11 @@
     </module-section>
     <module-section>
       <template #head>
-        {{ "CONFIGURATION" }}
+        {{ "SOURCE CODE" }}
       </template>
-      <module-block>
-        <template #title>
-          {{ "Render" }}
-        </template>
-        <module-pre>
-          <pre
-            >{{ exampleRender }}
-</pre
-          >
-        </module-pre>
-      </module-block>
+      <module-pre>
+        <pre>{{ exampleRender }}</pre>
+      </module-pre>
       <module-block>
         <template #title>
           {{ "listData" }}
@@ -57,8 +45,7 @@ const listData = [
                 { id: 'l22', title: 'Leaf: 2-2' }
         ]}
 ]
-</pre
-          >
+          </pre>
         </module-pre>
       </module-block>
     </module-section>
@@ -66,7 +53,11 @@ const listData = [
 </template>
 
 <script lang="ts">
+import { defineComponent } from "vue";
+
 import packageObj from "@/assets/definitions/packageObj";
+
+import { openLink } from "../../../utils/functions";
 
 const _exampleRender = '<btb-vue-list :dataList="listData"/>';
 
@@ -100,31 +91,31 @@ const _listData = [
   },
 ];
 
-export default {
+export default defineComponent({
   name: "btb-pkg-list-example",
-  data() {
+  setup() {
     return {
-      env: {
-        version: packageObj.list.version,
-        updated: packageObj.list.updated,
-        btnList: [
-          {
-            id: "github",
-            fa: ["fab", "github"],
-            url: "https://github.com/BlackToolBoxLaboratory/vue-list",
-          },
-          {
-            id: "npm",
-            fa: ["fab", "npm"],
-            url: "https://www.npmjs.com/package/@blacktoolbox/vue-list",
-          },
-        ],
-      },
+      version: packageObj.list.version,
+      updated: packageObj.list.updated,
+      btnList: [
+        {
+          id: "github",
+          fa: ["fab", "github"],
+          url: "https://github.com/BlackToolBoxLaboratory/vue-list",
+        },
+        {
+          id: "npm",
+          fa: ["fab", "npm"],
+          url: "https://www.npmjs.com/package/@blacktoolbox/vue-list",
+        },
+      ],
       exampleRender: _exampleRender,
       listData: _listData,
+
+      openLink
     };
   },
-};
+});
 </script>
 
 <style lang="scss"></style>

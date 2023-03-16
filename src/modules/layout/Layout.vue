@@ -15,12 +15,14 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 
+import { GRID } from '../../assets/definitions/constants';
+
 const SIZE_MD = 768;
 
 export default defineComponent({
   name: "module-layout",
   setup() {
-    const isHidden = ref(false);
+    const isHidden = ref(window.innerWidth < GRID.MD);
 
     const toggleMenu = () => {
       isHidden.value = !isHidden.value;
