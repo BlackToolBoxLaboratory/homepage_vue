@@ -1,6 +1,7 @@
 <template>
   <div class="module-layout-aside">
-    <btb-vue-list class="aside_menu" :dataList="translatedmenu" collapseEnable :activeID="currentActiveID" @clickEntry="clickEntry"/>
+    <btb-vue-list class="aside_menu" :dataList="translatedMenu" collapseEnable :activeID="currentActiveID"
+      @clickEntry="clickEntry" />
   </div>
 </template>
 
@@ -9,9 +10,12 @@ import type { ListItemObj } from '@blacktoolbox/vue-list'
 
 import { defineComponent, ref, computed, onMounted, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
+import { storeToRefs } from "pinia";
 
 import MENU from "@/assets/definitions/menuList";
 import { ROUTE } from "@/assets/definitions/constants";
+
+import { useLanguageStore } from '@/store/lang';
 
 export default defineComponent({
   name: "module-layout-aside",
@@ -19,6 +23,9 @@ export default defineComponent({
   setup(props, { emit }) {
     const route = useRoute();
     const router = useRouter();
+
+    const langStore = useLanguageStore();
+    const { lang } = storeToRefs(langStore);
 
     // const getRouteIDFromName = (routename: string) => {
     //   return this.getRouteIDFromName_Recursive(routename, MENU) || ''
@@ -45,21 +52,33 @@ export default defineComponent({
 
     const activeID = ref("");
 
-    const currentActiveID = computed({
-      get: () => {
-        return activeID.value;
-      },
-      set: (newRoute: string) => {
-        console.log("newRoute", newRoute);
-        // activeID.value = getRouteIDFromName(newRoute.name)
-      },
+    const currentActiveID = computed(()=>{
+      return activeID.value;
     });
 
-    const translatedmenu = computed(() => {
-      const result = MENU;
-      // TODO: for translate language of menu title
+    const translatedMenu = computed(() => {
+      let result: any[] = [];
+      if (lang.value) {
+        result = MENU.map((entry) => {
+          return translateMenuRecursive(entry);
+        });
+      }
       return result;
     });
+
+    const translateMenuRecursive = (obj: ListItemObj) => {
+      let result = {
+        ...obj,
+        title: obj.langIndex ? langStore.translate(obj.langIndex) : obj.title,
+      };
+
+      if (obj.children) {
+        result.children = obj.children.map((entry) => {
+          return translateMenuRecursive(entry);
+        });
+      }
+      return result
+    }
 
     const _getRouteID = () => {
       let result = Object.keys(ROUTE).find((key) => {
@@ -68,7 +87,7 @@ export default defineComponent({
       return result;
     }
 
-    const clickEntry = (event: ListItemObj)=> {
+    const clickEntry = (event: ListItemObj) => {
       if ((ROUTE as Record<string, string>)[event.id] !== route.path) {
         emit("clickEntry");
       }
@@ -91,7 +110,8 @@ export default defineComponent({
       activeID,
 
       currentActiveID,
-      translatedmenu,
+      translatedMenu,
+      langStore,
 
       clickEntry
     };

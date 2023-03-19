@@ -13,6 +13,9 @@
   "PACKAGES_TABLE": "/packages/table",
   "PACKAGES_TABLE_BASIC": "/packages/table/basic",
 
+  "PACKAGES_POPOVER": "/packages/popover",
+  "PACKAGES_POPOVER_BASIC": "/packages/popover/basic",
+
   "APPLICATIONS": "/applications",
   "APPLICATIONS_LANGUAGES": "/applications/languages",
   "APPLICATIONS_VALIDATOR": "/applications/validator"

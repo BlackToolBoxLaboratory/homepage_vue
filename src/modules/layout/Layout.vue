@@ -5,17 +5,14 @@
       <slot />
     </div>
     <module-layout-foot class="layout_foot" />
-    <module-layout-aside
-      :class="['layout_aside', { 'aside-hidden': isHidden }]"
-      @clickEntry="clickEntry"
-    />
+    <module-layout-aside :class="['layout_aside', { 'aside-hidden': isHidden }]" @clickEntry="clickEntry" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 
-import { GRID } from '../../assets/definitions/constants';
+import { GRID } from '@/assets/definitions/constants';
 
 const SIZE_MD = 768;
 
@@ -32,7 +29,6 @@ export default defineComponent({
         isHidden.value = true;
       }
     };
-
     return {
       isHidden,
 
@@ -58,15 +54,18 @@ $aside-width: 300px;
     top: 0;
     z-index: 1;
   }
+
   .layout_content {
     @include transition(margin-right);
     flex-grow: 1;
     display: flex;
     padding: 1rem;
+
     @include media-breakpoint-up-md {
       padding: 0;
     }
   }
+
   .layout_aside {
     @include transition(right);
     position: fixed;

@@ -1,6 +1,4 @@
 import { createApp } from "vue";
-import { createPinia } from "pinia";
-import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 
 import BTBModules from "./modules";
 
@@ -10,11 +8,11 @@ import router from "./router";
 import FontAwesomeIcon from "@/plugins/vue-fontawesome";
 import BtbListComponents from "@/plugins/btblab-vue-list";
 import BtbTableComponents from "@/plugins/btblab-vue-table";
+import BtbPopoverComponents from "@/plugins/btblab-vue-popover";
+
+import pinia from '@/store';
 
 const app = createApp(App);
-
-const pinia = createPinia();
-pinia.use(piniaPluginPersistedstate);
 
 app
   .use(pinia)
@@ -22,5 +20,6 @@ app
   .use(BTBModules)
   .use(BtbListComponents)
   .use(BtbTableComponents)
+  .use(BtbPopoverComponents)
   .component("fai", FontAwesomeIcon)
   .mount("#app");
