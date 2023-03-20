@@ -32,6 +32,8 @@
 <script lang="ts">
 import { defineComponent, computed, ref } from "vue";
 import { storeToRefs } from "pinia";
+
+import { lang } from '@/plugins/btblab-prototype-languages';
 import ROUTE from "@/assets/definitions/constants/routeName.json";
 
 import { useLanguageStore } from '@/store/lang';
@@ -42,14 +44,14 @@ export default defineComponent({
     const showPopover = ref(false);
 
     const langStore = useLanguageStore();
-    const { lang: currentActiveID } = storeToRefs(langStore);
+    const { langIndex: currentActiveID } = storeToRefs(langStore);
 
     const homeUrl = computed<string>(() => {
       return `/vue/#${ROUTE["ABOUT"]}`;
     });
 
     const langList = computed(() => {
-      return langStore.menu().map((entry: Record<string, any>) => {
+      return lang.menu().map((entry: Record<string, any>) => {
         return {
           ...entry,
           id: entry.index,
@@ -62,7 +64,7 @@ export default defineComponent({
       emit("toggleMenu");
     };
     const switchLang = (event: Record<string, any>) => {
-      langStore?.set(event.index);
+      lang.set(event.index);
       currentActiveID.value = event.index;
       showPopover.value = false;
     }

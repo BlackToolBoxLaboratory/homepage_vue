@@ -1,34 +1,19 @@
-import { ref, onBeforeMount, onMounted, watchSyncEffect } from 'vue';
+import { ref, onBeforeMount, watch } from 'vue';
 import { defineStore } from "pinia";
 
 import { lang } from '@/plugins/btblab-prototype-languages';
 
-export type LanguageStore = {
-  lang: string,
-  menu: () => any[],
-  get: () => string,
-  set: (index: string) => string,
-  translate: (index: string, replacement?: Record<any, any>) => string
-}
-
 export const useLanguageStore = defineStore(
   "language",
-  (): LanguageStore => {
-    const _lang = ref('');
+  () => {
+    const _langIndex = ref(lang.get().index);
 
-    onBeforeMount(()=>{
-      lang.set(_lang.value);
-    })
-
-    onMounted(() => {
-      if(!_lang.value) {
-        _lang.value = lang.get().index;
-      }
+    onBeforeMount(() => {
+      lang.set(_langIndex.value);
     })
 
     return {
-      lang: _lang,
-      ...lang
+      langIndex: _langIndex,
     }
   },
   {

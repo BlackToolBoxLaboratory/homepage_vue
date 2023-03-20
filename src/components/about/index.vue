@@ -8,13 +8,7 @@
     </module-section>
     <module-section>
       <span>
-        I aim to develope some useful and simple UI components for front-end
-        development. And here all of packages are made For Vue. For hoping to
-        let user handle the customized layout easier and more concentrate. They
-        are designed with basic logic for high degrees of freedom of
-        customization and low dependency. While using, if you find some
-        questions, bugs or issues. Or having some great ideas. Please feel free
-        to let me know.
+        {{ translate(langIndex, 'about.description') }}
       </span>
     </module-section>
     <module-section class="grid-row justify-content-center">
@@ -24,8 +18,8 @@
       </a>
     </module-section>
     <module-divider />
-    <template v-for="entry in packageObj" :key="entry.name">
-      <template v-if="entry.name !== 'List'">
+    <template v-for="entry, key in packageObj" :key="entry.name">
+      <template v-if="key !== 'list'">
         <module-divider />
       </template>
       <module-section class="about_package">
@@ -37,12 +31,15 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { storeToRefs } from "pinia";
 
 import BTBPackage from "./package.vue";
 
 import logo from "@/assets/images/BTB_Vue.png";
-
 import PACKAGE from "@/assets/definitions/packageObj";
+import { translate } from '@/utils/functions';
+
+import { useLanguageStore } from '@/store/lang';
 
 export default defineComponent({
   name: "btb-about",
@@ -50,9 +47,15 @@ export default defineComponent({
     BTBPackage,
   },
   setup() {
+    const langStore = useLanguageStore();
+    const { langIndex } = storeToRefs(langStore);
+
     return {
       packageObj: PACKAGE,
       logo,
+
+      langIndex,
+      translate: translate
     };
   },
 });

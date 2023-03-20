@@ -8,32 +8,42 @@ export type PackageItem = {
   description: string;
   version: string;
   updated: string;
+  link: Record<string,string>
 };
 
 const packageObj: PackageObj = {
   list: {
-    name: "List",
+    name: 'package.list.name',
     routename: ROUTE.PACKAGES_LIST_BASIC,
-    description:
-      "This module of list creator with Vue can do the help to make a list or mane component to our page. Normally it is a list make. But with some trigger action it can be a menu maker for route redirection or other feature we need.",
+    description: 'package.list.description.basic',
     version: "2.0.8",
     updated: "Mar. 19, 2023",
+    link: {
+      github: 'https://github.com/BlackToolBoxLaboratory/vue-list',
+      npm: 'https://www.npmjs.com/package/@blacktoolbox/vue-list',
+    },
   },
   table: {
-    name: "Table",
+    name: 'package.table.name',
     routename: ROUTE.PACKAGES_TABLE_BASIC,
-    description:
-      "This module of table creator with Vue can do the help to make a table component to our page.",
+    description: 'package.table.description.basic',
     version: "2.0.6",
     updated: "Mar. 17, 2023",
+    link: {
+      github: 'https://github.com/BlackToolBoxLaboratory/vue-table',
+      npm: 'https://www.npmjs.com/package/@blacktoolbox/vue-table',
+    },
   },
   popover: {
-    name: "Table",
+    name: 'package.popover.name',
     routename: ROUTE.PACKAGES_POPOVER_BASIC,
-    description:
-      "This module of popover creator made with Vue3 can do the help to make a popover component to our page. The popover can do the thing about popover and dropdown.",
+    description: 'package.popover.description.basic',
     version: "1.0.1",
     updated: "Mar. 19, 2023",
+    link: {
+      github: 'https://github.com/BlackToolBoxLaboratory/vue-popover',
+      npm: 'https://www.npmjs.com/package/@blacktoolbox/vue-popover',
+    },
   },
 };
 

@@ -9,11 +9,12 @@
 import type { ListItemObj } from '@blacktoolbox/vue-list'
 
 import { defineComponent, ref, computed, onMounted, watch } from "vue";
-import { useRouter, useRoute } from "vue-router";
+import { useRoute } from "vue-router";
 import { storeToRefs } from "pinia";
 
 import MENU from "@/assets/definitions/menuList";
 import { ROUTE } from "@/assets/definitions/constants";
+import { translate } from "@/utils/functions";
 
 import { useLanguageStore } from '@/store/lang';
 
@@ -22,33 +23,9 @@ export default defineComponent({
   emits: ["clickEntry"],
   setup(props, { emit }) {
     const route = useRoute();
-    const router = useRouter();
 
     const langStore = useLanguageStore();
-    const { lang } = storeToRefs(langStore);
-
-    // const getRouteIDFromName = (routename: string) => {
-    //   return this.getRouteIDFromName_Recursive(routename, MENU) || ''
-    // }
-
-    // const getRouteIDFromName_Recursive = (routename: string, source: RouteList[]) => {
-    //   let result = ''
-    //   source.find((route) => {
-    //     if (route.children) {
-    //       result = this.getRouteIDFromName_Recursive(routename, route.children)
-    //       if (result.length !== 0) {
-    //         return true
-    //       }
-    //     } else {
-    //       if (route.routename === routename) {
-    //         result = route.id
-    //         return true
-    //       }
-    //     }
-    //     return false
-    //   })
-    //   return result
-    // }
+    const { langIndex } = storeToRefs(langStore);
 
     const activeID = ref("");
 
@@ -58,7 +35,7 @@ export default defineComponent({
 
     const translatedMenu = computed(() => {
       let result: any[] = [];
-      if (lang.value) {
+      if (langIndex.value) {
         result = MENU.map((entry) => {
           return translateMenuRecursive(entry);
         });
@@ -69,7 +46,7 @@ export default defineComponent({
     const translateMenuRecursive = (obj: ListItemObj) => {
       let result = {
         ...obj,
-        title: obj.langIndex ? langStore.translate(obj.langIndex) : obj.title,
+        title: obj.langIndex ? translate(langIndex.value, obj.langIndex) : obj.title,
       };
 
       if (obj.children) {

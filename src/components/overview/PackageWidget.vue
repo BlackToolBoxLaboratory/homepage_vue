@@ -13,29 +13,25 @@
     </p>
     <p className="widget_description">{{ props.data.description }}</p>
     <p>
-      <!-- <span className="widget_entry">{{lang.translate('overview.version_colon')}}</span> -->
-      <span className="widget_entry">{{ "Version: " }}</span>
+      <span className="widget_entry">{{ translate(langIndex,'overview.version_colon') }}</span>
       <span className="widget_value">{{ props.data.version }}</span>
     </p>
     <p>
-      <!-- <span className="widget_entry">{{lang.translate('overview.release_colon')}}</span> -->
-      <span className="widget_entry">{{ "Release Date: " }}</span>
+      <span className="widget_entry">{{ translate(langIndex,'overview.release_colon') }}</span>
       <span className="widget_value">{{
         reviseISOString(props.data.date).date
       }}</span>
     </p>
     <template v-if="series.length">
       <p>
-        <!-- <span className="widget_entry">{lang.translate('overview.download_colon')}</span> -->
-        <span className="widget_entry">{{ "Latest Downloads: " }}</span>
+        <span className="widget_entry">{{ translate(langIndex,'overview.download_colon') }}</span>
         <span className="widget_value">{{
           downloadData[downloadData.length - 1]
         }}</span>
       </p>
       <div className="widget_chart">
         <p className="widget_row">
-          <!-- <span className="widget_entry">{lang.translate('overview.downloads_colon')}</span> -->
-          <span className="widget_entry">{{ "Weekly Downloads: " }}</span>
+          <span className="widget_entry">{{ translate(langIndex,'overview.downloads_colon') }}</span>
         </p>
         <apexchart
           :options="options"
@@ -58,9 +54,12 @@ import type { PropType } from "vue";
 
 import { defineComponent, computed, onMounted, ref } from "vue";
 import Apexchart from "vue3-apexcharts";
+import { storeToRefs } from "pinia";
 
-import API_npmAPI from "../../apis/npmAPI";
-import reviseISOString from "../../utils/reviseISOString";
+import API_npmAPI from "@/apis/npmAPI";
+import { useLanguageStore } from '@/store/lang';
+import reviseISOString from "@/utils/reviseISOString";
+import { translate } from "@/utils/functions";
 
 import createChartOptions from "./chartOptions";
 
@@ -85,6 +84,9 @@ export default defineComponent({
   },
   setup(props) {
     const downloadData = ref<number[]>([]);
+    
+    const langStore = useLanguageStore();
+    const { langIndex } = storeToRefs(langStore);
 
     const packageUrl = computed(() => {
       return `https://www.npmjs.com/package/${props.data.name}`;
@@ -93,8 +95,7 @@ export default defineComponent({
     const series = computed(() => {
       return [
         {
-          // name: lang.translate('chart.times'),
-          name: "Times",
+          name: translate(langIndex.value, 'chart.times'),
           data: downloadData.value,
         },
       ];
@@ -140,6 +141,9 @@ export default defineComponent({
       downloadData,
       series,
       options,
+
+      langIndex,
+      translate
     };
   },
 });

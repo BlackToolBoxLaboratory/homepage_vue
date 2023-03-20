@@ -12,6 +12,10 @@ const formatISOString =
 // 7: Minute
 // 8: Second
 
+/**
+ * Revise time unit from Iso string
+ * @param isoString 
+ */
 const reviseISOString = function (isoString: string) {
   const localISOString = new Date(
     Date.parse(isoString) - new Date().getTimezoneOffset() * 60 * 1000
