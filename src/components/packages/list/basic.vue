@@ -85,7 +85,7 @@
         <template #title>
           {{ "styleObj" }}
         </template>
-        <p>Any className in this module could add inline CSS by styleObj.</p>
+        <p>{{ translate(langIndex, 'package.list.parameters.styleObj') }}</p>
         <module-pre class="block_item">
           <pre>{{ preStyleObj }}</pre>
         </module-pre>
@@ -147,7 +147,7 @@
 import { defineComponent } from "vue";
 import { storeToRefs } from "pinia";
 
-import { translate } from '@/utils/functions';
+import { translate, translate_type } from '@/utils/functions';
 import { useLanguageStore } from '@/store/lang';
 
 import { openLink } from "../../../utils/functions";
@@ -180,7 +180,7 @@ const preEntryObj = `ListItemObj = {
 }`;
 
 const preStyleObj = `styleObj = {
-        [ className ]: { inline CSS }
+        [ class ]: { inline CSS }
 }`;
 
 const tableHeadArr_property = [
@@ -332,21 +332,6 @@ export default defineComponent({
     const langStore = useLanguageStore();
     const { langIndex } = storeToRefs(langStore);
 
-    const translate_type = (lang: string, data: Record<string, any>, column: Record<string, any>) => {
-      const sep = data[column.id].split('||');
-      let result = '';
-      if (sep.length > 0) {
-        result = sep
-          .map((item: string) => {
-            return translate(langIndex.value, item);
-          })
-          .join(' || ');
-      } else {
-        result = data[column.id] === 'useRef' ? 'useRef' : translate(langIndex.value, data[column.id]);
-      }
-      return result;
-    }
-
     return {
       packageInfo,
       preInstall,
@@ -359,8 +344,9 @@ export default defineComponent({
       preStyleObj,
 
       tableHeadArr_emit,
-      tableBodyArr_emit,
       tableHeadArr_slot,
+    
+      tableBodyArr_emit,
       tableBodyArr_slot,
       nodeTree,
 

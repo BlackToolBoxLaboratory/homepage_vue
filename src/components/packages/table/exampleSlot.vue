@@ -36,7 +36,7 @@
         'th-ipAddr' : (
                 <span>
                         {'IP Link '}
-                        <FAI className="item_button" icon={['fas', 'external-link-alt']} fixedWidth />
+                        <FAI class="item_button" icon={['fas', 'external-link-alt']} fixedWidth />
                 </span>
         ),
         'td-ipAddr' : (data, column) => {

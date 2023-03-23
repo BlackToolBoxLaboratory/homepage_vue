@@ -8,10 +8,10 @@
       <div class="title_main hidden-up-md">BTB Lab.</div>
       <div class="title_sub">For Vue</div>
     </div>
-    <a className="head_item item-org" href="https://blacktoolboxlaboratory.github.io/" target="_blank" rel="noreferrer">
+    <a class="head_item item-org" href="https://blacktoolboxlaboratory.github.io/" target="_blank" rel="noreferrer">
       <fai class="header_button" :icon="['fas', 'building']" fixed-width />
     </a>
-    <a className="head_item item-home" :href="homeUrl">
+    <a class="head_item item-home" :href="homeUrl">
       <fai class="header_button" :icon="['fas', 'home']" fixed-width />
     </a>
     <div class="head_item">

@@ -17,7 +17,7 @@
       </template>
       <p>
         {{ translate(langIndex, 'application.languages.installation.description') }}
-        <a className="inline-link" href="https://blacktoolboxlaboratory.github.io/javascript/#/packages/languages"
+        <a class="inline-link" href="https://blacktoolboxlaboratory.github.io/javascript/#/packages/languages"
           target="_blank" rel="noreferrer">
           <fai :icon="['fas', 'external-link-alt']" fixedWidth size="xs" />
           <span>{{ translate(langIndex, 'application.languages.installation.linkName') }}</span>

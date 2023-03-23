@@ -19,4 +19,19 @@ const translate = (langIndex: string, index: string, replacement?: Record<any, a
   return lang.translate(index, replacement)
 }
 
-export { openLink, translate };
+const translate_type = (langIndex: string, data: Record<string, any>, column: Record<string, any>) => {
+  const sep = data[column.id].split('||');
+  let result = '';
+  if (sep.length > 0) {
+    result = sep
+      .map((item: string) => {
+        return translate(langIndex, item);
+      })
+      .join(' || ');
+  } else {
+    result = data[column.id] === 'useRef' ? 'useRef' : translate(langIndex, data[column.id]);
+  }
+  return result;
+}
+
+export { openLink, translate, translate_type };

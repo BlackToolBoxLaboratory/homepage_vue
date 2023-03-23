@@ -74,6 +74,9 @@ export default {
       description: {
         basic: 'This module of list creator with Vue3 can do the help to make a list or menu component to our page. Normally it is a list make. But with some trigger action it can be a menu maker for route redirection or other feature we need.'
       },
+      parameters: {
+        styleObj: 'Any class in this module could add inline CSS by styleObj.',
+      },
       property: {
         dataList: 'List of ListItemObj.',
         collapseEnable: 'Enable collapse feature.',
@@ -123,8 +126,40 @@ export default {
     table: {
       name: 'Table',
       description: {
-        basic: 'This module of table creator with Vue can do the help to make a table component to our page. It has modes of list, info and compare which are different ways to show data.',
-      }
+        basic: 'This module of table creator with Vue3 can do the help to make a table component to our page. It has modes of list, info and compare which are different ways to show data.',
+      },
+      property: {
+        headData: 'List of TableHeadObj.',
+        bodyData: 'List of TableBodyObj.',
+        mode: 'Value in list, info or compare.',
+        identity: 'Identity of data.',
+        emptyText: 'Showing text when no data available.',
+        styleObj: 'Specific style object, where key is spacific class name, value is style object. Please refer to Node Tree.'
+      },
+      entryObj: {
+        id: 'As an identity to column and also an index to key name of dataObj',
+        name: 'The name of table\'s head.'
+      },
+      parameters: {
+        styleObj: 'Any class in this module could add inline CSS by styleObj.',
+        slotObj: 'To vue, We can replace the default node with TableHeadObj.id by $slot. However we need the prefix to specify which node we want to customized th or td.'
+      },
+      emit: {
+        clickTh: 'click function of Th.',
+        clickTd: 'click function of Td.'
+      },
+      slotObj: {
+        th:'Slot for customized entry. Here is the example for slot if used. The porps will be entry corresponding the id with data of TableHeadObj.',
+        td: 'Slot for customized entry. Here is the example for slot if used. The porps will be entry corresponding the id with data of TableHeadObj and TableBodyObj.',
+        'td-empty':'Slot for showing text when data is empty. This is for mode \'list\' and \'compare\'.',
+        'info-empty': 'Slot for showing text when data is empty. This is for mode \'info\'.'
+      },
+      nodeTree: {
+        notice: 'Note: The data order is counted base on 0.',
+        list: 'List Mode',
+        info: 'Info Mode',
+        compare: 'Compare Mode',
+      },
     },
     popover: {
       name: 'Popover',

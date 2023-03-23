@@ -74,6 +74,10 @@ export default {
       description: {
         basic: '這個套件結合清單與選單的功能，利用展開收闔的功能，以及導頁的功能(vue-router, history,...等)，便是後台網站常見的選單，配合我們設計的彈出框。還可成為下拉式選單。'
       },
+      parameters: {
+        styleObj: '套件中任何具有 class 的節點，皆能使用 styleObj 定義 inline CSS。',
+        slotObj: '在 Vue 的版本，我們可以用 $slot 來客製 TableHeadObj.id ，但請記得加上前綴 `th-` 或 `td-`。'
+      },
       property: {
         dataList: 'ListItemObj 的陣列。',
         collapseEnable: '開啟展開 / 收合功能。',
@@ -111,7 +115,7 @@ export default {
         style: {
           title: '範例：客製化外觀',
           description:
-            '這邊將展示如何使用 styleObj，以 inline CSS 的方式客製化套件的外觀，並示範如何結合 activeID 的使用，標記出激活中的物件，但也可以僅以 defaultActiveID 標記初始激活的物件，最後再以 styleObj 於對應的 className 設定外觀。',
+            '這邊將展示如何使用 styleObj，以 inline CSS 的方式客製化套件的外觀，並示範如何結合 activeID 的使用，標記出激活中的物件，但也可以僅以 defaultActiveID 標記初始激活的物件，最後再以 styleObj 於對應的 class 設定外觀。',
         },
         slot: {
           title: '範例：客製化渲染',
@@ -123,8 +127,39 @@ export default {
     table: {
       name: '表單',
       description: {
-        basic: '表格的設計本身分成三種模式：列表、資訊與資訊並列，使用視窗監聽，再配合客製化的外觀。即可完成漂亮的響應式的表顯示。'
-      }
+        basic: '表格的設計本身分成三種模式：列表（清冊表）、資訊（資料表）與資訊並列（比較表），使用視窗監聽，再配合客製化的外觀。即可完成漂亮的響應式的表顯示。'
+      },
+      parameters: {
+        styleObj: '套件中任何具有 class 的節點，皆能使用 styleObj 定義 inline CSS。',
+      },
+      property: {
+        headData: 'TableHeadObj 的陣列。',
+        bodyData: 'TableBodyObj 的陣列。',
+        mode: '切換表的顯示方式：list、info、compare。',
+        identity: '資料的識別欄位。',
+        emptyText: '沒資料時顯示的文字。',
+        styleObj: '客製化外觀。'
+      },
+      entryObj: {
+        id: '表頭的 Id。',
+        name: '表頭的名稱。'
+      },
+      emit: {
+        clickTh: 'Th 點擊事件。',
+        clickTd: 'Td 點擊事件。'
+      },
+      slotObj: {
+        th:'客製化 Th 的功能，其中輸入值為該節點的 TableHeadObj 之原始資料。',
+        td: '客製化 Td 的功能，其中輸入值為該節點的 TableHeadOb 與 TableBodyObj 之原始資料。',
+        'td-empty':'用於在清冊表與比較表模式，客製化資料的功能',
+        'info-empty': '用於在資料表模式，客製化資料的功能',
+      },
+      nodeTree: {
+        notice: '附註：資料的流水號係由0開始。',
+        list: '清冊表',
+        info: '資料表',
+        compare: '比較表',
+      },
     },
     popover: {
       name: '彈出框',

@@ -6,9 +6,9 @@
         {{ "JAVASCRIPT" }}
       </template>
       <template v-if="packages['js'].length">
-        <div className="grid-row">
+        <div class="grid-row">
           <template v-for="entry in packages['js']" :key="entry.package.name">
-            <div className="grid-col-lg-6">
+            <div class="grid-col-lg-6">
               <PackageWidget :data="entry.package" type="js" />
             </div>
           </template>
@@ -23,9 +23,9 @@
         {{ "REACT" }}
       </template>
       <template v-if="packages['js'].length">
-        <div className="grid-row">
+        <div class="grid-row">
           <template v-for="entry in packages['react']" :key="entry.package.name">
-            <div className="grid-col-lg-6">
+            <div class="grid-col-lg-6">
               <PackageWidget :data="entry.package" type="react" />
             </div>
           </template>
@@ -40,9 +40,9 @@
         {{ "VUE" }}
       </template>
       <template v-if="packages['vue'].length">
-        <div className="grid-row">
+        <div class="grid-row">
           <template v-for="entry in packages['vue']" :key="entry.package.name">
-            <div className="grid-col-lg-6">
+            <div class="grid-col-lg-6">
               <PackageWidget :data="entry.package" type="vue" />
             </div>
           </template>

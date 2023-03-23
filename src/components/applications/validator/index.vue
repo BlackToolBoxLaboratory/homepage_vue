@@ -17,7 +17,7 @@
       </template>
       <p>
         {{ translate(langIndex, 'application.validator.installation.description') }}
-        <a className="inline-link" href="https://blacktoolboxlaboratory.github.io/javascript/#/packages/validator"
+        <a class="inline-link" href="https://blacktoolboxlaboratory.github.io/javascript/#/packages/validator"
           target="_blank" rel="noreferrer">
           <fai :icon="['fas', 'external-link-alt']" fixedWidth size="xs" />
           <span>{{ translate(langIndex, 'application.validator.installation.linkName') }}</span>

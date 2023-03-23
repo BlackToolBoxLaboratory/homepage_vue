@@ -1,9 +1,9 @@
 <template>
-  <div className="btb-overview-package-widget">
-    <p className="widget_title">
+  <div class="btb-overview-package-widget">
+    <p class="widget_title">
       {{ props.data.name
       }}<a
-        className="inline-link"
+        class="inline-link"
         :href="packageUrl"
         target="_blank"
         rel="noreferrer"
@@ -11,27 +11,27 @@
         <fai :icon="['fas', 'external-link-alt']" fixedWidth size="xs" />
       </a>
     </p>
-    <p className="widget_description">{{ props.data.description }}</p>
+    <p class="widget_description">{{ props.data.description }}</p>
     <p>
-      <span className="widget_entry">{{ translate(langIndex,'overview.version_colon') }}</span>
-      <span className="widget_value">{{ props.data.version }}</span>
+      <span class="widget_entry">{{ translate(langIndex,'overview.version_colon') }}</span>
+      <span class="widget_value">{{ props.data.version }}</span>
     </p>
     <p>
-      <span className="widget_entry">{{ translate(langIndex,'overview.release_colon') }}</span>
-      <span className="widget_value">{{
+      <span class="widget_entry">{{ translate(langIndex,'overview.release_colon') }}</span>
+      <span class="widget_value">{{
         reviseISOString(props.data.date).date
       }}</span>
     </p>
     <template v-if="series.length">
       <p>
-        <span className="widget_entry">{{ translate(langIndex,'overview.download_colon') }}</span>
-        <span className="widget_value">{{
+        <span class="widget_entry">{{ translate(langIndex,'overview.download_colon') }}</span>
+        <span class="widget_value">{{
           downloadData[downloadData.length - 1]
         }}</span>
       </p>
-      <div className="widget_chart">
-        <p className="widget_row">
-          <span className="widget_entry">{{ translate(langIndex,'overview.downloads_colon') }}</span>
+      <div class="widget_chart">
+        <p class="widget_row">
+          <span class="widget_entry">{{ translate(langIndex,'overview.downloads_colon') }}</span>
         </p>
         <apexchart
           :options="options"
@@ -42,7 +42,7 @@
       </div>
     </template>
     <template v-else>
-      <div className="widget_chart chart-loading">
+      <div class="widget_chart chart-loading">
         <module-loading />
       </div>
     </template>
