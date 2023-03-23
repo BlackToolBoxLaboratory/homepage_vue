@@ -55,7 +55,7 @@ export default defineComponent({
       logo,
 
       langIndex,
-      translate: translate
+      translate
     };
   },
 });

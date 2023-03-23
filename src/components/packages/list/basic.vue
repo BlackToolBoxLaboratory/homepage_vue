@@ -1,67 +1,85 @@
 <template>
   <module-page class="btb-pkg-list-basic">
-    <module-page-head
-      title="List"
-      :btnList="btnList"
-      @clickBtn="openLink"
-      />
+    <module-page-head :title="translate(langIndex, 'package.list.name')" :btnList="packageInfo.linkList"
+      @clickBtn="openLink" />
     <module-section>
       <template #head>
-        {{ `Version: ${version}` }} <br />
-        {{ `Release Date: ${updated}` }}
+        {{ `${translate(langIndex, 'package.version_colon')}${packageInfo.version}` }}<br />
+        {{ `${translate(langIndex, 'package.release_colon')}${packageInfo.updated}` }}
       </template>
       <p>
-        {{ description }}
+        {{ translate(langIndex, packageInfo.description) }}
       </p>
     </module-section>
     <module-section>
       <template #head>
-        {{ "INSTALLATION" }}
+        {{ translate(langIndex, 'package.section.installation') }}
       </template>
       <module-pre>
-        <pre>
-$ npm install --save @blacktoolbox/vue-list
-
-import Vue from 'vue'
-
-import BTBList from '@blacktoolbox/vue-list'
-import '@blacktoolbox/vue-list/lib/index.css'
-
-Vue.use(BTBList)
-        </pre>
+        <pre>{{ preInstall }}</pre>
       </module-pre>
     </module-section>
     <module-section>
       <template #head>
-        {{ "RENDER" }}
+        {{ translate(langIndex, 'package.section.render') }}
       </template>
       <module-pre>
-        <pre>{{ exampleRender }}</pre>
+        <pre>{{ preRender }}</pre>
       </module-pre>
     </module-section>
     <module-section>
       <template #head>
-        {{ "PARAMETERS" }}
+        {{ translate(langIndex, 'package.section.parameters') }}
       </template>
-      <btb-vue-table
-        class="page_table block_item"
-        :headData="tableHeadArr_property"
-        :bodyData="tableBodyArr_basic"
-        identity="title"
-      />
+      <btb-vue-table class="page_table block_item" :headData="tableHeadArr_property" :bodyData="tableBodyArr_basic"
+        identity="title">
+        <template #th-title>
+          {{ translate(langIndex, 'package.property.title') }}
+        </template>
+        <template #th-type>
+          {{ translate(langIndex, 'package.property.type') }}
+        </template>
+        <template #th-default>
+          {{ translate(langIndex, 'package.property.default') }}
+        </template>
+        <template #th-notice>
+          {{ translate(langIndex, 'package.property.notice') }}
+        </template>
+        <template #td-type="{ data, column }">
+          {{ translate_type(langIndex, data, column) }}
+        </template>
+        <template #td-notice="{ data }">
+          {{ translate(langIndex, data.notice) }}
+        </template>
+      </btb-vue-table>
       <module-block>
         <template #title>
           {{ "ListItemObj" }}
         </template>
         <module-pre class="block_item">
-          <pre>{{ exampleEntryObj }}</pre>
+          <pre>{{ preEntryObj }}</pre>
         </module-pre>
-        <btb-vue-table
-          class="page_table block_item"
-          :headData="tableHeadArr_property"
-          :bodyData="tableBodyArr_entry"
-          xScrollable
-        />
+        <btb-vue-table class="page_table block_item" :headData="tableHeadArr_property" :bodyData="tableBodyArr_entry"
+          xScrollable>
+          <template #th-title>
+            {{ translate(langIndex, 'package.property.title') }}
+          </template>
+          <template #th-type>
+            {{ translate(langIndex, 'package.property.type') }}
+          </template>
+          <template #th-default>
+            {{ translate(langIndex, 'package.property.default') }}
+          </template>
+          <template #th-notice>
+            {{ translate(langIndex, 'package.property.notice') }}
+          </template>
+          <template #td-type="{ data, column }">
+            {{ translate_type(langIndex, data, column) }}
+          </template>
+          <template #td-notice="{ data }">
+            {{ translate(langIndex, data.notice) }}
+          </template>
+        </btb-vue-table>
       </module-block>
       <module-block>
         <template #title>
@@ -74,36 +92,78 @@ Vue.use(BTBList)
       </module-block>
       <module-block>
         <template #title>
+          {{ "emit" }}
+        </template>
+        <btb-vue-table class="page_table block_item" :headData="tableHeadArr_emit" :bodyData="tableBodyArr_emit"
+          xScrollable>
+          <template #th-title>
+            {{ translate(langIndex, 'package.property.title') }}
+          </template>
+          <template #th-props>
+            {{ translate(langIndex, 'package.property.props') }}
+          </template>
+          <template #th-notice>
+            {{ translate(langIndex, 'package.property.notice') }}
+          </template>
+          <template #td-notice="{ data }">
+            {{ translate(langIndex, data.notice) }}
+          </template>
+        </btb-vue-table>
+      </module-block>
+      <module-block>
+        <template #title>
           {{ "slots" }}
         </template>
-        <btb-vue-table
-          class="page_table block_item"
-          :headData="tableHeadArr_slot"
-          :bodyData="tableBodyArr_slot"
-          xScrollable
-        />
+        <btb-vue-table class="page_table block_item" :headData="tableHeadArr_slot" :bodyData="tableBodyArr_slot"
+          xScrollable>
+          <template #th-title>
+            {{ translate(langIndex, 'package.property.title') }}
+          </template>
+          <template #th-props>
+            {{ translate(langIndex, 'package.property.props') }}
+          </template>
+          <template #th-notice>
+            {{ translate(langIndex, 'package.property.notice') }}
+          </template>
+          <template #td-notice="{ data }">
+            {{ translate(langIndex, data.notice) }}
+          </template>
+        </btb-vue-table>
       </module-block>
     </module-section>
     <module-section>
       <template #head>
-        {{ "NODE TREE" }}
+        {{ translate(langIndex, 'package.section.nodeTree') }}
       </template>
       <btb-vue-list class="page_node_tree" :dataList="nodeTree" />
       <p>
-        {{ "Note: The layer count is counted base on 0." }}
+        {{ translate(langIndex, 'package.list.nodeTree.notice') }}
       </p>
     </module-section>
   </module-page>
 </template>
 
 <script lang="ts">
-import { defineComponent} from "vue";
+import { defineComponent } from "vue";
+import { storeToRefs } from "pinia";
 
-import packageObj from "@/assets/definitions/packageObj";
+import { translate } from '@/utils/functions';
+import { useLanguageStore } from '@/store/lang';
 
 import { openLink } from "../../../utils/functions";
 
-const _exampleRender = `<btb-vue-list 
+import packageInfo from "./packageInfo";
+
+const preInstall = `$ npm install --save @blacktoolbox/vue-list
+
+import Vue from 'vue'
+
+import BtbListComponents from '@blacktoolbox/vue-list'
+import '@blacktoolbox/vue-list/lib/index.css'
+
+Vue.use(BtbListComponents)`;
+
+const preRender = `<btb-vue-list 
         :dataList=" Array " 
         :activeID=" String "
         :collapseEnable=" Boolean "
@@ -111,7 +171,7 @@ const _exampleRender = `<btb-vue-list
         @clickEntry=" function(ListItemObj){} "
         @toggleCollapsed=" function(ListItemObj){} "/>`;
 
-const _exampleEntryObj = `ListItemObj = {
+const preEntryObj = `ListItemObj = {
         id: '',
         title: '',
         href: '',
@@ -119,12 +179,103 @@ const _exampleEntryObj = `ListItemObj = {
         children: [...]
 }`;
 
-const _preStyleObj = `styleObj = {
+const preStyleObj = `styleObj = {
         [ className ]: { inline CSS }
 }`;
 
+const tableHeadArr_property = [
+  { name: "Property Name", id: "title" },
+  { name: "Type", id: "type" },
+  { name: "Default", id: "default" },
+  { name: "Notice", id: "notice" },
+];
 
-const _nodeTree = [
+const tableBodyArr_basic = [
+  {
+    title: "dataList",
+    type: "package.paramType.array",
+    default: "[]",
+    notice: "package.list.property.dataList",
+  },
+  {
+    title: "collapseEnable",
+    type: "package.paramType.boolean",
+    default: "false",
+    notice: "package.list.property.collapseEnable",
+  },
+  {
+    title: "activeID ( v-model )",
+    type: "package.paramType.string",
+    default: "undefined",
+    notice: "package.list.property.activeID",
+  },
+  {
+    title: "styleObj",
+    type: "package.paramType.object",
+    default: "undefined",
+    notice: "package.list.property.styleObj",
+  },
+];
+
+const tableBodyArr_entry = [
+  {
+    title: "id",
+    type: "package.paramType.string",
+    default: "undefined",
+    notice: "package.list.entryObj.id",
+  },
+  {
+    title: "title",
+    type: "package.paramType.string",
+    default: "''",
+    notice: "package.list.entryObj.title",
+  },
+  {
+    title: "href",
+    type: "package.paramType.string",
+    default: "''",
+    notice: "package.list.entryObj.href",
+  },
+  {
+    title: "defaultCollapsed",
+    type: "package.paramType.string",
+    default: "undefined",
+    notice: "package.list.entryObj.defaultCollapsed",
+  },
+  { title: "children", type: "package.paramType.array", default: "[]", notice: "package.list.entryObj.children" },
+]
+
+const tableHeadArr_emit = [
+  { name: "Name", id: "title" },
+  { name: "Props", id: "props" },
+  { name: "Notice", id: "notice" },
+]
+const tableBodyArr_emit = [
+  {
+    title: "@clickEntry",
+    props: "( ListItemObj )=>{}",
+    notice: "package.list.emit.clickEntry",
+  },
+  {
+    title: "@toggleCollapsed",
+    props: "( ListItemObj )=>{}",
+    notice: "package.list.emit.toggleCollapsed",
+  },
+]
+const tableHeadArr_slot = [
+  { name: "Name", id: "title" },
+  { name: "Props", id: "props" },
+  { name: "Notice", id: "notice" },
+]
+const tableBodyArr_slot = [
+  {
+    title: "[ id of ListItemObj ]",
+    props: "item: ListItemObj",
+    notice: "package.list.slotObj.entryObj",
+  },
+]
+
+const nodeTree = [
   {
     id: "list",
     title: "<div> .btb-vue-list",
@@ -135,11 +286,11 @@ const _nodeTree = [
         children: [
           {
             id: "container",
-            title: "<li> .layer-container .layer-[layer count]",
+            title: "<li> .layer_container",
             children: [
               {
                 id: "entry",
-                title: "<div> .container_entry .entry-[id] .entry-active",
+                title: "<div> .container_entry .entry-[id] .entry-active .entry-collapsable",
                 children: [
                   {
                     id: "title",
@@ -147,7 +298,7 @@ const _nodeTree = [
                   },
                   {
                     id: "collapseBtn",
-                    title: "<div> .entry_collapseBtn .collapseBtn-default",
+                    title: "<div> .entry_collapseBtn .collapseBtn-default .collapseBtn-on",
                     children: [
                       {
                         id: "arrow",
@@ -163,7 +314,7 @@ const _nodeTree = [
                 children: [
                   {
                     id: "next",
-                    title: "<ul>.btb-vue-list-layer.layer-[layer count + 1]",
+                    title: "<ul>.btb-vue-list-layer .layer-[layer count + 1]",
                   },
                 ],
               },
@@ -178,111 +329,44 @@ const _nodeTree = [
 export default defineComponent({
   name: "btb-pkg-list-basic",
   setup() {
-    return {
-      version: packageObj.list.version,
-      updated: packageObj.list.updated,
-      description: packageObj.list.description,
-      btnList: [
-        {
-          id: "github",
-          fa: ["fab", "github"],
-          url: "https://github.com/BlackToolBoxLaboratory/vue-list",
-        },
-        {
-          id: "npm",
-          fa: ["fab", "npm"],
-          url: "https://www.npmjs.com/package/@blacktoolbox/vue-list",
-        },
-      ],
-      exampleRender: _exampleRender,
-      exampleEntryObj: _exampleEntryObj,
-      preStyleObj: _preStyleObj,
-      tableHeadArr_property: [
-        { name: "Property Name", id: "title" },
-        { name: "Type", id: "type" },
-        { name: "Default", id: "default" },
-        { name: "Notice", id: "notice" },
-      ],
-      tableHeadArr_slot: [
-        { name: "Name", id: "title" },
-        { name: "Props", id: "props" },
-        { name: "Notice", id: "notice" },
-      ],
-      tableBodyArr_basic: [
-        {
-          title: "dataList",
-          type: "Array",
-          default: "[]",
-          notice: "List of ListItemObj.",
-        },
-        {
-          title: "collapseEnable",
-          type: "Boolean",
-          default: "false",
-          notice: "Enable collapse feature.",
-        },
-        {
-          title: "activeID (v-model)",
-          type: "String",
-          default: "undefined",
-          notice: "Active entry's ID which is v-model's value.",
-        },
-        {
-          title: "styleObj",
-          type: "Object",
-          default: "undefined",
-          notice:
-            "Specific style object, where key is spacific class name, value is style object. Please refer to Node Tree.",
-        },
-        {
-          title: "@clickEntry",
-          type: "$Emit",
-          default: "function(ListItemObj){}",
-          notice: "List entry's click function.",
-        },
-        {
-          title: "@toggleCollapsed",
-          type: "$Emit",
-          default: "function(ListItemObj){}",
-          notice: "List entry's toggle function.",
-        },
-      ],
-      tableBodyArr_entry: [
-        {
-          title: "id",
-          type: "String",
-          default: "undefined",
-          notice: "Identity of entry",
-        },
-        {
-          title: "title",
-          type: "String",
-          default: "''",
-          notice: "Show name of entry.",
-        },
-        {
-          title: "href",
-          type: "String",
-          default: "''",
-          notice: "For link.",
-        },
-        {
-          title: "defaultCollapsed",
-          type: "String",
-          default: "undefined",
-          notice: "Default value to collapsed of extend.",
-        },
-        { title: "children", type: "Array", default: "[]", notice: "sublist" },
-      ],
-      tableBodyArr_slot: [
-        {
-          title: "[ id of ListItemObj ]",
-          props: "-",
-          notice: "Slot for customized entry.",
-        },
-      ],
-      nodeTree: _nodeTree,
+    const langStore = useLanguageStore();
+    const { langIndex } = storeToRefs(langStore);
 
+    const translate_type = (lang: string, data: Record<string, any>, column: Record<string, any>) => {
+      const sep = data[column.id].split('||');
+      let result = '';
+      if (sep.length > 0) {
+        result = sep
+          .map((item: string) => {
+            return translate(langIndex.value, item);
+          })
+          .join(' || ');
+      } else {
+        result = data[column.id] === 'useRef' ? 'useRef' : translate(langIndex.value, data[column.id]);
+      }
+      return result;
+    }
+
+    return {
+      packageInfo,
+      preInstall,
+      preRender,
+      tableHeadArr_property,
+      tableBodyArr_basic,
+
+      preEntryObj,
+      tableBodyArr_entry,
+      preStyleObj,
+
+      tableHeadArr_emit,
+      tableBodyArr_emit,
+      tableHeadArr_slot,
+      tableBodyArr_slot,
+      nodeTree,
+
+      langIndex,
+      translate,
+      translate_type,
       openLink
     };
   },

@@ -16,8 +16,8 @@ const packageObj: PackageObj = {
     name: 'package.list.name',
     routename: ROUTE.PACKAGES_LIST_BASIC,
     description: 'package.list.description.basic',
-    version: "2.0.8",
-    updated: "Mar. 19, 2023",
+    version: "2.1.0",
+    updated: "Mar. 20, 2023",
     link: {
       github: 'https://github.com/BlackToolBoxLaboratory/vue-list',
       npm: 'https://www.npmjs.com/package/@blacktoolbox/vue-list',
@@ -27,8 +27,8 @@ const packageObj: PackageObj = {
     name: 'package.table.name',
     routename: ROUTE.PACKAGES_TABLE_BASIC,
     description: 'package.table.description.basic',
-    version: "2.0.6",
-    updated: "Mar. 17, 2023",
+    version: "2.1.0",
+    updated: "Mar. 20, 2023",
     link: {
       github: 'https://github.com/BlackToolBoxLaboratory/vue-table',
       npm: 'https://www.npmjs.com/package/@blacktoolbox/vue-table',

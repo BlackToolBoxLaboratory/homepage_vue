@@ -52,6 +52,13 @@ export default {
       example: 'EXAMPLE',
       sourceCode: 'SOURCE CODE',
     },
+    property: {
+      title: 'Name',
+      type: 'Type',
+      props: 'Property',
+      default: 'Default',
+      notice: 'Notice'
+    },
     paramType: {
       array: 'Array',
       object: 'Object',
@@ -66,7 +73,52 @@ export default {
       name: 'List',
       description: {
         basic: 'This module of list creator with Vue3 can do the help to make a list or menu component to our page. Normally it is a list make. But with some trigger action it can be a menu maker for route redirection or other feature we need.'
-      }
+      },
+      property: {
+        dataList: 'List of ListItemObj.',
+        collapseEnable: 'Enable collapse feature.',
+        activeID: 'Active entry\'s ID which is v-model\'s value.',
+        styleObj: 'Specific style object, where key is spacific class name, value is style object. Please refer to Node Tree.'
+      },
+      entryObj: {
+        id: 'Identity of entry.',
+        title: 'Name of entry.',
+        href: 'Link of entry. Used for menu link',
+        defaultCollapsed: 'Default value to collapsed of extend.',
+        children: 'Sublist.',
+      },
+      emit: {
+        clickEntry: 'click function of entry.',
+        toggleCollapsed: 'toggle function of entry.'
+      },
+      slotObj: {
+        entryObj:
+          'Slot for customized entry. Here is the example for function if used. And the item is the source data.',
+      },
+      nodeTree: {
+        notice: 'Note: The layer count is counted base on 0.',
+      },
+      example: {
+        list: {
+          title: 'Example: List',
+          description: 'Here is a very simple example for a list, if we just give a data list.',
+        },
+        menu: {
+          title: 'Example: Menu',
+          description:
+            'When we enable the collapseEnable with datalist, we will get a simple menu to use. And it will trigger the @toggleCollapsed emit function while clicked for Collapsing or Expending. Every entry can be active status after being clicked. Surely it will trigger the @clickEntry emit function too. Besides for a menu, it can utilize the ref to work with activeID (v-model).',
+        },
+        style: {
+          title: 'Example: Style',
+          description:
+            'Here is going to show you about how to use the styleObj and the example v-model of activeID. The activeID is used to mark focused entry, but also allowed to used defaultActiveID to mark entry as default in the begin. Then we can modify the style by the styleObj with using the node class name directly.',
+        },
+        slot: {
+          title: 'Example: Slot',
+          description:
+            'Sometimes we may want to show the entry from the list by button, input, icon, ... etc. Then we can ultilize this feature about customized slot. To the example as following, I show you how to customized the entry which ID is b2. For the package of list, every single ID corresponding to dataList can be customized by slotObj in String, Node, or Function way.',
+        },
+      },
     },
     table: {
       name: 'Table',

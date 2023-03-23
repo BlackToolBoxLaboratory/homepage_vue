@@ -1,37 +1,28 @@
 <template>
   <module-page class="btb-pkg-list-example-style">
-    <module-page-head
-      title="Example - Style"
-      :btnList="btnList"
-      @clickBtn="openLink"
-      />
+    <module-page-head :title="translate(langIndex, 'package.list.example.style.title')" :btnList="packageInfo.linkList"
+      @clickBtn="openLink" />
     <module-section>
       <template #head>
-        {{ `Version: ${version}` }} <br />
-        {{ `Release Date: ${updated}` }}
+        {{ `${translate(langIndex, 'package.version_colon')}${packageInfo.version}` }}<br />
+        {{ `${translate(langIndex, 'package.release_colon')}${packageInfo.updated}` }}
       </template>
       <p>
-        {{
-          "Here is going to show you about how to use the styleObj and the example v-model of activeID. The activeID is used to mark focused entry. Then we can modify the style by the styleObj with using the node class name directly."
-        }}
+        {{ translate(langIndex, 'package.list.example.style.description') }}
       </p>
     </module-section>
     <module-section>
       <template #head>
-        {{ "EXAMPLE" }}
+        {{ translate(langIndex, 'package.section.example') }}
       </template>
       <p class="example_activeID">
         {{ `Active ID: ${activeID}` }}
       </p>
-      <btb-vue-list
-        :dataList="listData"
-        v-model:activeID="activeID"
-        :styleObj="styleObj"
-      />
+      <btb-vue-list :dataList="listData" v-model:activeID="activeID" :styleObj="styleObj" />
     </module-section>
     <module-section>
       <template #head>
-        {{ "SOURCE CODE" }}
+        {{ translate(langIndex, 'package.section.sourceCode') }}
       </template>
       <module-pre>
         <pre>{{ exampleRender }}</pre>
@@ -41,8 +32,38 @@
           {{ "listData" }}
         </template>
         <module-pre>
-          <pre>
-const listData = [
+          <pre> {{ preListData }}</pre>
+        </module-pre>
+      </module-block>
+      <module-block>
+        <template #title>
+          {{ "styleObj" }}
+        </template>
+        <module-pre>
+          <pre>{{ preStyleObj }} </pre>
+        </module-pre>
+      </module-block>
+    </module-section>
+  </module-page>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref } from "vue";
+import { storeToRefs } from "pinia";
+
+import { translate } from '@/utils/functions';
+import { useLanguageStore } from '@/store/lang';
+
+import { openLink } from "../../../utils/functions";
+
+import packageInfo from "./packageInfo";
+
+const exampleRender = `<btb-vue-list 
+        v-model:activeID="activeID"
+        :dataList="listData"
+        :styleObj="styleObj"/>`;
+
+const preListData = `const listData = [
         { id: 'b1', title: 'Branch: 1', children: [
                 { id: 'l11', title: 'Leaf: 1-1' },
                 { id: 'b12', title: 'Branch: 1-2', children: [
@@ -55,45 +76,18 @@ const listData = [
                 { id: 'l21', title: 'Leaf: 2-1' },
                 { id: 'l22', title: 'Leaf: 2-2' }
         ]}
-]
-          </pre>
-        </module-pre>
-      </module-block>
-      <module-block>
-        <template #title>
-          {{ "styleObj" }}
-        </template>
-        <module-pre>
-          <pre>
-const _styleObj = {
+]`;
+
+const preStyleObj = `const styleObj = {
         'container_entry': {
                 cursor: 'pointer'
         },
         'entry-active': {
                 'background-color': '#41b883'
         }
-}
-</pre
-          >
-        </module-pre>
-      </module-block>
-    </module-section>
-  </module-page>
-</template>
+}`;
 
-<script lang="ts">
-import { defineComponent, ref } from "vue";
-
-import packageObj from "@/assets/definitions/packageObj";
-
-import { openLink } from "../../../utils/functions";
-
-const _exampleRender = `<btb-vue-list 
-        v-model:activeID="activeID"
-        :dataList="listData"
-        :styleObj="styleObj"/>`;
-
-const _listData = [
+const listData = [
   {
     id: "b1",
     title: "Branch: 1",
@@ -123,7 +117,7 @@ const _listData = [
   },
 ];
 
-const _styleObj = {
+const styleObj = {
   container_entry: {
     cursor: "pointer",
   },
@@ -135,27 +129,22 @@ const _styleObj = {
 export default defineComponent({
   name: "btb-pkg-list-example",
   data() {
-    const activeID = ref('l13')
+    const langStore = useLanguageStore();
+    const { langIndex } = storeToRefs(langStore);
+    const activeID = ref('l13');
+
     return {
-      version: packageObj.list.version,
-      updated: packageObj.list.updated,
-      btnList: [
-        {
-          id: "github",
-          fa: ["fab", "github"],
-          url: "https://github.com/BlackToolBoxLaboratory/vue-list",
-        },
-        {
-          id: "npm",
-          fa: ["fab", "npm"],
-          url: "https://www.npmjs.com/package/@blacktoolbox/vue-list",
-        },
-      ],
-      exampleRender: _exampleRender,
-      listData: _listData,
-      styleObj: _styleObj,
+      packageInfo,
+      exampleRender,
+      preListData,
+      preStyleObj,
+      listData,
+      styleObj,
+
       activeID,
 
+      langIndex,
+      translate,
       openLink
     };
   },

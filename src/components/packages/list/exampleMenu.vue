@@ -1,42 +1,55 @@
 <template>
   <module-page class="btb-pkg-list-example-menu">
-    <module-page-head
-      title="Example - Menu"
-      :btnList="btnList"
-      @clickBtn="openLink"
-      />
+    <module-page-head :title="translate(langIndex, 'package.list.example.menu.title')" :btnList="packageInfo.linkList"
+      @clickBtn="openLink" />
     <module-section>
       <template #head>
-        {{ `Version: ${version}` }} <br />
-        {{ `Release Date: ${updated}` }}
+        {{ `${translate(langIndex, 'package.version_colon')}${packageInfo.version}` }}<br />
+        {{ `${translate(langIndex, 'package.release_colon')}${packageInfo.updated}` }}
       </template>
       <p>
-        {{
-          "When we enable the collapseEnable with datalist, we will get a simple menu to use. And it will trigger the @toggleCollapsed event function while clicked for Collapsing or Expending. Every entry can be active status after being clicked. Surely it will trigger the @clickEntry event function too. Also use the v-model to listen the value from activeID"
-        }}
+        {{ translate(langIndex, 'package.list.example.menu.description') }}
       </p>
     </module-section>
     <module-section>
       <template #head>
-        {{ "EXAMPLE" }}
+        {{ translate(langIndex, 'package.section.example') }}
       </template>
       <btb-vue-list :dataList="menuData" collapseEnable />
     </module-section>
     <module-section>
       <template #head>
-        {{ "SOURCE CODE" }}
+        {{ translate(langIndex, 'package.section.sourceCode') }}
       </template>
-        <module-pre>
-          <pre>{{ exampleRender }}</pre
-          >
-        </module-pre>
+      <module-pre>
+        <pre>{{ exampleRender }}</pre>
+      </module-pre>
       <module-block>
         <template #title>
           {{ "menuData" }}
         </template>
         <module-pre>
-          <pre>
-const menuData = [
+          <pre>{{ preMenuData }}</pre>
+        </module-pre>
+      </module-block>
+    </module-section>
+  </module-page>
+</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import { storeToRefs } from "pinia";
+
+import { translate } from '@/utils/functions';
+import { useLanguageStore } from '@/store/lang';
+
+import { openLink } from "../../../utils/functions";
+
+import packageInfo from "./packageInfo";
+
+const exampleRender = '<btb-vue-list :dataList="menuData" collapseEnable/>';
+
+const preMenuData = `const menuData = [
         { id: 'f1', title: 'Folder: 1', children: [
                 { id: 't11', title: 'Menu: 1-1' },
                 { id: 't12', title: 'Menu: 1-2' }
@@ -46,24 +59,10 @@ const menuData = [
                 { id: 't22', title: 'Menu: 2-2' },
                 { id: 't23', title: 'Menu: 2-3' }
         ]}
-]
-          </pre>
-        </module-pre>
-      </module-block>
-    </module-section>
-  </module-page>
-</template>
+]`;
 
-<script lang="ts">
-import { defineComponent } from "vue";
 
-import packageObj from "@/assets/definitions/packageObj";
-
-import { openLink } from "../../../utils/functions";
-
-const _exampleRender = '<btb-vue-list :dataList="menuData" collapseEnable/>';
-
-const _menuData = [
+const menuData = [
   {
     id: "f1",
     title: "Folder: 1",
@@ -87,24 +86,17 @@ const _menuData = [
 export default defineComponent({
   name: "btb-pkg-list-example",
   setup() {
-    return {
-      version: packageObj.list.version,
-      updated: packageObj.list.updated,
-      btnList: [
-        {
-          id: "github",
-          fa: ["fab", "github"],
-          url: "https://github.com/BlackToolBoxLaboratory/vue-list",
-        },
-        {
-          id: "npm",
-          fa: ["fab", "npm"],
-          url: "https://www.npmjs.com/package/@blacktoolbox/vue-list",
-        },
-      ],
-      exampleRender: _exampleRender,
-      menuData: _menuData,
+    const langStore = useLanguageStore();
+    const { langIndex } = storeToRefs(langStore);
 
+    return {
+      packageInfo,
+      exampleRender,
+      preMenuData,
+      menuData,
+
+      langIndex,
+      translate,
       openLink
     };
   },

@@ -1,6 +1,7 @@
 .page_table.btb-vue-table {
   margin-bottom: 1rem;
   overflow: auto;
+
   .btb-vue-table-list {
     th {
       @include border-solid(2px);
@@ -8,16 +9,30 @@
       background-color: $color-primary-lll;
       border-color: $color-primary-lll;
     }
+
     td {
       @include border-solid(2px);
       padding: 0.25rem 1rem;
       border-color: $color-primary-lll;
+
       &.td-title {
         white-space: nowrap;
       }
+
+      &.td-type {
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      &.td-props {
+        text-align: center;
+        white-space: nowrap;
+      }
+
       &.td-type {
         text-align: center;
       }
+
       &.td-default {
         text-align: center;
         white-space: nowrap;
@@ -29,6 +44,7 @@
 .page_node_tree.btb-vue-list {
   padding: 0.5rem 1rem;
   background-color: $color-primary-lll;
+
   .entry_title {
     padding: 0.25rem 0;
   }

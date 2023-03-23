@@ -46,7 +46,7 @@ export default defineComponent({
       redirectRoute,
 
       langIndex,
-      translate: translate
+      translate
     };
   },
 });
