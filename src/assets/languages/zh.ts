@@ -133,6 +133,46 @@ export default {
       }
     },
   },
+  application: {
+    version_colon: '發布版本：',
+    release_colon: '發布日期：',
+    section: {
+      installation: '安裝',
+      initializer: '初始化',
+      impletement: '實體',
+      trigger: '觸發',
+      result: '結果'
+    },
+    languages: {
+      name: '多語言切換器',
+      description:
+        '對於跨國性服務來說，多國語言的支援往往是基本需求，雖然我們已有一些很出色的語言相關套件，如i18n，但我想開發的多語言切換器，主要是想降低套件的依賴性，以及降低一些非必要的功能支援，以最單純的核心功能，並且提供良好的擴充彈性，如果您需要很完整、方便的功能，可以考慮使用 i18n 之類的傑出套件，倘若需要的功能並不複雜，那麼也許你會想要試試看BTB Lab. 的多語言切換器。這邊我們將說明如何結合與基於 React 開發的網站使用。',
+      installation: {
+        description: '比較詳細的操作說明在我的 JavaScript Lab，這邊著重在如何與基於 Vue 開發的網站使用。',
+        linkName: '說明文件連結',
+      },
+      initializer: '@blacktoolbox/prototype-languages 需要在使用前執行初始化的動作。',
+      impletement:
+        '套件本身內有儲存語言字典的機制，也就是在執行 initializer 時，所執行的事情. 但我們還需要再使用前多語言切換器之前，實踐至少一個實體出來，而主要的產生語言清單、激活指定的語言，以及翻譯的動作皆須仰賴此實體，藉由：menu(), get(), set(), translate().',
+      trigger: {
+        description:
+          '這邊則是說明如何在切換語言之後，重新顯示或渲染網頁。當然地我們仍可以結合localStorage，用重新載入網站的方式，使得網頁以新指定的語言顯示對應翻譯。基本地我們能應用 Vue 的機制，觸發網頁換新：ref.',
+        ref:
+          '我們可以結合儲存管理機制的套件（Vuex、Pinia、...），但根據 Vue 的特性，並不會像 React 因為 dispatch 的機制而重新渲然整個頁面，所以我們還需要利用 Vue 本身對於質變的監控機制，把透過 Ref() 包裹起來的語言設定，與 translate 或其他函數做相關聯，如此才會在設定語言的時候，同時觸發重新翻譯的動作。'
+      },
+    },
+    validator: {
+      name: '驗證器',
+      description:
+        '大多數的排版框架皆含有驗證表單的功能，但各自排版框架的驗證器使用方式不盡相同，對於有些需要對於不同的案子，使用不同的排版框架的團隊而言，已經存在的驗證邏輯在移植上，可能就不是這麼方便，因此，我試著開發一般化的表單驗證器，或者可以更深一層地說它是變數驗證器，因為即使不與排版框架合用，單純寫在函數裡的變數格式驗證也是可以的，如此期望，應用此套件的人，可以一致地整合表單的驗證與函數的驗證。',
+      installation: {
+        description: '比較詳細的操作說明在我的 JavaScript Lab，這邊著重在如何與基於 Vue 開發的網站使用。',
+        linkName: '說明文件連結',
+      },
+      initializer: '@blacktoolbox/prototype-validator 需要在使用前執行初始化的動作。',
+      result: '每一個驗證事件的驗證狀態的物件結構。每一個驗證事件的狀態包含 null、false、true 。而 null 表示尚未觸發驗證的狀態。這些狀態可以透過 reset() 做初始化。',
+    },
+  },
   chart: {
     times: '次數',
   },

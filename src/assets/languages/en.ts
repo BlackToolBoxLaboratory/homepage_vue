@@ -133,6 +133,48 @@ export default {
       }
     }
   },
+  application: {
+    version_colon: 'Version: ',
+    release_colon: 'Release Date: ',
+    section: {
+      installation: 'INSTALLATION',
+      initializer: 'INITIALIZER',
+      impletement: 'IMPLEMENT',
+      trigger: 'TRIGGER',
+      result: 'RESULT'
+    },
+    languages: {
+      name: 'Languages',
+      description:
+        'For developing the website of international services, we usually have the requirement to develop with the feature of multiple-languages supported. We already have a lot of masterpice such like i18n. But here we created our own multiple-languages package for lowing down the dependencies. Here I am going to show you how to ultilize the @blacktoolbox/prototype-languages with React based website.',
+      installation: {
+        description:
+          'The more detail is intoduced in JavaScript Lab. The more detail you could see it there. Here it only present how to work with Vue based website.',
+        linkName: 'Link of Document',
+      },
+      initializer: 'As @blacktoolbox/prototype-languages required, it need to be initialized before using.',
+      impletement:
+        'The package has storage itself to save the each dicionary of language which is the thing initializer do. And the other thing to do before using is implement a instance of the package. Most action processed with it: menu(), get(), set(), translate().',
+      trigger: {
+        description:
+          'Here we are talking about how to re-render the page after we change the language settings. Of cause, we can do reload to the browser with localStorage, no matter witch type of website is. We could ultilize the nature of Vue. Basically we have way to rerender the page: ref.',
+        ref:
+          'Combined the package with Store management related package(Flux, Redux, ...). However to the natural of Vue. They will not imediately updated when language setting updated. And we will need to utilize the Ref() and make a connection between Ref().value and our transalte or others functions.'
+      },
+    },
+    validator: {
+      name: 'Validator',
+      description:
+        "Most form UI packages have their own validator to use for convenience. But sometimes we don't use only one UI packages to develop every single project. So we try to create the validator generally to adapt to every kind of form UI packages to allow us using just one type of validator coding patteren to develop with every UI packages.",
+      installation: {
+        description:
+          'The more detail is intoduced in JavaScript Lab. The more detail you could see it there. Here it only present how to work with Vue based website.',
+        linkName: 'Link of Document',
+      },
+      initializer: 'As @blacktoolbox/prototype-validator required, it need to be initialized before using.',
+      result: 'The structure of status for each event. Every event could be the three type of status: null, false, true. And null means the status is initialized. You can clean all via reset()',
+    },
+  },
   chart: {
     times: 'Times',
   },

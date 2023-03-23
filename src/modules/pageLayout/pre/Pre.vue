@@ -14,7 +14,7 @@ export default defineComponent({
 
 <style lang="scss">
 .module-pre {
-  @include margin-md-y;
+  @include margin-lg-y;
   @include padding-md-y;
   @include padding-lg-x;
   padding: 0.5rem 1rem;
