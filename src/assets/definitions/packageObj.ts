@@ -38,8 +38,8 @@ const packageObj: PackageObj = {
     name: 'package.popover.name',
     routename: ROUTE.PACKAGES_POPOVER_BASIC,
     description: 'package.popover.description.basic',
-    version: "1.0.1",
-    updated: "Mar. 19, 2023",
+    version: "1.0.2",
+    updated: "Mar. 26, 2023",
     link: {
       github: 'https://github.com/BlackToolBoxLaboratory/vue-popover',
       npm: 'https://www.npmjs.com/package/@blacktoolbox/vue-popover',

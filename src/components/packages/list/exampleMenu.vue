@@ -84,7 +84,7 @@ const menuData = [
 ];
 
 export default defineComponent({
-  name: "btb-pkg-list-example",
+  name: "btb-pkg-list-example-menu",
   setup() {
     const langStore = useLanguageStore();
     const { langIndex } = storeToRefs(langStore);

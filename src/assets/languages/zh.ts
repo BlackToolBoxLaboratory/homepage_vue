@@ -24,6 +24,13 @@ export default {
           slot: '範例：客製化渲染',
         },
       },
+      popover: {
+        root: '彈出框',
+        example: {
+          position: '範例：顯示位置',
+          align: '範例：對齊方式',
+        },
+      },
     },
     application: {
       root: '應用套件',
@@ -165,7 +172,40 @@ export default {
       name: '彈出框',
       description: {
         basic: '彈出框預設有偵測視窗邊界的功能，可靈活的切換顯示位置與對齊方式，也具有強制鎖定顯示狀態的設計，另外如果結合彈出框與清單的套件，便可成為下拉式選單。'
-      }
+      },
+      property: {
+        id: '彈出框的 ID，預設為隨機產生，也可以自己行定義。',
+        state: '彈出框的顯示狀態，支援 v-model。',
+        position: '控制彈出框顯示位置：top、right、bottom、left。',
+        align: '控制彈出框對齊位置：begin、center、end。',
+        withArrow: '控制顯示為對話框。',
+        autoDetect: '自動偵測式窗邊界功能，並自動切換彈出框顯示與對齊位置。預設為啟用。',
+        styleObj: '客製化外觀。',
+      },
+      emit: {
+        updatestate: 'v-model 變更事件。',
+        toggle: '切換事件。',
+        show: '顯示事件。',
+        hide: '隱藏事件。'
+      },
+      slotObj: {
+        default: '彈出框的內容',
+        trigger: '觸發按鈕',
+      },
+      example: {
+        vertical: '垂直',
+        horizontal: '水平',
+        position: {
+          title: '範例：顯示位置',
+          description:
+            '簡單地展示如何控制彈出框顯示的位置。彈出框預設啟用瀏覽器邊界偵測（autoDetect），當彈出框超出瀏覽器邊界時，會依據顯示位置與對齊方式做濤整，此功能也可以關掉。',
+        },
+        align: {
+          title: '範例：對齊方式',
+          description:
+            '簡單地展示如何控制彈出框顯示的位置。彈出框預設啟用瀏覽器邊界偵測（autoDetect），當彈出框超出瀏覽器邊界時，會依據顯示位置與對齊方式做濤整，此功能也可以關掉。',
+        },
+      },
     },
   },
   application: {
@@ -176,7 +216,8 @@ export default {
       initializer: '初始化',
       impletement: '實體',
       trigger: '觸發',
-      result: '結果'
+      result: '結果',
+      sourceCode: '源代碼'
     },
     languages: {
       name: '多語言切換器',
@@ -193,7 +234,7 @@ export default {
         description:
           '這邊則是說明如何在切換語言之後，重新顯示或渲染網頁。當然地我們仍可以結合localStorage，用重新載入網站的方式，使得網頁以新指定的語言顯示對應翻譯。基本地我們能應用 Vue 的機制，觸發網頁換新：ref.',
         ref:
-          '我們可以結合儲存管理機制的套件（Vuex、Pinia、...），但根據 Vue 的特性，並不會像 React 因為 dispatch 的機制而重新渲然整個頁面，所以我們還需要利用 Vue 本身對於質變的監控機制，把透過 Ref() 包裹起來的語言設定，與 translate 或其他函數做相關聯，如此才會在設定語言的時候，同時觸發重新翻譯的動作。'
+          '我們可以結合儲存管理機制的套件（Vuex、Pinia、...），但根據 Vue 的特性，並不會像 React 因為 dispatch 的機制而重新渲然整個頁面，所以我們還需要利用 Vue 本身對於值變的監控機制，把透過 Ref() 包裹起來的語言設定，與 translate 或其他函數做相關聯，如此才會在設定語言的時候，同時觸發重新翻譯的動作。'
       },
     },
     validator: {

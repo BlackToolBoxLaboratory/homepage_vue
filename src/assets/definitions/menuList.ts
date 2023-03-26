@@ -88,6 +88,36 @@ const routeList: ListItemObj[] = [
           },
         ],
       },
+      {
+        id: "PACKAGES_POPOVER",
+        routename: "packages.popover",
+        title: "Table",
+        langIndex: "menu.packages.popover.root",
+        defaultCollapsed: true,
+        children: [
+          {
+            id: "PACKAGES_POPOVER_BASIC",
+            routename: "packages.popover.basic",
+            title: "Basic",
+            langIndex: "menu.packages.basic",
+            href: redirectUrl(ROUTE.PACKAGES_POPOVER_BASIC),
+          },
+          {
+            id: "PACKAGES_POPOVER_EXAMPLE_POSITION",
+            routename: "packages.popover.basic",
+            title: "Example: Position",
+            langIndex: "menu.packages.popover.example.position",
+            href: redirectUrl(ROUTE.PACKAGES_POPOVER_EXAMPLE_POSITION),
+          },
+          {
+            id: "PACKAGES_POPOVER_EXAMPLE_ALIGN",
+            routename: "packages.popover.basic",
+            title: "Example: Align",
+            langIndex: "menu.packages.popover.example.align",
+            href: redirectUrl(ROUTE.PACKAGES_POPOVER_EXAMPLE_ALIGN),
+          },
+        ],
+      },
     ],
   },
   {

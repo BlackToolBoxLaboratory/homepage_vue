@@ -119,6 +119,43 @@ const router = createRouter({
                 },
               ],
             },
+            {
+              path: "popover",
+              name: "packages.popover",
+              component: () =>
+                import(
+                  /* webpackChunkName: "popover" */ "@/views/packages/popover/PopoverContainer.vue"
+                ),
+              redirect: {
+                name: "packages.popover.basic",
+              },
+              children: [
+                {
+                  path: "basic",
+                  name: "packages.popover.basic",
+                  component: () =>
+                    import(
+                      /* webpackChunkName: "popoverBasic" */ "@/views/packages/popover/BasicContainer.vue"
+                    ),
+                },
+                {
+                  path: "example/position",
+                  name: "packages.popover.example.position",
+                  component: () =>
+                    import(
+                      /* webpackChunkName: "popoverExamplePosition" */ "@/views/packages/popover/ExamplePositionContainer.vue"
+                    ),
+                },
+                {
+                  path: "example/align",
+                  name: "packages.popover.example.align",
+                  component: () =>
+                    import(
+                      /* webpackChunkName: "popoverExampleAlign" */ "@/views/packages/popover/ExampleAlignContainer.vue"
+                    ),
+                },
+              ]
+            }
           ],
         },
 

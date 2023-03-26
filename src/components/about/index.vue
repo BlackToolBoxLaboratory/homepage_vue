@@ -23,7 +23,7 @@
         <module-divider />
       </template>
       <module-section class="about_package">
-        <BTBPackage :info="entry" />
+        <BTBPackage :info="entry"/>
       </module-section>
     </template>
   </module-page>

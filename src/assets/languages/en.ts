@@ -24,6 +24,13 @@ export default {
           slot: 'Example: Slot',
         },
       },
+      popover: {
+        root: 'Popover',
+        example: {
+          position: 'Example: Position',
+          align: 'Example: Align',
+        },
+      },
     },
     application: {
       root: 'Application',
@@ -149,9 +156,9 @@ export default {
         clickTd: 'click function of Td.'
       },
       slotObj: {
-        th:'Slot for customized entry. Here is the example for slot if used. The porps will be entry corresponding the id with data of TableHeadObj.',
+        th: 'Slot for customized entry. Here is the example for slot if used. The porps will be entry corresponding the id with data of TableHeadObj.',
         td: 'Slot for customized entry. Here is the example for slot if used. The porps will be entry corresponding the id with data of TableHeadObj and TableBodyObj.',
-        'td-empty':'Slot for showing text when data is empty. This is for mode \'list\' and \'compare\'.',
+        'td-empty': 'Slot for showing text when data is empty. This is for mode \'list\' and \'compare\'.',
         'info-empty': 'Slot for showing text when data is empty. This is for mode \'info\'.'
       },
       nodeTree: {
@@ -165,6 +172,39 @@ export default {
       name: 'Popover',
       description: {
         basic: 'This module of popover creator made with Vue3 can do the help to make a popover component to our page. The popover can do the thing about popover and dropdown.'
+      },
+      property: {
+        id: 'Id of popover, default to created in random. But we can difined by self.',
+        state: 'State of popover, we can control it via v-model.',
+        position: 'The position of popover. Options in top, right, bottom, left.',
+        align: 'The align of popover. Options in begin, center, end.',
+        withArrow: 'The tiny caret to let popover become conversation block. Get it false when we prefer a dropdown.',
+        autoDetect: 'The feature of auto-detecting window\'s inner edge of browser. When the popover show overglow to browser, it will adjust by self. We could get it false, if we don\'t need the feature working. Default is ture.',
+        styleObj: 'Object of customized style.',
+      },
+      emit: {
+        updatestate: 'Emit updated event function of v-model.',
+        toggle: 'Emit toggle function',
+        show: 'Emit show function.',
+        hide: 'Emit hide function.'
+      },
+      slotObj: {
+        default: 'Slot for content of popover.',
+        trigger: 'Slot for trigger button.',
+      },
+      example: {
+        vertical: 'Vertical',
+        horizontal: 'Horizontal',
+        position: {
+          title: 'Example: Position',
+          description:
+            'Here is simply to show the popover with position configured. The popover is default to enable autoDetect function which means while the popover showing over the boundary of browser. It will adjust automatically.',
+        },
+        align: {
+          title: 'Example: Align',
+          description:
+            'Here is simply to show the popover with align configured. The popover is default to enable autoDetect function which means while the popover showing over the boundary of browser. It will adjust automatically.',
+        },
       }
     }
   },
@@ -176,7 +216,8 @@ export default {
       initializer: 'INITIALIZER',
       impletement: 'IMPLEMENT',
       trigger: 'TRIGGER',
-      result: 'RESULT'
+      result: 'RESULT',
+      sourceCode: 'SOURCE CODE'
     },
     languages: {
       name: 'Languages',

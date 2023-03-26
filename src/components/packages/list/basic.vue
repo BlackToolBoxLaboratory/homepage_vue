@@ -92,7 +92,7 @@
       </module-block>
       <module-block>
         <template #title>
-          {{ "emit" }}
+          {{ "$emit" }}
         </template>
         <btb-vue-table class="page_table block_item" :headData="tableHeadArr_emit" :bodyData="tableBodyArr_emit"
           xScrollable>
@@ -112,7 +112,7 @@
       </module-block>
       <module-block>
         <template #title>
-          {{ "slots" }}
+          {{ "$slots" }}
         </template>
         <btb-vue-table class="page_table block_item" :headData="tableHeadArr_slot" :bodyData="tableBodyArr_slot"
           xScrollable>
@@ -165,11 +165,14 @@ Vue.use(BtbListComponents)`;
 
 const preRender = `<btb-vue-list 
         :dataList=" Array " 
-        :activeID=" String "
+        v-model:activeID=" String "
         :collapseEnable=" Boolean "
         :styleObj=" Object "
         @clickEntry=" function(ListItemObj){} "
-        @toggleCollapsed=" function(ListItemObj){} "/>`;
+        @toggleCollapsed=" function(ListItemObj){} "
+>
+        <template #[ id of ListItemObj ]></template>
+</btb-vue-list `;
 
 const preEntryObj = `ListItemObj = {
         id: '',
@@ -251,6 +254,11 @@ const tableHeadArr_emit = [
   { name: "Notice", id: "notice" },
 ]
 const tableBodyArr_emit = [
+  {
+    title: "@update:state",
+    props: "( state )=>{}",
+    notice: "package.table.emit.update:state",
+  },
   {
     title: "@clickEntry",
     props: "( ListItemObj )=>{}",

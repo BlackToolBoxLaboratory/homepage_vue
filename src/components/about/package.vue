@@ -2,7 +2,9 @@
   <div class="btb-about-package grid-row">
     <div class="grid-col-md-3">
       <div class="package_title">{{ translate(langIndex, props.info.name) }}</div>
-      <fai class="package_link" :icon="['fas', 'link']" fixed-width @click="redirectRoute" />
+      <router-link :to="props.info.routename">
+        <fai class="package_link" :icon="['fas', 'link']" fixed-width />
+      </router-link>
     </div>
     <div class="grid-col-md">
       <div class="package_description">{{ translate(langIndex, props.info.description) }}</div>
@@ -37,13 +39,8 @@ export default defineComponent({
     const langStore = useLanguageStore();
     const { langIndex } = storeToRefs(langStore);
 
-    const redirectRoute = () => {
-      emit("redirectRoute", props.info.routename);
-    };
-
     return {
       props,
-      redirectRoute,
 
       langIndex,
       translate

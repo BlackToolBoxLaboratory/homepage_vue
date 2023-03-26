@@ -127,7 +127,7 @@ const styleObj = {
 };
 
 export default defineComponent({
-  name: "btb-pkg-list-example",
+  name: "btb-pkg-list-example-style",
   data() {
     const langStore = useLanguageStore();
     const { langIndex } = storeToRefs(langStore);

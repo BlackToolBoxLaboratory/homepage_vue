@@ -1,6 +1,6 @@
 <template>
-  <module-page class="btb-pkg-table-basic">
-    <module-page-head :title="translate(langIndex, 'package.table.name')" :btnList="packageInfo.linkList"
+  <module-page class="btb-pkg-popover-basic">
+    <module-page-head :title="translate(langIndex, 'package.popover.name')" :btnList="packageInfo.linkList"
       @clickBtn="openLink" />
     <module-section>
       <template #head>
@@ -51,39 +51,6 @@
           {{ translate(langIndex, data.notice) }}
         </template>
       </btb-vue-table>
-      <module-block>
-        <template #title>
-          {{ "TableHeadObj" }}
-        </template>
-        <module-pre class="block_item">
-          <pre>{{ exampleHeadObj }}</pre>
-        </module-pre>
-        <btb-vue-table class="page_table block_item" :headData="tableHeadArr_entry" :bodyData="tableBodyArr_head">
-          <template #th-title>
-            {{ translate(langIndex, 'package.property.title') }}
-          </template>
-          <template #th-type>
-            {{ translate(langIndex, 'package.property.type') }}
-          </template>
-          <template #th-notice>
-            {{ translate(langIndex, 'package.property.notice') }}
-          </template>
-          <template #td-type="{ data, column }">
-            {{ translate_type(langIndex, data, column) }}
-          </template>
-          <template #td-notice="{ data }">
-            {{ translate(langIndex, data.notice) }}
-          </template>
-        </btb-vue-table>
-      </module-block>
-      <module-block>
-        <template #title>
-          {{ "TableBodyObj" }}
-        </template>
-        <module-pre class="block_item">
-          <pre>{{ exampleDataObj }}</pre>
-        </module-pre>
-      </module-block>
       <module-block>
         <template #title>
           {{ "styleObj" }}
@@ -180,38 +147,31 @@ import { openLink } from "../../../utils/functions";
 
 import packageInfo from "./packageInfo";
 
-const preInstall = `$ npm install --save @blacktoolbox/vue-table
+const preInstall = `$ npm install --save @blacktoolbox/vue-popover
 
 import Vue from 'vue'
 
-import BtbTableComponents from '@blacktoolbox/vue-table'
-import '@blacktoolbox/vue-table/lib/index.css'
+import BtbPopoverComponents from '@blacktoolbox/vue-popover'
+import '@blacktoolbox/vue-popover/lib/index.css'
 
-Vue.use(BtbTableComponents)`;
+Vue.use(BtbPopoverComponents)`;
 
-const exampleRender = `<btb-vue-table
-        :headData=" Array of TableHeadObj " 
-        :bodyData=" Array of TableBodyObj "
-        :mode=" String "
-        :identity=" String "
-        :emptyText= " String "
+const exampleRender = `<btb-vue-popover
+        :id=" String " 
+        v-model:state=" Boolean "
+        :position = " String "
+        :align = " String "
+        :withArrow = " Boolean "
+        :autoDetect = " Boolean "
         :styleObj= " Object "
-        @clickTh=" (TableHeadObj) => {} "
-        @clickTd=" (TableBodyObj, TableHeadObj) => {} "
+        @update:state = " function( state ){} "
+        @toggle = " function( state ){} "
+        @show = " function( ){} "
+        @hide = " function( ){} "
 >
-        <template #[ th-\${ TableHeadObj.id } ]></template>
-        <template #[ td-\${ TableHeadObj.id } ]></template>
-        <template #td-empty></template>
-        <template #info-empty></template>
-</btb-vue-table>`;
-
-const exampleHeadObj = `headData = {
-        id: '',
-        name: ''
-}`;
-const exampleDataObj = `bodyData = {
-        [ TableHeadObj.id ] : ''
-}`;
+        <template #trigger></template>
+        <template #default></template>
+</btb-vue-popover`;
 
 const preStyleObj = `styleObj = {
         [ class ]: { inline CSS }
@@ -232,40 +192,46 @@ const tableHeadArr_entry = [
 
 const tableBodyArr_basic = [
   {
-    title: "headData",
-    type: "package.paramType.array",
-    default: "[]",
-    notice: "package.table.property.headData",
-  },
-  {
-    title: "bodyData",
-    type: "package.paramType.array",
-    default: "[]",
-    notice: "package.table.property.bodyData",
-  },
-  {
-    title: "mode",
+    title: "id",
     type: "package.paramType.string",
-    default: "'list'",
-    notice: "package.table.property.mode",
+    default: "randomCreated",
+    notice: "package.popover.property.id",
   },
   {
-    title: "identity",
-    type: "package.paramType.string",
-    default: "'id'",
-    notice: "package.table.property.identity",
+    title: "state",
+    type: "package.paramType.boolean",
+    default: "undefined",
+    notice: "package.popover.property.state",
   },
   {
-    title: "emptyText",
+    title: "position",
     type: "package.paramType.string",
-    default: "'Empty'",
-    notice: "package.table.property.emptyText",
+    default: "'bottom'",
+    notice: "package.popover.property.position",
+  },
+  {
+    title: "align",
+    type: "package.paramType.string",
+    default: "'begin'",
+    notice: "package.popover.property.align",
+  },
+  {
+    title: "withArrow",
+    type: "package.paramType.boolean",
+    default: "true",
+    notice: "package.popover.property.withArrow",
+  },
+  {
+    title: "autoDetect",
+    type: "package.paramType.boolean",
+    default: "true",
+    notice: "package.popover.property.autoDetect",
   },
   {
     title: "styleObj",
     type: "package.paramType.object",
     default: "undefined",
-    notice: "package.table.property.styleObj",
+    notice: "package.popover.property.styleObj",
   },
 ];
 
@@ -291,14 +257,24 @@ const tableHeadArr_emit = [
 ]
 const tableBodyArr_emit = [
   {
-    title: "@clickTh",
-    props: "( TableHeadObj )=>{}",
-    notice: "package.table.emit.clickTh",
+    title: "@update:state",
+    props: "( state )=>{}",
+    notice: "package.popover.emit.updatestate",
   },
   {
-    title: "@clickTd",
-    props: "( TableBodyObj, TableHeadObj )=>{}",
-    notice: "package.table.emit.clickTd",
+    title: "@toggle",
+    props: "( state )=>{}",
+    notice: "package.popover.emit.toggle",
+  },
+  {
+    title: "@show",
+    props: "( )=>{}",
+    notice: "package.popover.emit.show",
+  },
+  {
+    title: "@hide",
+    props: "( )=>{}",
+    notice: "package.popover.emit.hide",
   },
 ]
 
@@ -310,24 +286,14 @@ const tableHeadArr_slot = [
 
 const tableBodyArr_slot = [
   {
-    title: '[ th-${ TableHeadObj.id } ]',
-    props: "column: TableHeadObj",
-    notice: "package.table.slotObj.th",
+    title: 'default',
+    props: "",
+    notice: "package.popover.slotObj.default",
   },
   {
-    title: '[ td-${ TableHeadObj.id } ]',
-    props: "column: TableHeadObj, data: TableBodyObj",
-    notice: "package.table.slotObj.td",
-  },
-  {
-    title: 'td-empty',
-    props: '',
-    notice: "package.table.slotObj.td-empty",
-  },
-  {
-    title: 'info-empty',
-    props: '',
-    notice: "package.table.slotObj.info-empty",
+    title: 'trigger',
+    props: "",
+    notice: "package.popover.slotObj.trigger",
   },
 ];
 
@@ -480,8 +446,6 @@ export default defineComponent({
       preInstall,
       exampleRender,
 
-      exampleHeadObj,
-      exampleDataObj,
       preStyleObj,
 
       tableHeadArr_property,

@@ -110,7 +110,7 @@ const listData = [
 ];
 
 export default defineComponent({
-  name: "btb-pkg-list-example",
+  name: "btb-pkg-list-example-slot",
   setup() {
     const langStore = useLanguageStore();
     const { langIndex } = storeToRefs(langStore);

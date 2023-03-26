@@ -15,6 +15,8 @@
 
   "PACKAGES_POPOVER": "/packages/popover",
   "PACKAGES_POPOVER_BASIC": "/packages/popover/basic",
+  "PACKAGES_POPOVER_EXAMPLE_POSITION": "/packages/popover/example/position",
+  "PACKAGES_POPOVER_EXAMPLE_ALIGN": "/packages/popover/example/align",
 
   "APPLICATIONS": "/applications",
   "APPLICATIONS_LANGUAGES": "/applications/languages",
