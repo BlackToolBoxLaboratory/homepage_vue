@@ -50,6 +50,22 @@
     <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/table/basic</loc>
     <loc>https://blacktoolbox.cogman.org/vue/#/packages/table/basic</loc>
   </url>
+  <url>
+    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/popover/</loc>
+    <loc>https://blacktoolbox.cogman.org/vue/#/packages/popover/</loc>
+  </url>
+  <url>
+    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/popover/basic</loc>
+    <loc>https://blacktoolbox.cogman.org/vue/#/packages/popover/basic</loc>
+  </url>
+  <url>
+    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/popover/example/position</loc>
+    <loc>https://blacktoolbox.cogman.org/vue/#/packages/popover/example/position</loc>
+  </url>
+  <url>
+    <loc>https://blacktoolboxlaboratory.github.io/vue/#/packages/popover/example/align</loc>
+    <loc>https://blacktoolbox.cogman.org/vue/#/packages/popover/example/align</loc>
+  </url>
   
   <url>
     <loc>https://blacktoolboxlaboratory.github.io/vue/#/applications/</loc>
