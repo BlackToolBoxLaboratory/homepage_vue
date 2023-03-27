@@ -15,7 +15,7 @@
       <template #head>
         {{ translate(langIndex, 'package.section.example') }}
       </template>
-      <btb-vue-table class="table_sample" :headData="headData" :bodyData="bodyData">
+      <btb-vue-table class="table_sample" :headData="headData" :bodyData="bodyData" mode="compare">
         <template #th-name>
           Device Name
         </template>
@@ -106,6 +106,7 @@ const bodyData = [
 const preRender = `<btb-vue-table 
         :headData="headData" 
         :bodyData="bodyData"
+        mode="compare"
 >
         <template #th-name>
                 Device Name
