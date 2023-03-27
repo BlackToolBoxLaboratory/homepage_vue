@@ -167,6 +167,29 @@ export default {
         info: '資料表',
         compare: '比較表',
       },
+      example: {
+        list: {
+          title: '範例：清冊表',
+          description: '輸入表頭、資料後，即可匯出最基本的表。',
+        },
+        info: {
+          title: '範例：資料表',
+          description: '輸入表頭、資料後，再切換成資料模式即可。',
+        },
+        compare: {
+          title: '範例：比較表',
+          description: '輸入表頭、資料後，再切換成比對模式即可。',
+        },
+        style: {
+          title: '範例：客製化外觀',
+          description: '這邊將展示如何使用 styleObj，以 inline CSS 的方式，於對應的 class 設定外觀。',
+        },
+        slot: {
+          title: '範例：客製化渲染',
+          description:
+            '單純的外觀渲染，可能過於單調，有些物件的渲染也許會需要一些客製化：渲染成表單、按鈕 ... 等，因此，可以利用 $slot 的方式，用字串、節點或函式的方式客製化節點的渲染。',
+        },
+      },
     },
     popover: {
       name: '彈出框',

@@ -117,6 +117,46 @@ const router = createRouter({
                       /* webpackChunkName: "tableBasic" */ "@/views/packages/table/BasicContainer.vue"
                     ),
                 },
+                {
+                  path: "example/list",
+                  name: "packages.table.exampleList",
+                  component: () =>
+                    import(
+                      /* webpackChunkName: "tableExampleList" */ "@/views/packages/table/ExampleListContainer.vue"
+                    ),
+                },
+                {
+                  path: "example/info",
+                  name: "packages.table.exampleInfo",
+                  component: () =>
+                    import(
+                      /* webpackChunkName: "tableExampleInfo" */ "@/views/packages/table/ExampleInfoContainer.vue"
+                    ),
+                },
+                {
+                  path: "example/compare",
+                  name: "packages.table.exampleCompare",
+                  component: () =>
+                    import(
+                      /* webpackChunkName: "tableExampleCompare" */ "@/views/packages/table/ExampleCompareContainer.vue"
+                    ),
+                },
+                {
+                  path: "example/style",
+                  name: "packages.table.exampleStyle",
+                  component: () =>
+                    import(
+                      /* webpackChunkName: "tableExampleList" */ "@/views/packages/table/ExampleStyleContainer.vue"
+                    ),
+                },
+                {
+                  path: "example/slot",
+                  name: "packages.table.exampleSlot",
+                  component: () =>
+                    import(
+                      /* webpackChunkName: "tableExampleSlot" */ "@/views/packages/table/ExampleSlotContainer.vue"
+                    ),
+                },
               ],
             },
             {

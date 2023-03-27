@@ -2,7 +2,9 @@
   margin-bottom: 1rem;
   overflow: auto;
 
-  .btb-vue-table-list {
+  .btb-vue-table-list,
+  .btb-vue-table-info,
+  .btb-vue-table-compare {
     th {
       @include border-solid(2px);
       padding: 0.25rem 1rem;
@@ -37,6 +39,28 @@
         text-align: center;
         white-space: nowrap;
       }
+    }
+  }
+}
+
+.table_sample.btb-vue-table {
+  background-color: $color-white;
+
+  th.tr_th {
+    @include padding-sm-y;
+    @include padding-md-x;
+    background-color: $color-primary-lll;
+  }
+
+  td.tr_td {
+    @include padding-sm-y;
+    @include padding-md-x;
+    text-align: center;
+  }
+
+  .btb-vue-table-list {
+    td.tr_td.td-name {
+      text-align: left;
     }
   }
 }

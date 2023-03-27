@@ -126,7 +126,7 @@ export default {
         slot: {
           title: 'Example: Slot',
           description:
-            'Sometimes we may want to show the entry from the list by button, input, icon, ... etc. Then we can ultilize this feature about customized slot. To the example as following, I show you how to customized the entry which ID is b2. For the package of list, every single ID corresponding to dataList can be customized by slotObj in String, Node, or Function way.',
+            'Sometimes we may want to show the entry from the list by button, input, icon, ... etc. Then we can ultilize this feature about customized slot. To the example as following, I show you how to customized the entry which ID is b2. For the package of list, every single ID corresponding to dataList can be customized by $slot in String or Node.',
         },
       },
     },
@@ -166,6 +166,30 @@ export default {
         list: 'List Mode',
         info: 'Info Mode',
         compare: 'Compare Mode',
+      },
+      example: {
+        list: {
+          title: 'Example: List',
+          description: 'Here has very simple example to show how to use the list mode.',
+        },
+        info: {
+          title: 'Example: Info',
+          description: 'Here has very simple example to show how to use the info mode.',
+        },
+        compare: {
+          title: 'Example: Compare',
+          description: 'Here has very simple example to show how to use the compare mode.',
+        },
+        style: {
+          title: 'Example: Style',
+          description:
+            'Here is going to show you about how to use the styleObj for inline CSS. Then we can use with the class name of node directly.',
+        },
+        slot: {
+          title: 'Example: Slot',
+          description:
+            'Sometimes we may want to show the entry from the list by button, input, icon, ... etc. Then we can ultilize this feature about customized slot. To the example as following, It shows how to customized by $slot in String or Node.',
+        },
       },
     },
     popover: {

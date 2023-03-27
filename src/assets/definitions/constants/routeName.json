@@ -12,7 +12,11 @@
   "PACKAGES_LIST_EXAMPLE_SLOT": "/packages/list/example/slot",
   "PACKAGES_TABLE": "/packages/table",
   "PACKAGES_TABLE_BASIC": "/packages/table/basic",
-
+  "PACKAGES_TABLE_EXAMPLE_LIST": "/packages/table/example/list",
+  "PACKAGES_TABLE_EXAMPLE_INFO": "/packages/table/example/info",
+  "PACKAGES_TABLE_EXAMPLE_COMPARE": "/packages/table/example/compare",
+  "PACKAGES_TABLE_EXAMPLE_STYLE": "/packages/table/example/style",
+  "PACKAGES_TABLE_EXAMPLE_SLOT": "/packages/table/example/slot",
   "PACKAGES_POPOVER": "/packages/popover",
   "PACKAGES_POPOVER_BASIC": "/packages/popover/basic",
   "PACKAGES_POPOVER_EXAMPLE_POSITION": "/packages/popover/example/position",
